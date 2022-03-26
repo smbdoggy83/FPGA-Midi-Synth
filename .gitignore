@@ -27,43 +27,43 @@
 # *.v
 
 # ignore Quartus II generated files
-*_generation_script*
-*_inst.vhd
-*.bak
-*.cmp
-*.done
-*.eqn
-*.hex
-*.html
-*.jdi
-*.jpg
-# *.mif
-*.pin
-*.pof
-*.ptf.*
-*.qar
-*.qarlog
-*.qws
-*.rpt
-*.smsg
-*.sof
-*.sopc_builder
-*.summary
-*.tcl
-*.txt # Explicitly add any text files used
-*~
-*example*
-*sopc_*
+src/*/*_generation_script*
+src/*/*_inst.vhd
+src/*/*.bak
+src/*/*.cmp
+src/*/*.done
+src/*/*.eqn
+src/*/*.hex
+src/*/*.html
+src/*/*.jdi
+src/*/*.jpg
+src/*/*.mif
+src/*/*.pin
+src/*/*.pof
+src/*/*.ptf.*
+src/*/*.qar
+src/*/*.qarlog
+src/*/*.qws
+src/*/*.rpt
+src/*/*.smsg
+src/*/*.sof
+src/*/*.sopc_builder
+src/*/*.summary
+src/*/*.tcl
+src/*/*.txt # Explicitly add any text files used
+src/*/*~
+src/*/*example*
+src/*/*sopc_*
 # *.sdc # I want those timing files
 
 # ignore Quartus II generated folders
-*/db/
-*/incremental_db/
-*/simulation/
-*/timing/
-*/testbench/
-*/*_sim/
-incremental_db/
-db/
-_output_files/
-PLLJ_PLLSPE_INFO.txt
+src/*/*/db/
+src/*/*/incremental_db/
+src/*/*/simulation/
+src/*/*/timing/
+src/*/*/testbench/
+src/*/*/*_sim/
+src/*/incremental_db/
+src/*/db/
+src/*/_output_files/
+src/*/PLLJ_PLLSPE_INFO.txt
