@@ -67,3 +67,4 @@ src/*/incremental_db/
 src/*/db/
 src/*/_output_files/
 src/*/PLLJ_PLLSPE_INFO.txt
+*.txt
