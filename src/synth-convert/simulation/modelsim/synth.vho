@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "04/11/2022 02:35:24"
+-- DATE "04/11/2022 17:27:13"
 
 -- 
 -- Device: Altera 5CSXFC6D6F31C6 Package FBGA896
@@ -26,56 +26,39 @@
 -- This VHDL file should be used for ModelSim-Altera (VHDL) only
 -- 
 
+LIBRARY ALTERA;
 LIBRARY ALTERA_LNSIM;
 LIBRARY CYCLONEV;
 LIBRARY IEEE;
+USE ALTERA.ALTERA_PRIMITIVES_COMPONENTS.ALL;
 USE ALTERA_LNSIM.ALTERA_LNSIM_COMPONENTS.ALL;
 USE CYCLONEV.CYCLONEV_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY 	MidiNoteNumberToSampleTicks IS
+ENTITY 	MidiByteReader_verilog IS
     PORT (
-	midiNoteNumber : IN std_logic_vector(7 DOWNTO 0);
-	noteSampleTicks : BUFFER std_logic_vector(23 DOWNTO 0)
+	CLOCK_50 : IN std_logic;
+	MIDI_RX : IN std_logic;
+	isByteAvailable : BUFFER std_logic;
+	byteValue : BUFFER std_logic_vector(7 DOWNTO 0)
 	);
-END MidiNoteNumberToSampleTicks;
+END MidiByteReader_verilog;
 
 -- Design Ports Information
--- noteSampleTicks[0]	=>  Location: PIN_AH2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[1]	=>  Location: PIN_AG2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[2]	=>  Location: PIN_AE7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[3]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[4]	=>  Location: PIN_AC12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[5]	=>  Location: PIN_AG3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[6]	=>  Location: PIN_AG8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[7]	=>  Location: PIN_AF11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[8]	=>  Location: PIN_AJ2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[9]	=>  Location: PIN_AH3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[10]	=>  Location: PIN_AH5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[11]	=>  Location: PIN_AH4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[12]	=>  Location: PIN_AF4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[13]	=>  Location: PIN_AF5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[14]	=>  Location: PIN_AF9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[15]	=>  Location: PIN_D6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[16]	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[17]	=>  Location: PIN_G12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[18]	=>  Location: PIN_AD19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[19]	=>  Location: PIN_AH27,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[20]	=>  Location: PIN_AH24,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[21]	=>  Location: PIN_AC22,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[22]	=>  Location: PIN_AJ19,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- noteSampleTicks[23]	=>  Location: PIN_Y17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[7]	=>  Location: PIN_AF6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[3]	=>  Location: PIN_AF8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[4]	=>  Location: PIN_AG6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[0]	=>  Location: PIN_AG5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[6]	=>  Location: PIN_AJ1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[1]	=>  Location: PIN_AG7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[2]	=>  Location: PIN_AA12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- midiNoteNumber[5]	=>  Location: PIN_AG1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- isByteAvailable	=>  Location: PIN_V25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[0]	=>  Location: PIN_AC29,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[1]	=>  Location: PIN_AA30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[2]	=>  Location: PIN_AA28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[3]	=>  Location: PIN_AD29,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[4]	=>  Location: PIN_AB27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[5]	=>  Location: PIN_AB30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[6]	=>  Location: PIN_AB28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- byteValue[7]	=>  Location: PIN_AC28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- CLOCK_50	=>  Location: PIN_AF14,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- MIDI_RX	=>  Location: PIN_W25,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
-ARCHITECTURE structure OF MidiNoteNumberToSampleTicks IS
+ARCHITECTURE structure OF MidiByteReader_verilog IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -85,187 +68,234 @@ SIGNAL devpor : std_logic := '1';
 SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
-SIGNAL ww_midiNoteNumber : std_logic_vector(7 DOWNTO 0);
-SIGNAL ww_noteSampleTicks : std_logic_vector(23 DOWNTO 0);
+SIGNAL ww_CLOCK_50 : std_logic;
+SIGNAL ww_MIDI_RX : std_logic;
+SIGNAL ww_isByteAvailable : std_logic;
+SIGNAL ww_byteValue : std_logic_vector(7 DOWNTO 0);
 SIGNAL \~QUARTUS_CREATED_GND~I_combout\ : std_logic;
-SIGNAL \midiNoteNumber[1]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[4]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[6]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[3]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[0]~input_o\ : std_logic;
-SIGNAL \Mux14~3_combout\ : std_logic;
-SIGNAL \Mux14~1_combout\ : std_logic;
-SIGNAL \Mux14~2_combout\ : std_logic;
-SIGNAL \midiNoteNumber[7]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[5]~input_o\ : std_logic;
-SIGNAL \midiNoteNumber[2]~input_o\ : std_logic;
-SIGNAL \Mux14~0_combout\ : std_logic;
-SIGNAL \Mux14~4_combout\ : std_logic;
-SIGNAL \Mux13~1_combout\ : std_logic;
-SIGNAL \Mux13~3_combout\ : std_logic;
-SIGNAL \Mux13~2_combout\ : std_logic;
-SIGNAL \Mux13~0_combout\ : std_logic;
-SIGNAL \Mux13~4_combout\ : std_logic;
-SIGNAL \Mux12~1_combout\ : std_logic;
-SIGNAL \Mux12~2_combout\ : std_logic;
-SIGNAL \Mux12~3_combout\ : std_logic;
-SIGNAL \Mux12~0_combout\ : std_logic;
-SIGNAL \Mux12~5_combout\ : std_logic;
-SIGNAL \Mux11~2_combout\ : std_logic;
-SIGNAL \Mux11~3_combout\ : std_logic;
-SIGNAL \Mux11~1_combout\ : std_logic;
-SIGNAL \Mux11~0_combout\ : std_logic;
-SIGNAL \Mux11~4_combout\ : std_logic;
-SIGNAL \Mux10~2_combout\ : std_logic;
-SIGNAL \Mux10~1_combout\ : std_logic;
-SIGNAL \Mux10~0_combout\ : std_logic;
-SIGNAL \Mux10~3_combout\ : std_logic;
-SIGNAL \Mux9~1_combout\ : std_logic;
-SIGNAL \Mux9~2_combout\ : std_logic;
-SIGNAL \Mux9~3_combout\ : std_logic;
-SIGNAL \Mux9~0_combout\ : std_logic;
-SIGNAL \Mux9~4_combout\ : std_logic;
-SIGNAL \Mux8~1_combout\ : std_logic;
-SIGNAL \Mux8~3_combout\ : std_logic;
-SIGNAL \Mux8~4_combout\ : std_logic;
-SIGNAL \Mux8~2_combout\ : std_logic;
-SIGNAL \Mux8~0_combout\ : std_logic;
-SIGNAL \Mux8~5_combout\ : std_logic;
-SIGNAL \Mux7~2_combout\ : std_logic;
-SIGNAL \Mux7~0_combout\ : std_logic;
-SIGNAL \Mux7~1_combout\ : std_logic;
-SIGNAL \Mux7~3_combout\ : std_logic;
-SIGNAL \Mux6~2_combout\ : std_logic;
-SIGNAL \Mux6~1_combout\ : std_logic;
-SIGNAL \Mux6~0_combout\ : std_logic;
-SIGNAL \Mux6~3_combout\ : std_logic;
-SIGNAL \Mux5~1_combout\ : std_logic;
-SIGNAL \Mux5~2_combout\ : std_logic;
-SIGNAL \Mux5~0_combout\ : std_logic;
-SIGNAL \Mux5~3_combout\ : std_logic;
-SIGNAL \Mux4~0_combout\ : std_logic;
-SIGNAL \Mux4~1_combout\ : std_logic;
-SIGNAL \Mux4~2_combout\ : std_logic;
-SIGNAL \Mux3~0_combout\ : std_logic;
-SIGNAL \Mux3~1_combout\ : std_logic;
-SIGNAL \Mux12~4_combout\ : std_logic;
-SIGNAL \Mux2~0_combout\ : std_logic;
-SIGNAL \Mux2~1_combout\ : std_logic;
-SIGNAL \Mux1~0_combout\ : std_logic;
-SIGNAL \Mux0~0_combout\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[5]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[1]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[6]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[4]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_midiNoteNumber[7]~input_o\ : std_logic;
-SIGNAL \ALT_INV_Mux0~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux2~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux12~4_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux3~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux4~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux5~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux5~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux5~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux6~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux6~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux6~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux4~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux7~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux7~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux7~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux8~4_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux8~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux8~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux8~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux8~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux9~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux9~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux9~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux9~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux10~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux10~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux10~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux11~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux11~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux11~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux11~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux12~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux12~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux12~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux12~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux13~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux13~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux13~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux13~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux14~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux14~2_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux14~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Mux14~0_combout\ : std_logic;
+SIGNAL \CLOCK_50~input_o\ : std_logic;
+SIGNAL \CLOCK_50~inputCLKENA0_outclk\ : std_logic;
+SIGNAL \Add1~13_sumout\ : std_logic;
+SIGNAL \MIDI_RX~input_o\ : std_logic;
+SIGNAL \Add0~1_sumout\ : std_logic;
+SIGNAL \Equal0~0_combout\ : std_logic;
+SIGNAL \debounceCountDown~0_combout\ : std_logic;
+SIGNAL \Add1~34\ : std_logic;
+SIGNAL \Add1~37_sumout\ : std_logic;
+SIGNAL \byteValue[0]~12_combout\ : std_logic;
+SIGNAL \Add1~38\ : std_logic;
+SIGNAL \Add1~41_sumout\ : std_logic;
+SIGNAL \Add1~42\ : std_logic;
+SIGNAL \Add1~45_sumout\ : std_logic;
+SIGNAL \Add1~46\ : std_logic;
+SIGNAL \Add1~1_sumout\ : std_logic;
+SIGNAL \Add1~2\ : std_logic;
+SIGNAL \Add1~5_sumout\ : std_logic;
+SIGNAL \Equal2~0_combout\ : std_logic;
+SIGNAL \Add2~5_sumout\ : std_logic;
+SIGNAL \Equal2~2_combout\ : std_logic;
+SIGNAL \bitNumber[7]~0_combout\ : std_logic;
+SIGNAL \Add2~6\ : std_logic;
+SIGNAL \Add2~1_sumout\ : std_logic;
+SIGNAL \Add2~2\ : std_logic;
+SIGNAL \Add2~9_sumout\ : std_logic;
+SIGNAL \Add2~10\ : std_logic;
+SIGNAL \Add2~29_sumout\ : std_logic;
+SIGNAL \Add2~30\ : std_logic;
+SIGNAL \Add2~25_sumout\ : std_logic;
+SIGNAL \Add2~26\ : std_logic;
+SIGNAL \Add2~21_sumout\ : std_logic;
+SIGNAL \Add2~22\ : std_logic;
+SIGNAL \Add2~17_sumout\ : std_logic;
+SIGNAL \Add2~18\ : std_logic;
+SIGNAL \Add2~13_sumout\ : std_logic;
+SIGNAL \midiState~15_combout\ : std_logic;
+SIGNAL \Selector2~0_combout\ : std_logic;
+SIGNAL \Selector2~2_combout\ : std_logic;
+SIGNAL \midiState.stateByteComplete~q\ : std_logic;
+SIGNAL \Selector2~1_combout\ : std_logic;
+SIGNAL \midiState.stateWaitingForSignal~0_combout\ : std_logic;
+SIGNAL \midiState.stateWaitingForSignal~q\ : std_logic;
+SIGNAL \Add0~2\ : std_logic;
+SIGNAL \Add0~5_sumout\ : std_logic;
+SIGNAL \debounceCountDown~1_combout\ : std_logic;
+SIGNAL \Add0~6\ : std_logic;
+SIGNAL \Add0~9_sumout\ : std_logic;
+SIGNAL \debounceCountDown~2_combout\ : std_logic;
+SIGNAL \Add0~10\ : std_logic;
+SIGNAL \Add0~13_sumout\ : std_logic;
+SIGNAL \debounceCountDown~3_combout\ : std_logic;
+SIGNAL \Add0~14\ : std_logic;
+SIGNAL \Add0~17_sumout\ : std_logic;
+SIGNAL \debounceCountDown~4_combout\ : std_logic;
+SIGNAL \Add0~18\ : std_logic;
+SIGNAL \Add0~21_sumout\ : std_logic;
+SIGNAL \debounceCountDown~5_combout\ : std_logic;
+SIGNAL \Add0~22\ : std_logic;
+SIGNAL \Add0~25_sumout\ : std_logic;
+SIGNAL \debounceCountDown~6_combout\ : std_logic;
+SIGNAL \Add0~26\ : std_logic;
+SIGNAL \Add0~29_sumout\ : std_logic;
+SIGNAL \debounceCountDown~7_combout\ : std_logic;
+SIGNAL \Equal0~1_combout\ : std_logic;
+SIGNAL \midiState~17_combout\ : std_logic;
+SIGNAL \Selector2~3_combout\ : std_logic;
+SIGNAL \midiState.stateSignalAvailable~q\ : std_logic;
+SIGNAL \midiCount[10]~0_combout\ : std_logic;
+SIGNAL \Add1~14\ : std_logic;
+SIGNAL \Add1~17_sumout\ : std_logic;
+SIGNAL \Add1~18\ : std_logic;
+SIGNAL \Add1~21_sumout\ : std_logic;
+SIGNAL \Add1~22\ : std_logic;
+SIGNAL \Add1~25_sumout\ : std_logic;
+SIGNAL \Add1~26\ : std_logic;
+SIGNAL \Add1~29_sumout\ : std_logic;
+SIGNAL \Add1~30\ : std_logic;
+SIGNAL \Add1~9_sumout\ : std_logic;
+SIGNAL \Add1~10\ : std_logic;
+SIGNAL \Add1~33_sumout\ : std_logic;
+SIGNAL \Equal2~1_combout\ : std_logic;
+SIGNAL \Selector0~0_combout\ : std_logic;
+SIGNAL \isByteAvailable~reg0_q\ : std_logic;
+SIGNAL \midiState~14_combout\ : std_logic;
+SIGNAL \byteValue~0_combout\ : std_logic;
+SIGNAL \byteValue~1_combout\ : std_logic;
+SIGNAL \byteValue[0]~2_combout\ : std_logic;
+SIGNAL \byteValue[0]~reg0_q\ : std_logic;
+SIGNAL \byteValue~3_combout\ : std_logic;
+SIGNAL \byteValue~4_combout\ : std_logic;
+SIGNAL \byteValue[1]~reg0_q\ : std_logic;
+SIGNAL \byteValue~5_combout\ : std_logic;
+SIGNAL \byteValue[2]~reg0_q\ : std_logic;
+SIGNAL \byteValue~6_combout\ : std_logic;
+SIGNAL \byteValue[3]~reg0_q\ : std_logic;
+SIGNAL \byteValue~7_combout\ : std_logic;
+SIGNAL \byteValue~8_combout\ : std_logic;
+SIGNAL \byteValue[4]~reg0_q\ : std_logic;
+SIGNAL \midiState~16_combout\ : std_logic;
+SIGNAL \byteValue~9_combout\ : std_logic;
+SIGNAL \byteValue[5]~reg0_q\ : std_logic;
+SIGNAL \byteValue~10_combout\ : std_logic;
+SIGNAL \byteValue[6]~reg0_q\ : std_logic;
+SIGNAL \byteValue~11_combout\ : std_logic;
+SIGNAL \byteValue[7]~reg0_q\ : std_logic;
+SIGNAL midiCount : std_logic_vector(11 DOWNTO 0);
+SIGNAL bitNumber : std_logic_vector(7 DOWNTO 0);
+SIGNAL debounceCountDown : std_logic_vector(7 DOWNTO 0);
+SIGNAL \ALT_INV_MIDI_RX~input_o\ : std_logic;
+SIGNAL \ALT_INV_midiState~17_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector2~1_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector2~0_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState~16_combout\ : std_logic;
+SIGNAL \ALT_INV_byteValue~7_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState~15_combout\ : std_logic;
+SIGNAL \ALT_INV_byteValue~3_combout\ : std_logic;
+SIGNAL \ALT_INV_Equal0~1_combout\ : std_logic;
+SIGNAL ALT_INV_debounceCountDown : std_logic_vector(7 DOWNTO 0);
+SIGNAL \ALT_INV_Equal0~0_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState.stateWaitingForSignal~q\ : std_logic;
+SIGNAL \ALT_INV_byteValue~0_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState~14_combout\ : std_logic;
+SIGNAL \ALT_INV_Equal2~2_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState.stateSignalAvailable~q\ : std_logic;
+SIGNAL \ALT_INV_Equal2~1_combout\ : std_logic;
+SIGNAL \ALT_INV_Equal2~0_combout\ : std_logic;
+SIGNAL \ALT_INV_midiState.stateByteComplete~q\ : std_logic;
+SIGNAL \ALT_INV_isByteAvailable~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_Add0~29_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~25_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~21_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~17_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~13_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~9_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~5_sumout\ : std_logic;
+SIGNAL \ALT_INV_Add0~1_sumout\ : std_logic;
+SIGNAL ALT_INV_bitNumber : std_logic_vector(7 DOWNTO 0);
+SIGNAL ALT_INV_midiCount : std_logic_vector(11 DOWNTO 0);
+SIGNAL \ALT_INV_byteValue[7]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[6]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[5]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[4]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[3]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[2]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[1]~reg0_q\ : std_logic;
+SIGNAL \ALT_INV_byteValue[0]~reg0_q\ : std_logic;
 
 BEGIN
 
-ww_midiNoteNumber <= midiNoteNumber;
-noteSampleTicks <= ww_noteSampleTicks;
+ww_CLOCK_50 <= CLOCK_50;
+ww_MIDI_RX <= MIDI_RX;
+isByteAvailable <= ww_isByteAvailable;
+byteValue <= ww_byteValue;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\ALT_INV_midiNoteNumber[5]~input_o\ <= NOT \midiNoteNumber[5]~input_o\;
-\ALT_INV_midiNoteNumber[2]~input_o\ <= NOT \midiNoteNumber[2]~input_o\;
-\ALT_INV_midiNoteNumber[1]~input_o\ <= NOT \midiNoteNumber[1]~input_o\;
-\ALT_INV_midiNoteNumber[6]~input_o\ <= NOT \midiNoteNumber[6]~input_o\;
-\ALT_INV_midiNoteNumber[0]~input_o\ <= NOT \midiNoteNumber[0]~input_o\;
-\ALT_INV_midiNoteNumber[4]~input_o\ <= NOT \midiNoteNumber[4]~input_o\;
-\ALT_INV_midiNoteNumber[3]~input_o\ <= NOT \midiNoteNumber[3]~input_o\;
-\ALT_INV_midiNoteNumber[7]~input_o\ <= NOT \midiNoteNumber[7]~input_o\;
-\ALT_INV_Mux0~0_combout\ <= NOT \Mux0~0_combout\;
-\ALT_INV_Mux2~0_combout\ <= NOT \Mux2~0_combout\;
-\ALT_INV_Mux12~4_combout\ <= NOT \Mux12~4_combout\;
-\ALT_INV_Mux3~0_combout\ <= NOT \Mux3~0_combout\;
-\ALT_INV_Mux4~1_combout\ <= NOT \Mux4~1_combout\;
-\ALT_INV_Mux5~2_combout\ <= NOT \Mux5~2_combout\;
-\ALT_INV_Mux5~1_combout\ <= NOT \Mux5~1_combout\;
-\ALT_INV_Mux5~0_combout\ <= NOT \Mux5~0_combout\;
-\ALT_INV_Mux6~2_combout\ <= NOT \Mux6~2_combout\;
-\ALT_INV_Mux6~1_combout\ <= NOT \Mux6~1_combout\;
-\ALT_INV_Mux6~0_combout\ <= NOT \Mux6~0_combout\;
-\ALT_INV_Mux4~0_combout\ <= NOT \Mux4~0_combout\;
-\ALT_INV_Mux7~2_combout\ <= NOT \Mux7~2_combout\;
-\ALT_INV_Mux7~1_combout\ <= NOT \Mux7~1_combout\;
-\ALT_INV_Mux7~0_combout\ <= NOT \Mux7~0_combout\;
-\ALT_INV_Mux8~4_combout\ <= NOT \Mux8~4_combout\;
-\ALT_INV_Mux8~3_combout\ <= NOT \Mux8~3_combout\;
-\ALT_INV_Mux8~2_combout\ <= NOT \Mux8~2_combout\;
-\ALT_INV_Mux8~1_combout\ <= NOT \Mux8~1_combout\;
-\ALT_INV_Mux8~0_combout\ <= NOT \Mux8~0_combout\;
-\ALT_INV_Mux9~3_combout\ <= NOT \Mux9~3_combout\;
-\ALT_INV_Mux9~2_combout\ <= NOT \Mux9~2_combout\;
-\ALT_INV_Mux9~1_combout\ <= NOT \Mux9~1_combout\;
-\ALT_INV_Mux9~0_combout\ <= NOT \Mux9~0_combout\;
-\ALT_INV_Mux10~2_combout\ <= NOT \Mux10~2_combout\;
-\ALT_INV_Mux10~1_combout\ <= NOT \Mux10~1_combout\;
-\ALT_INV_Mux10~0_combout\ <= NOT \Mux10~0_combout\;
-\ALT_INV_Mux11~3_combout\ <= NOT \Mux11~3_combout\;
-\ALT_INV_Mux11~2_combout\ <= NOT \Mux11~2_combout\;
-\ALT_INV_Mux11~1_combout\ <= NOT \Mux11~1_combout\;
-\ALT_INV_Mux11~0_combout\ <= NOT \Mux11~0_combout\;
-\ALT_INV_Mux12~3_combout\ <= NOT \Mux12~3_combout\;
-\ALT_INV_Mux12~2_combout\ <= NOT \Mux12~2_combout\;
-\ALT_INV_Mux12~1_combout\ <= NOT \Mux12~1_combout\;
-\ALT_INV_Mux12~0_combout\ <= NOT \Mux12~0_combout\;
-\ALT_INV_Mux13~3_combout\ <= NOT \Mux13~3_combout\;
-\ALT_INV_Mux13~2_combout\ <= NOT \Mux13~2_combout\;
-\ALT_INV_Mux13~1_combout\ <= NOT \Mux13~1_combout\;
-\ALT_INV_Mux13~0_combout\ <= NOT \Mux13~0_combout\;
-\ALT_INV_Mux14~3_combout\ <= NOT \Mux14~3_combout\;
-\ALT_INV_Mux14~2_combout\ <= NOT \Mux14~2_combout\;
-\ALT_INV_Mux14~1_combout\ <= NOT \Mux14~1_combout\;
-\ALT_INV_Mux14~0_combout\ <= NOT \Mux14~0_combout\;
+\ALT_INV_MIDI_RX~input_o\ <= NOT \MIDI_RX~input_o\;
+\ALT_INV_midiState~17_combout\ <= NOT \midiState~17_combout\;
+\ALT_INV_Selector2~1_combout\ <= NOT \Selector2~1_combout\;
+\ALT_INV_Selector2~0_combout\ <= NOT \Selector2~0_combout\;
+\ALT_INV_midiState~16_combout\ <= NOT \midiState~16_combout\;
+\ALT_INV_byteValue~7_combout\ <= NOT \byteValue~7_combout\;
+\ALT_INV_midiState~15_combout\ <= NOT \midiState~15_combout\;
+\ALT_INV_byteValue~3_combout\ <= NOT \byteValue~3_combout\;
+\ALT_INV_Equal0~1_combout\ <= NOT \Equal0~1_combout\;
+ALT_INV_debounceCountDown(7) <= NOT debounceCountDown(7);
+ALT_INV_debounceCountDown(6) <= NOT debounceCountDown(6);
+\ALT_INV_Equal0~0_combout\ <= NOT \Equal0~0_combout\;
+ALT_INV_debounceCountDown(5) <= NOT debounceCountDown(5);
+ALT_INV_debounceCountDown(4) <= NOT debounceCountDown(4);
+ALT_INV_debounceCountDown(3) <= NOT debounceCountDown(3);
+ALT_INV_debounceCountDown(2) <= NOT debounceCountDown(2);
+ALT_INV_debounceCountDown(1) <= NOT debounceCountDown(1);
+ALT_INV_debounceCountDown(0) <= NOT debounceCountDown(0);
+\ALT_INV_midiState.stateWaitingForSignal~q\ <= NOT \midiState.stateWaitingForSignal~q\;
+\ALT_INV_byteValue~0_combout\ <= NOT \byteValue~0_combout\;
+\ALT_INV_midiState~14_combout\ <= NOT \midiState~14_combout\;
+\ALT_INV_Equal2~2_combout\ <= NOT \Equal2~2_combout\;
+\ALT_INV_midiState.stateSignalAvailable~q\ <= NOT \midiState.stateSignalAvailable~q\;
+\ALT_INV_Equal2~1_combout\ <= NOT \Equal2~1_combout\;
+\ALT_INV_Equal2~0_combout\ <= NOT \Equal2~0_combout\;
+\ALT_INV_midiState.stateByteComplete~q\ <= NOT \midiState.stateByteComplete~q\;
+\ALT_INV_isByteAvailable~reg0_q\ <= NOT \isByteAvailable~reg0_q\;
+\ALT_INV_Add0~29_sumout\ <= NOT \Add0~29_sumout\;
+\ALT_INV_Add0~25_sumout\ <= NOT \Add0~25_sumout\;
+\ALT_INV_Add0~21_sumout\ <= NOT \Add0~21_sumout\;
+\ALT_INV_Add0~17_sumout\ <= NOT \Add0~17_sumout\;
+\ALT_INV_Add0~13_sumout\ <= NOT \Add0~13_sumout\;
+\ALT_INV_Add0~9_sumout\ <= NOT \Add0~9_sumout\;
+\ALT_INV_Add0~5_sumout\ <= NOT \Add0~5_sumout\;
+\ALT_INV_Add0~1_sumout\ <= NOT \Add0~1_sumout\;
+ALT_INV_bitNumber(3) <= NOT bitNumber(3);
+ALT_INV_bitNumber(4) <= NOT bitNumber(4);
+ALT_INV_bitNumber(5) <= NOT bitNumber(5);
+ALT_INV_bitNumber(6) <= NOT bitNumber(6);
+ALT_INV_bitNumber(7) <= NOT bitNumber(7);
+ALT_INV_bitNumber(2) <= NOT bitNumber(2);
+ALT_INV_bitNumber(0) <= NOT bitNumber(0);
+ALT_INV_bitNumber(1) <= NOT bitNumber(1);
+ALT_INV_midiCount(9) <= NOT midiCount(9);
+ALT_INV_midiCount(8) <= NOT midiCount(8);
+ALT_INV_midiCount(7) <= NOT midiCount(7);
+ALT_INV_midiCount(6) <= NOT midiCount(6);
+ALT_INV_midiCount(4) <= NOT midiCount(4);
+ALT_INV_midiCount(3) <= NOT midiCount(3);
+ALT_INV_midiCount(2) <= NOT midiCount(2);
+ALT_INV_midiCount(1) <= NOT midiCount(1);
+ALT_INV_midiCount(0) <= NOT midiCount(0);
+ALT_INV_midiCount(5) <= NOT midiCount(5);
+ALT_INV_midiCount(11) <= NOT midiCount(11);
+ALT_INV_midiCount(10) <= NOT midiCount(10);
+\ALT_INV_byteValue[7]~reg0_q\ <= NOT \byteValue[7]~reg0_q\;
+\ALT_INV_byteValue[6]~reg0_q\ <= NOT \byteValue[6]~reg0_q\;
+\ALT_INV_byteValue[5]~reg0_q\ <= NOT \byteValue[5]~reg0_q\;
+\ALT_INV_byteValue[4]~reg0_q\ <= NOT \byteValue[4]~reg0_q\;
+\ALT_INV_byteValue[3]~reg0_q\ <= NOT \byteValue[3]~reg0_q\;
+\ALT_INV_byteValue[2]~reg0_q\ <= NOT \byteValue[2]~reg0_q\;
+\ALT_INV_byteValue[1]~reg0_q\ <= NOT \byteValue[1]~reg0_q\;
+\ALT_INV_byteValue[0]~reg0_q\ <= NOT \byteValue[0]~reg0_q\;
 
--- Location: IOOBUF_X10_Y0_N59
-\noteSampleTicks[0]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y20_N62
+\isByteAvailable~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -273,12 +303,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux14~4_combout\,
+	i => \isByteAvailable~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(0));
+	o => ww_isByteAvailable);
 
--- Location: IOOBUF_X16_Y0_N36
-\noteSampleTicks[1]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y20_N96
+\byteValue[0]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -286,12 +316,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux13~4_combout\,
+	i => \byteValue[0]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(1));
+	o => ww_byteValue(0));
 
--- Location: IOOBUF_X6_Y0_N19
-\noteSampleTicks[2]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y21_N22
+\byteValue[1]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -299,12 +329,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux12~5_combout\,
+	i => \byteValue[1]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(2));
+	o => ww_byteValue(1));
 
--- Location: IOOBUF_X12_Y0_N19
-\noteSampleTicks[3]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y21_N56
+\byteValue[2]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -312,12 +342,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux11~4_combout\,
+	i => \byteValue[2]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(3));
+	o => ww_byteValue(2));
 
--- Location: IOOBUF_X16_Y0_N2
-\noteSampleTicks[4]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y23_N56
+\byteValue[3]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -325,12 +355,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux10~3_combout\,
+	i => \byteValue[3]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(4));
+	o => ww_byteValue(3));
 
--- Location: IOOBUF_X6_Y0_N36
-\noteSampleTicks[5]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y23_N22
+\byteValue[4]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -338,12 +368,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux9~4_combout\,
+	i => \byteValue[4]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(5));
+	o => ww_byteValue(4));
 
--- Location: IOOBUF_X8_Y0_N53
-\noteSampleTicks[6]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y21_N5
+\byteValue[5]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -351,12 +381,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux8~5_combout\,
+	i => \byteValue[5]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(6));
+	o => ww_byteValue(5));
 
--- Location: IOOBUF_X18_Y0_N42
-\noteSampleTicks[7]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y21_N39
+\byteValue[6]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -364,12 +394,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux7~3_combout\,
+	i => \byteValue[6]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(7));
+	o => ww_byteValue(6));
 
--- Location: IOOBUF_X14_Y0_N19
-\noteSampleTicks[8]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X89_Y20_N79
+\byteValue[7]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -377,1359 +407,367 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \Mux6~3_combout\,
+	i => \byteValue[7]~reg0_q\,
 	devoe => ww_devoe,
-	o => ww_noteSampleTicks(8));
+	o => ww_byteValue(7));
 
--- Location: IOOBUF_X16_Y0_N53
-\noteSampleTicks[9]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \Mux5~3_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(9));
-
--- Location: IOOBUF_X14_Y0_N53
-\noteSampleTicks[10]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \Mux4~2_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(10));
-
--- Location: IOOBUF_X6_Y0_N53
-\noteSampleTicks[11]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \Mux3~1_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(11));
-
--- Location: IOOBUF_X8_Y0_N2
-\noteSampleTicks[12]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \Mux2~1_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(12));
-
--- Location: IOOBUF_X8_Y0_N19
-\noteSampleTicks[13]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \Mux1~0_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(13));
-
--- Location: IOOBUF_X8_Y0_N36
-\noteSampleTicks[14]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \ALT_INV_Mux0~0_combout\,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(14));
-
--- Location: IOOBUF_X22_Y81_N36
-\noteSampleTicks[15]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(15));
-
--- Location: IOOBUF_X34_Y81_N42
-\noteSampleTicks[16]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(16));
-
--- Location: IOOBUF_X10_Y81_N42
-\noteSampleTicks[17]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(17));
-
--- Location: IOOBUF_X76_Y0_N19
-\noteSampleTicks[18]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(18));
-
--- Location: IOOBUF_X84_Y0_N53
-\noteSampleTicks[19]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(19));
-
--- Location: IOOBUF_X64_Y0_N53
-\noteSampleTicks[20]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(20));
-
--- Location: IOOBUF_X86_Y0_N2
-\noteSampleTicks[21]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(21));
-
--- Location: IOOBUF_X60_Y0_N36
-\noteSampleTicks[22]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(22));
-
--- Location: IOOBUF_X68_Y0_N2
-\noteSampleTicks[23]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_noteSampleTicks(23));
-
--- Location: IOIBUF_X10_Y0_N92
-\midiNoteNumber[1]~input\ : cyclonev_io_ibuf
+-- Location: IOIBUF_X32_Y0_N1
+\CLOCK_50~input\ : cyclonev_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_midiNoteNumber(1),
-	o => \midiNoteNumber[1]~input_o\);
+	i => ww_CLOCK_50,
+	o => \CLOCK_50~input_o\);
 
--- Location: IOIBUF_X12_Y0_N52
-\midiNoteNumber[4]~input\ : cyclonev_io_ibuf
+-- Location: CLKCTRL_G6
+\CLOCK_50~inputCLKENA0\ : cyclonev_clkena
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	disable_mode => "low",
+	ena_register_mode => "always enabled",
+	ena_register_power_up => "high",
+	test_syn => "high")
+-- pragma translate_on
+PORT MAP (
+	inclk => \CLOCK_50~input_o\,
+	outclk => \CLOCK_50~inputCLKENA0_outclk\);
+
+-- Location: LABCELL_X85_Y21_N0
+\Add1~13\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~13_sumout\ = SUM(( midiCount(0) ) + ( VCC ) + ( !VCC ))
+-- \Add1~14\ = CARRY(( midiCount(0) ) + ( VCC ) + ( !VCC ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_midiCount(0),
+	cin => GND,
+	sumout => \Add1~13_sumout\,
+	cout => \Add1~14\);
+
+-- Location: IOIBUF_X89_Y20_N44
+\MIDI_RX~input\ : cyclonev_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_midiNoteNumber(4),
-	o => \midiNoteNumber[4]~input_o\);
+	i => ww_MIDI_RX,
+	o => \MIDI_RX~input_o\);
 
--- Location: IOIBUF_X14_Y0_N1
-\midiNoteNumber[6]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(6),
-	o => \midiNoteNumber[6]~input_o\);
-
--- Location: IOIBUF_X10_Y0_N75
-\midiNoteNumber[3]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(3),
-	o => \midiNoteNumber[3]~input_o\);
-
--- Location: IOIBUF_X14_Y0_N35
-\midiNoteNumber[0]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(0),
-	o => \midiNoteNumber[0]~input_o\);
-
--- Location: LABCELL_X10_Y1_N51
-\Mux14~3\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X84_Y21_N30
+\Add0~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux14~3_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[6]~input_o\ $ (((!\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[4]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[4]~input_o\ & 
--- !\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[3]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & ((\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[6]~input_o\ & 
--- (\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[6]~input_o\)))) ) )
+-- \Add0~1_sumout\ = SUM(( debounceCountDown(0) ) + ( VCC ) + ( !VCC ))
+-- \Add0~2\ = CARRY(( debounceCountDown(0) ) + ( VCC ) + ( !VCC ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0011011011010100001101101101010001001010110101110100101011010111",
+	lut_mask => "0000000000000000000000000000000000000000000000000000111100001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux14~3_combout\);
+	datac => ALT_INV_debounceCountDown(0),
+	cin => GND,
+	sumout => \Add0~1_sumout\,
+	cout => \Add0~2\);
 
--- Location: LABCELL_X10_Y1_N45
-\Mux14~1\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X84_Y21_N54
+\Equal0~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux14~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & (\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[4]~input_o\ & !\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[6]~input_o\ & (((!\midiNoteNumber[4]~input_o\)))) ) ) # 
--- ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\ & (\midiNoteNumber[4]~input_o\ & \midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & 
--- ((\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[6]~input_o\)))) ) )
+-- \Equal0~0_combout\ = ( !debounceCountDown(0) & ( debounceCountDown(3) & ( (!debounceCountDown(4) & (debounceCountDown(1) & (!debounceCountDown(5) & !debounceCountDown(2)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000010001010110000001000101011000110100001100000011010000110000",
+	lut_mask => "0000000000000000000000000000000000100000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux14~1_combout\);
+	dataa => ALT_INV_debounceCountDown(4),
+	datab => ALT_INV_debounceCountDown(1),
+	datac => ALT_INV_debounceCountDown(5),
+	datad => ALT_INV_debounceCountDown(2),
+	datae => ALT_INV_debounceCountDown(0),
+	dataf => ALT_INV_debounceCountDown(3),
+	combout => \Equal0~0_combout\);
 
--- Location: LABCELL_X10_Y1_N48
-\Mux14~2\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X84_Y21_N3
+\debounceCountDown~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux14~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & (((!\midiNoteNumber[6]~input_o\) # (\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[6]~input_o\))) # 
--- (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[6]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & (\midiNoteNumber[1]~input_o\)) # 
--- (\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[3]~input_o\))))) # (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (((\midiNoteNumber[3]~input_o\ & !\midiNoteNumber[6]~input_o\))))) ) )
+-- \debounceCountDown~0_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~1_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~1_sumout\) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0110010111100010011001011110001011111110000111011111111000011101",
+	lut_mask => "0000101000001010000010100000101000001010000000000000101000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux14~2_combout\);
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~1_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~0_combout\);
 
--- Location: IOIBUF_X12_Y0_N35
-\midiNoteNumber[7]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(7),
-	o => \midiNoteNumber[7]~input_o\);
-
--- Location: IOIBUF_X10_Y0_N41
-\midiNoteNumber[5]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(5),
-	o => \midiNoteNumber[5]~input_o\);
-
--- Location: IOIBUF_X12_Y0_N1
-\midiNoteNumber[2]~input\ : cyclonev_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_midiNoteNumber(2),
-	o => \midiNoteNumber[2]~input_o\);
-
--- Location: LABCELL_X10_Y1_N42
-\Mux14~0\ : cyclonev_lcell_comb
+-- Location: LABCELL_X85_Y21_N18
+\Add1~33\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux14~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[3]~input_o\ & (\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[3]~input_o\ & ((\midiNoteNumber[4]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & 
--- (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (!\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (((\midiNoteNumber[6]~input_o\ & 
--- !\midiNoteNumber[3]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[6]~input_o\ $ (((!\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[4]~input_o\))))) ) )
+-- \Add1~33_sumout\ = SUM(( midiCount(6) ) + ( GND ) + ( \Add1~10\ ))
+-- \Add1~34\ = CARRY(( midiCount(6) ) + ( GND ) + ( \Add1~10\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1001001111100001100100111110000100100011000110100010001100011010",
+	lut_mask => "0000000000000000111111111111111100000000000000000000111100001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux14~0_combout\);
+	datac => ALT_INV_midiCount(6),
+	cin => \Add1~10\,
+	sumout => \Add1~33_sumout\,
+	cout => \Add1~34\);
 
--- Location: LABCELL_X10_Y1_N6
-\Mux14~4\ : cyclonev_lcell_comb
+-- Location: LABCELL_X85_Y21_N21
+\Add1~37\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux14~4_combout\ = ( !\midiNoteNumber[5]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & ((\Mux14~0_combout\))) # (\midiNoteNumber[2]~input_o\ & (\Mux14~1_combout\))))) ) ) # ( \midiNoteNumber[5]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & ((\Mux14~2_combout\))) # (\midiNoteNumber[2]~input_o\ & (\Mux14~3_combout\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000111100000000000011110000000000110011000000000101010100000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux14~3_combout\,
-	datab => \ALT_INV_Mux14~1_combout\,
-	datac => \ALT_INV_Mux14~2_combout\,
-	datad => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datag => \ALT_INV_Mux14~0_combout\,
-	combout => \Mux14~4_combout\);
-
--- Location: LABCELL_X13_Y1_N51
-\Mux13~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux13~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & ((\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[4]~input_o\ & !\midiNoteNumber[3]~input_o\)))) # 
--- (\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (((!\midiNoteNumber[6]~input_o\) # (\midiNoteNumber[3]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & 
--- ((!\midiNoteNumber[6]~input_o\) # (!\midiNoteNumber[4]~input_o\))) # (\midiNoteNumber[2]~input_o\ & ((\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[6]~input_o\))))) # (\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ 
--- (!\midiNoteNumber[6]~input_o\ $ (!\midiNoteNumber[4]~input_o\)))) ) )
+-- \Add1~37_sumout\ = SUM(( midiCount(7) ) + ( GND ) + ( \Add1~34\ ))
+-- \Add1~38\ = CARRY(( midiCount(7) ) + ( GND ) + ( \Add1~34\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1011110110010110101111011001011000110100100011010011010010001101",
+	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux13~1_combout\);
+	dataa => ALT_INV_midiCount(7),
+	cin => \Add1~34\,
+	sumout => \Add1~37_sumout\,
+	cout => \Add1~38\);
 
--- Location: LABCELL_X13_Y1_N57
-\Mux13~3\ : cyclonev_lcell_comb
+-- Location: LABCELL_X85_Y21_N57
+\byteValue[0]~12\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux13~3_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\) # ((\midiNoteNumber[2]~input_o\ & \midiNoteNumber[6]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # 
--- ((\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\)) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\))))) # 
--- (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # (\midiNoteNumber[2]~input_o\)))) ) )
+-- \byteValue[0]~12_combout\ = ( \MIDI_RX~input_o\ & ( \Equal0~0_combout\ & ( \midiState.stateWaitingForSignal~q\ ) ) ) # ( !\MIDI_RX~input_o\ & ( \Equal0~0_combout\ & ( (\midiState.stateWaitingForSignal~q\) # (\Equal0~1_combout\) ) ) ) # ( \MIDI_RX~input_o\ 
+-- & ( !\Equal0~0_combout\ & ( \midiState.stateWaitingForSignal~q\ ) ) ) # ( !\MIDI_RX~input_o\ & ( !\Equal0~0_combout\ & ( \midiState.stateWaitingForSignal~q\ ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1010110111000000101011011100000011111010000111111111101000011111",
+	lut_mask => "0000000011111111000000001111111100001111111111110000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux13~3_combout\);
+	datac => \ALT_INV_Equal0~1_combout\,
+	datad => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	datae => \ALT_INV_MIDI_RX~input_o\,
+	dataf => \ALT_INV_Equal0~0_combout\,
+	combout => \byteValue[0]~12_combout\);
 
--- Location: LABCELL_X13_Y1_N54
-\Mux13~2\ : cyclonev_lcell_comb
+-- Location: FF_X85_Y21_N23
+\midiCount[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~37_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(7));
+
+-- Location: LABCELL_X85_Y21_N24
+\Add1~41\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux13~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[2]~input_o\))) # (\midiNoteNumber[6]~input_o\ & ((\midiNoteNumber[4]~input_o\))))) # 
--- (\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ (((!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[4]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ 
--- (((\midiNoteNumber[2]~input_o\ & \midiNoteNumber[3]~input_o\))))) # (\midiNoteNumber[6]~input_o\ & (((\midiNoteNumber[2]~input_o\ & !\midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[3]~input_o\))) ) )
+-- \Add1~41_sumout\ = SUM(( midiCount(8) ) + ( GND ) + ( \Add1~38\ ))
+-- \Add1~42\ = CARRY(( midiCount(8) ) + ( GND ) + ( \Add1~38\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1101101100000111110110110000011111000110011110101100011001111010",
+	lut_mask => "0000000000000000111111111111111100000000000000000000111100001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux13~2_combout\);
+	datac => ALT_INV_midiCount(8),
+	cin => \Add1~38\,
+	sumout => \Add1~41_sumout\,
+	cout => \Add1~42\);
 
--- Location: LABCELL_X13_Y1_N48
-\Mux13~0\ : cyclonev_lcell_comb
+-- Location: FF_X85_Y21_N26
+\midiCount[8]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~41_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(8));
+
+-- Location: LABCELL_X85_Y21_N27
+\Add1~45\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux13~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[4]~input_o\)))) # (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[6]~input_o\ $ 
--- (!\midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[3]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[3]~input_o\ & ((\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[2]~input_o\)))) ) )
+-- \Add1~45_sumout\ = SUM(( midiCount(9) ) + ( GND ) + ( \Add1~42\ ))
+-- \Add1~46\ = CARRY(( midiCount(9) ) + ( GND ) + ( \Add1~42\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0001000000110000000100000011000000110101010001110011010101000111",
+	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux13~0_combout\);
+	dataa => ALT_INV_midiCount(9),
+	cin => \Add1~42\,
+	sumout => \Add1~45_sumout\,
+	cout => \Add1~46\);
 
--- Location: LABCELL_X13_Y1_N12
-\Mux13~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux13~4_combout\ = ( !\midiNoteNumber[5]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & ((\Mux13~0_combout\))) # (\midiNoteNumber[1]~input_o\ & (\Mux13~1_combout\))))) ) ) # ( \midiNoteNumber[5]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & ((\Mux13~2_combout\))) # (\midiNoteNumber[1]~input_o\ & (\Mux13~3_combout\))))) ) )
-
+-- Location: FF_X85_Y21_N29
+\midiCount[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000111101010101000011110011001100000000000000000000000000000000",
-	shared_arith => "off")
+	is_wysiwyg => "true",
+	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_Mux13~1_combout\,
-	datab => \ALT_INV_Mux13~3_combout\,
-	datac => \ALT_INV_Mux13~2_combout\,
-	datad => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux13~0_combout\,
-	combout => \Mux13~4_combout\);
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~45_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(9));
 
--- Location: LABCELL_X10_Y1_N57
-\Mux12~1\ : cyclonev_lcell_comb
+-- Location: LABCELL_X85_Y21_N30
+\Add1~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (((!\midiNoteNumber[5]~input_o\)) # (\midiNoteNumber[1]~input_o\))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # (!\midiNoteNumber[1]~input_o\ $ 
--- (!\midiNoteNumber[5]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (((\midiNoteNumber[5]~input_o\)) # (\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[3]~input_o\ & 
--- (!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[5]~input_o\)) # (\midiNoteNumber[3]~input_o\ & ((\midiNoteNumber[5]~input_o\))))) ) )
+-- \Add1~1_sumout\ = SUM(( midiCount(10) ) + ( GND ) + ( \Add1~46\ ))
+-- \Add1~2\ = CARRY(( midiCount(10) ) + ( GND ) + ( \Add1~46\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0110001010111011011000101011101111111101011101101111110101110110",
+	lut_mask => "0000000000000000111111111111111100000000000000000011001100110011",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux12~1_combout\);
+	datab => ALT_INV_midiCount(10),
+	cin => \Add1~46\,
+	sumout => \Add1~1_sumout\,
+	cout => \Add1~2\);
 
--- Location: LABCELL_X10_Y1_N30
-\Mux12~2\ : cyclonev_lcell_comb
+-- Location: FF_X85_Y21_N32
+\midiCount[10]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~1_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(10));
+
+-- Location: LABCELL_X85_Y21_N33
+\Add1~5\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (\midiNoteNumber[5]~input_o\ & ((\midiNoteNumber[6]~input_o\) # (\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[1]~input_o\ $ 
--- (!\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[5]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[5]~input_o\)))) # 
--- (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[6]~input_o\ & (\midiNoteNumber[3]~input_o\ & !\midiNoteNumber[5]~input_o\)))) ) )
+-- \Add1~5_sumout\ = SUM(( midiCount(11) ) + ( GND ) + ( \Add1~2\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0110000101000010011000010100001000000110011111110000011001111111",
+	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux12~2_combout\);
+	dataa => ALT_INV_midiCount(11),
+	cin => \Add1~2\,
+	sumout => \Add1~5_sumout\);
 
--- Location: LABCELL_X10_Y1_N33
-\Mux12~3\ : cyclonev_lcell_comb
+-- Location: FF_X85_Y21_N35
+\midiCount[11]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~5_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(11));
+
+-- Location: LABCELL_X85_Y21_N36
+\Equal2~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~3_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & (((!\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[3]~input_o\ & !\midiNoteNumber[5]~input_o\)) # 
--- (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[5]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[5]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # (!\midiNoteNumber[1]~input_o\ $ 
--- (!\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[5]~input_o\ & (!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (!\midiNoteNumber[6]~input_o\)))) ) )
+-- \Equal2~0_combout\ = ( !midiCount(1) & ( midiCount(10) & ( (!midiCount(11) & (!midiCount(5) & (!midiCount(0) & !midiCount(2)))) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1101111001100000110111100110000011010010110000011101001011000001",
+	lut_mask => "0000000000000000000000000000000010000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux12~3_combout\);
+	dataa => ALT_INV_midiCount(11),
+	datab => ALT_INV_midiCount(5),
+	datac => ALT_INV_midiCount(0),
+	datad => ALT_INV_midiCount(2),
+	datae => ALT_INV_midiCount(1),
+	dataf => ALT_INV_midiCount(10),
+	combout => \Equal2~0_combout\);
 
--- Location: LABCELL_X10_Y1_N54
-\Mux12~0\ : cyclonev_lcell_comb
+-- Location: LABCELL_X88_Y21_N30
+\Add2~5\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (((\midiNoteNumber[5]~input_o\ & \midiNoteNumber[6]~input_o\))))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & 
--- ((!\midiNoteNumber[6]~input_o\))) # (\midiNoteNumber[5]~input_o\ & (!\midiNoteNumber[1]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ 
--- (!\midiNoteNumber[5]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[5]~input_o\ $ (!\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[3]~input_o\))) ) )
+-- \Add2~5_sumout\ = SUM(( bitNumber(0) ) + ( VCC ) + ( !VCC ))
+-- \Add2~6\ = CARRY(( bitNumber(0) ) + ( VCC ) + ( !VCC ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0001010101111001000101010111100110111010100001101011101010000110",
+	lut_mask => "0000000000000000000000000000000000000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux12~0_combout\);
+	datad => ALT_INV_bitNumber(0),
+	cin => GND,
+	sumout => \Add2~5_sumout\,
+	cout => \Add2~6\);
 
--- Location: LABCELL_X10_Y1_N0
-\Mux12~5\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X87_Y21_N30
+\Equal2~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~5_combout\ = ( !\midiNoteNumber[2]~input_o\ & ( (!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & (((\Mux12~0_combout\)))) # (\midiNoteNumber[4]~input_o\ & (\Mux12~1_combout\)))) ) ) # ( \midiNoteNumber[2]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & (\Mux12~2_combout\)) # (\midiNoteNumber[4]~input_o\ & ((\Mux12~3_combout\)))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000110001000100000011000000000000001100010001000000110011001100",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux12~1_combout\,
-	datab => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datac => \ALT_INV_Mux12~2_combout\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[2]~input_o\,
-	dataf => \ALT_INV_Mux12~3_combout\,
-	datag => \ALT_INV_Mux12~0_combout\,
-	combout => \Mux12~5_combout\);
-
--- Location: LABCELL_X12_Y1_N27
-\Mux11~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux11~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[5]~input_o\))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & ((\midiNoteNumber[3]~input_o\))) # 
--- (\midiNoteNumber[5]~input_o\ & (\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & ((!\midiNoteNumber[3]~input_o\))) # 
--- (\midiNoteNumber[5]~input_o\ & (!\midiNoteNumber[6]~input_o\ & \midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[5]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1110000001001000111000000100100000100001011100000010000101110000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux11~2_combout\);
-
--- Location: LABCELL_X11_Y1_N45
-\Mux11~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux11~3_combout\ = ( \midiNoteNumber[5]~input_o\ & ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[1]~input_o\ & ((\midiNoteNumber[6]~input_o\))) ) ) ) # ( !\midiNoteNumber[5]~input_o\ 
--- & ( \midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[1]~input_o\ $ (((!\midiNoteNumber[3]~input_o\ & \midiNoteNumber[6]~input_o\))) ) ) ) # ( \midiNoteNumber[5]~input_o\ & ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & 
--- ((\midiNoteNumber[1]~input_o\) # (\midiNoteNumber[6]~input_o\))) # (\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[6]~input_o\)) ) ) ) # ( !\midiNoteNumber[5]~input_o\ & ( !\midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[1]~input_o\ $ 
--- (((!\midiNoteNumber[6]~input_o\) # (\midiNoteNumber[3]~input_o\))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000101011110101010110101111101011110101000010101010101000001111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux11~3_combout\);
-
--- Location: LABCELL_X12_Y1_N48
-\Mux11~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux11~1_combout\ = ( \midiNoteNumber[3]~input_o\ & ( (!\midiNoteNumber[0]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # ((\midiNoteNumber[5]~input_o\)))) # (\midiNoteNumber[0]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # (!\midiNoteNumber[1]~input_o\ $ 
--- (!\midiNoteNumber[5]~input_o\)))) ) ) # ( !\midiNoteNumber[3]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[0]~input_o\ $ ((!\midiNoteNumber[5]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[5]~input_o\ & 
--- !\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[0]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0111100100111001011110010011100110111111100111101011111110011110",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[0]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[3]~input_o\,
-	combout => \Mux11~1_combout\);
-
--- Location: LABCELL_X12_Y1_N42
-\Mux11~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux11~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[1]~input_o\ $ (!\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[5]~input_o\))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # 
--- ((\midiNoteNumber[1]~input_o\ & !\midiNoteNumber[5]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[5]~input_o\) # (\midiNoteNumber[1]~input_o\)))) # 
--- (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (((!\midiNoteNumber[5]~input_o\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011000101011010001100010101101001111111100111000111111110011100",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux11~0_combout\);
-
--- Location: LABCELL_X12_Y1_N6
-\Mux11~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux11~4_combout\ = ( !\midiNoteNumber[4]~input_o\ & ( (!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & (\Mux11~0_combout\)) # (\midiNoteNumber[2]~input_o\ & (((\Mux11~1_combout\)))))) ) ) # ( \midiNoteNumber[4]~input_o\ & ( 
--- (!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & (\Mux11~2_combout\)) # (\midiNoteNumber[2]~input_o\ & (((\Mux11~3_combout\)))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000100000001000000010000010101000101010001010100000100000101010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_Mux11~2_combout\,
-	datad => \ALT_INV_Mux11~3_combout\,
-	datae => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_Mux11~1_combout\,
-	datag => \ALT_INV_Mux11~0_combout\,
-	combout => \Mux11~4_combout\);
-
--- Location: LABCELL_X12_Y1_N3
-\Mux10~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux10~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[5]~input_o\) # (!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[3]~input_o\) # 
--- ((!\midiNoteNumber[1]~input_o\ & \midiNoteNumber[5]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[6]~input_o\ & 
--- \midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[5]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0010011001110111001001100111011111111100101101101111110010110110",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux10~2_combout\);
-
--- Location: LABCELL_X12_Y1_N45
-\Mux10~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux10~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (((\midiNoteNumber[5]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & (((\midiNoteNumber[6]~input_o\ & \midiNoteNumber[5]~input_o\)) # 
--- (\midiNoteNumber[3]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[3]~input_o\ $ (((!\midiNoteNumber[5]~input_o\ & (!\midiNoteNumber[1]~input_o\)) # (\midiNoteNumber[5]~input_o\ & ((\midiNoteNumber[6]~input_o\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0110011011000011011001101100001110011001001101111001100100110111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux10~1_combout\);
-
--- Location: LABCELL_X12_Y1_N0
-\Mux10~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux10~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[6]~input_o\) # ((\midiNoteNumber[5]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[3]~input_o\))) # 
--- (\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[5]~input_o\) # (\midiNoteNumber[3]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[6]~input_o\))) # 
--- (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[6]~input_o\ & \midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[5]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1010111101100111101011110110011111011110100110111101111010011011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux10~0_combout\);
-
--- Location: LABCELL_X12_Y1_N30
-\Mux10~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux10~3_combout\ = ( !\midiNoteNumber[2]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & (\Mux10~0_combout\)) # (\midiNoteNumber[4]~input_o\ & ((\Mux10~1_combout\)))))) ) ) # ( \midiNoteNumber[2]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & ((\Mux11~2_combout\))) # (\midiNoteNumber[4]~input_o\ & (\Mux10~2_combout\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000110000111111000111010001110100000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux10~2_combout\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_Mux11~2_combout\,
-	datad => \ALT_INV_Mux10~1_combout\,
-	datae => \ALT_INV_midiNoteNumber[2]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux10~0_combout\,
-	combout => \Mux10~3_combout\);
-
--- Location: LABCELL_X11_Y1_N54
-\Mux9~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux9~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[4]~input_o\))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (((!\midiNoteNumber[4]~input_o\) # 
--- (\midiNoteNumber[6]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ ((!\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & (((!\midiNoteNumber[3]~input_o\) # 
--- (\midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[1]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0111100101111011011110010111101110110110101001111011011010100111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux9~1_combout\);
-
--- Location: LABCELL_X11_Y1_N57
-\Mux9~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux9~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (!\midiNoteNumber[6]~input_o\)))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[6]~input_o\ & 
--- (!\midiNoteNumber[1]~input_o\)) # (\midiNoteNumber[6]~input_o\ & ((!\midiNoteNumber[4]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[4]~input_o\ $ (!\midiNoteNumber[3]~input_o\ $ (((!\midiNoteNumber[1]~input_o\ & 
--- !\midiNoteNumber[6]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1001001101101100100100110110110000010010101011000001001010101100",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux9~2_combout\);
-
--- Location: LABCELL_X11_Y1_N18
-\Mux9~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux9~3_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & (((\midiNoteNumber[1]~input_o\ & \midiNoteNumber[6]~input_o\)) # (\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[4]~input_o\ & (\midiNoteNumber[1]~input_o\ & 
--- ((!\midiNoteNumber[6]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[6]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ & 
--- ((!\midiNoteNumber[6]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1110001000001100111000100000110000011101010011000001110101001100",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux9~3_combout\);
-
--- Location: LABCELL_X11_Y1_N21
-\Mux9~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux9~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (((!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[3]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[4]~input_o\) # 
--- (!\midiNoteNumber[6]~input_o\ $ (\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[6]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (!\midiNoteNumber[3]~input_o\)))) # 
--- (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[3]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0101001000001000010100100000100001111100110011010111110011001101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux9~0_combout\);
-
--- Location: LABCELL_X11_Y1_N36
-\Mux9~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux9~4_combout\ = ( !\midiNoteNumber[5]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & ((\Mux9~0_combout\))) # (\midiNoteNumber[2]~input_o\ & (\Mux9~1_combout\))))) ) ) # ( \midiNoteNumber[5]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & (\Mux9~2_combout\)) # (\midiNoteNumber[2]~input_o\ & ((\Mux9~3_combout\)))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0001110100011101000011000011111100000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux9~1_combout\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_Mux9~2_combout\,
-	datad => \ALT_INV_Mux9~3_combout\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux9~0_combout\,
-	combout => \Mux9~4_combout\);
-
--- Location: LABCELL_X11_Y1_N3
-\Mux8~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[2]~input_o\ & ((\midiNoteNumber[3]~input_o\) # 
--- (\midiNoteNumber[4]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[3]~input_o\) # (!\midiNoteNumber[2]~input_o\ $ (\midiNoteNumber[4]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & 
--- (!\midiNoteNumber[3]~input_o\ $ (((!\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[2]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & (\midiNoteNumber[4]~input_o\ & \midiNoteNumber[3]~input_o\)) # 
--- (\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ & !\midiNoteNumber[3]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0001100010100110000110001010011011010111011010111101011101101011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux8~1_combout\);
-
--- Location: LABCELL_X11_Y1_N12
-\Mux8~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~3_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # (!\midiNoteNumber[2]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[3]~input_o\ ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1111000011110000111100001111000011110000101000001111000010100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[2]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux8~3_combout\);
-
--- Location: LABCELL_X11_Y1_N9
-\Mux8~4\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~4_combout\ = ( \midiNoteNumber[4]~input_o\ ) # ( !\midiNoteNumber[4]~input_o\ & ( !\Mux8~3_combout\ ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1111000011110000111100001111000011111111111111111111111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datac => \ALT_INV_Mux8~3_combout\,
-	dataf => \ALT_INV_midiNoteNumber[4]~input_o\,
-	combout => \Mux8~4_combout\);
-
--- Location: LABCELL_X11_Y1_N6
-\Mux8~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\ & ((\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & 
--- (!\midiNoteNumber[4]~input_o\ $ (\midiNoteNumber[2]~input_o\))) # (\midiNoteNumber[1]~input_o\ & ((\midiNoteNumber[2]~input_o\) # (\midiNoteNumber[4]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & 
--- ((!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[1]~input_o\)) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[2]~input_o\))))) # (\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[2]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1011110010000011101111001000001101111001000001110111100100000111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[2]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux8~2_combout\);
-
--- Location: LABCELL_X11_Y1_N0
-\Mux8~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ (!\midiNoteNumber[3]~input_o\ $ (\midiNoteNumber[4]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[4]~input_o\ & 
--- ((!\midiNoteNumber[2]~input_o\) # (!\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (!\midiNoteNumber[2]~input_o\ $ (!\midiNoteNumber[4]~input_o\)))) # 
--- (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # ((\midiNoteNumber[1]~input_o\ & \midiNoteNumber[4]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1001110001101101100111000110110101111100100000100111110010000010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux8~0_combout\);
-
--- Location: LABCELL_X11_Y1_N30
-\Mux8~5\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux8~5_combout\ = ( !\midiNoteNumber[6]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & ((\Mux8~0_combout\))) # (\midiNoteNumber[5]~input_o\ & (\Mux8~1_combout\))))) ) ) # ( \midiNoteNumber[6]~input_o\ & ( 
--- ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & ((\Mux8~2_combout\))) # (\midiNoteNumber[5]~input_o\ & (!\Mux8~4_combout\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000111101010101000011111100110000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux8~1_combout\,
-	datab => \ALT_INV_Mux8~4_combout\,
-	datac => \ALT_INV_Mux8~2_combout\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux8~0_combout\,
-	combout => \Mux8~5_combout\);
-
--- Location: LABCELL_X12_Y1_N51
-\Mux7~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux7~2_combout\ = ( \midiNoteNumber[3]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[4]~input_o\) # ((\midiNoteNumber[1]~input_o\ & \midiNoteNumber[0]~input_o\)))) # (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # 
--- ((!\midiNoteNumber[0]~input_o\) # (\midiNoteNumber[4]~input_o\)))) ) ) # ( !\midiNoteNumber[3]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # (!\midiNoteNumber[0]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1110000000000000111000000000000011111110000111111111111000011111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[0]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[3]~input_o\,
-	combout => \Mux7~2_combout\);
-
--- Location: LABCELL_X12_Y1_N36
-\Mux7~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux7~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[1]~input_o\ & 
--- ((!\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[4]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[4]~input_o\) # 
--- (\midiNoteNumber[2]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ ((!\midiNoteNumber[4]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000011011010110000001101101011001110001000000110111000100000011",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux7~0_combout\);
-
--- Location: LABCELL_X12_Y1_N39
-\Mux7~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux7~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & (\midiNoteNumber[1]~input_o\ & !\midiNoteNumber[3]~input_o\)) # (\midiNoteNumber[4]~input_o\ & ((\midiNoteNumber[3]~input_o\))))) # 
--- (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[3]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[4]~input_o\ & \midiNoteNumber[3]~input_o\)))) # 
--- (\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # ((!\midiNoteNumber[3]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000111111001010000011111100101001011000001001110101100000100111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux7~1_combout\);
-
--- Location: LABCELL_X12_Y1_N12
-\Mux7~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux7~3_combout\ = ( \midiNoteNumber[6]~input_o\ & ( !\midiNoteNumber[7]~input_o\ & ( (!\Mux7~2_combout\ & !\midiNoteNumber[5]~input_o\) ) ) ) # ( !\midiNoteNumber[6]~input_o\ & ( !\midiNoteNumber[7]~input_o\ & ( (!\midiNoteNumber[5]~input_o\ & 
--- (\Mux7~0_combout\)) # (\midiNoteNumber[5]~input_o\ & ((!\Mux7~1_combout\))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0011111100001100100010001000100000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux7~2_combout\,
-	datab => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datac => \ALT_INV_Mux7~0_combout\,
-	datad => \ALT_INV_Mux7~1_combout\,
-	datae => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	combout => \Mux7~3_combout\);
-
--- Location: LABCELL_X13_Y1_N36
-\Mux6~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux6~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & ((\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[1]~input_o\))) # (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # (!\midiNoteNumber[3]~input_o\))) ) ) # 
--- ( !\midiNoteNumber[0]~input_o\ & ( (\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[2]~input_o\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0101111101011111010111110101111101111110011111100111111001111110",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux6~2_combout\);
-
--- Location: LABCELL_X13_Y1_N0
-\Mux6~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux6~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[2]~input_o\)))) # (\midiNoteNumber[1]~input_o\ & 
--- (!\midiNoteNumber[2]~input_o\ $ (((!\midiNoteNumber[3]~input_o\))))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ $ (((!\midiNoteNumber[2]~input_o\ & !\midiNoteNumber[3]~input_o\))))) # 
--- (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[2]~input_o\)) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0110101011001010011010101100101011011001001010101101100100101010",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux6~1_combout\);
-
--- Location: LABCELL_X13_Y1_N3
-\Mux6~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux6~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ (((!\midiNoteNumber[3]~input_o\) # (\midiNoteNumber[4]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & (((!\midiNoteNumber[2]~input_o\ & 
--- \midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[3]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[2]~input_o\ & 
--- (\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # (!\midiNoteNumber[3]~input_o\)))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1011110000011000101111000001100001000110101101110100011010110111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux6~0_combout\);
-
--- Location: LABCELL_X13_Y1_N6
-\Mux6~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux6~3_combout\ = ( !\midiNoteNumber[6]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[5]~input_o\ & (\Mux6~0_combout\)) # (\midiNoteNumber[5]~input_o\ & ((\Mux6~1_combout\)))))) ) ) # ( \midiNoteNumber[6]~input_o\ & ( 
--- (!\midiNoteNumber[5]~input_o\ & (\Mux6~2_combout\ & (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[7]~input_o\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000101001011111001000000010000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datab => \ALT_INV_Mux6~2_combout\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_Mux6~1_combout\,
-	datae => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux6~0_combout\,
-	combout => \Mux6~3_combout\);
-
--- Location: LABCELL_X13_Y1_N45
-\Mux5~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux5~1_combout\ = ( \midiNoteNumber[0]~input_o\ & ( ((\midiNoteNumber[5]~input_o\) # (\midiNoteNumber[2]~input_o\)) # (\midiNoteNumber[1]~input_o\) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (\midiNoteNumber[5]~input_o\) # (\midiNoteNumber[2]~input_o\) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000111111111111000011111111111100111111111111110011111111111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux5~1_combout\);
-
--- Location: LABCELL_X13_Y1_N39
-\Mux5~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux5~2_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[5]~input_o\)) # (\midiNoteNumber[4]~input_o\))) # (\midiNoteNumber[2]~input_o\ & (((\midiNoteNumber[5]~input_o\)) # 
--- (\midiNoteNumber[1]~input_o\))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[5]~input_o\ & (((!\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[5]~input_o\ & (((\midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[2]~input_o\))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1100110001011111110011000101111110011011011111111001101101111111",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux5~2_combout\);
-
--- Location: LABCELL_X13_Y1_N42
-\Mux5~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux5~0_combout\ = ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[5]~input_o\ & ((\midiNoteNumber[4]~input_o\) # (\midiNoteNumber[1]~input_o\)))) # (\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[5]~input_o\ $ 
--- (!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[4]~input_o\)))) ) ) # ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ & (!\midiNoteNumber[5]~input_o\ $ (!\midiNoteNumber[1]~input_o\)))) # 
--- (\midiNoteNumber[2]~input_o\ & (!\midiNoteNumber[4]~input_o\ $ (((!\midiNoteNumber[5]~input_o\ & \midiNoteNumber[1]~input_o\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0110110100000010011011010000001000100110101010010010011010101001",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[5]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux5~0_combout\);
-
--- Location: LABCELL_X13_Y1_N30
-\Mux5~3\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux5~3_combout\ = ( !\midiNoteNumber[6]~input_o\ & ( ((!\midiNoteNumber[7]~input_o\ & ((!\midiNoteNumber[3]~input_o\ & (\Mux5~0_combout\)) # (\midiNoteNumber[3]~input_o\ & ((\Mux5~2_combout\)))))) ) ) # ( \midiNoteNumber[6]~input_o\ & ( 
--- (!\midiNoteNumber[3]~input_o\ & (!\Mux5~1_combout\ & (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[7]~input_o\))))) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "on",
-	lut_mask => "0000101001011111100000001000000000000000000000000000000000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datab => \ALT_INV_Mux5~1_combout\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_Mux5~2_combout\,
-	datae => \ALT_INV_midiNoteNumber[6]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[7]~input_o\,
-	datag => \ALT_INV_Mux5~0_combout\,
-	combout => \Mux5~3_combout\);
-
--- Location: LABCELL_X12_Y1_N18
-\Mux4~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux4~0_combout\ = (!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[7]~input_o\)
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1100000011000000110000001100000011000000110000001100000011000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[7]~input_o\,
-	combout => \Mux4~0_combout\);
-
--- Location: LABCELL_X13_Y1_N18
-\Mux4~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux4~1_combout\ = ( \midiNoteNumber[5]~input_o\ & ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[1]~input_o\ & (!\midiNoteNumber[3]~input_o\ $ (((\midiNoteNumber[2]~input_o\ & !\midiNoteNumber[4]~input_o\))))) # (\midiNoteNumber[1]~input_o\ & 
--- ((!\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\)) # (\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[4]~input_o\))))) ) ) ) # ( !\midiNoteNumber[5]~input_o\ & ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[2]~input_o\ & 
--- (!\midiNoteNumber[1]~input_o\ $ ((!\midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[4]~input_o\) # ((\midiNoteNumber[1]~input_o\ & \midiNoteNumber[3]~input_o\)))) ) ) ) # ( \midiNoteNumber[5]~input_o\ & ( 
--- !\midiNoteNumber[0]~input_o\ & ( !\midiNoteNumber[3]~input_o\ $ (((\midiNoteNumber[2]~input_o\ & !\midiNoteNumber[4]~input_o\))) ) ) ) # ( !\midiNoteNumber[5]~input_o\ & ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & 
--- (!\midiNoteNumber[1]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # (\midiNoteNumber[4]~input_o\)))) # (\midiNoteNumber[3]~input_o\ & (!\midiNoteNumber[2]~input_o\ $ (((!\midiNoteNumber[1]~input_o\ & !\midiNoteNumber[4]~input_o\))))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1000011011001010101001011111000001111101001010011010011111100000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux4~1_combout\);
-
--- Location: LABCELL_X12_Y1_N21
-\Mux4~2\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux4~2_combout\ = ( \Mux4~1_combout\ & ( \Mux4~0_combout\ ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000001010101010101010101010101010101",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_Mux4~0_combout\,
-	dataf => \ALT_INV_Mux4~1_combout\,
-	combout => \Mux4~2_combout\);
-
--- Location: LABCELL_X13_Y1_N24
-\Mux3~0\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux3~0_combout\ = ( \midiNoteNumber[5]~input_o\ & ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[3]~input_o\) # ((!\midiNoteNumber[2]~input_o\ & !\midiNoteNumber[1]~input_o\)))) ) ) ) # ( !\midiNoteNumber[5]~input_o\ 
--- & ( \midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[3]~input_o\ & ((!\midiNoteNumber[2]~input_o\ $ (\midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[1]~input_o\))) # (\midiNoteNumber[3]~input_o\ & (\midiNoteNumber[2]~input_o\ & 
--- (!\midiNoteNumber[1]~input_o\ $ (\midiNoteNumber[4]~input_o\)))) ) ) ) # ( \midiNoteNumber[5]~input_o\ & ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[2]~input_o\) # (!\midiNoteNumber[3]~input_o\))) ) ) ) # ( 
--- !\midiNoteNumber[5]~input_o\ & ( !\midiNoteNumber[0]~input_o\ & ( (!\midiNoteNumber[4]~input_o\ & ((!\midiNoteNumber[1]~input_o\) # ((\midiNoteNumber[2]~input_o\ & \midiNoteNumber[3]~input_o\)))) # (\midiNoteNumber[4]~input_o\ & 
--- (\midiNoteNumber[2]~input_o\ & ((!\midiNoteNumber[3]~input_o\)))) ) ) )
-
--- pragma translate_off
-GENERIC MAP (
-	extended_lut => "off",
-	lut_mask => "1100110101010000111110100000000010110100011100011111100000000000",
-	shared_arith => "off")
--- pragma translate_on
-PORT MAP (
-	dataa => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datab => \ALT_INV_midiNoteNumber[1]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datae => \ALT_INV_midiNoteNumber[5]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux3~0_combout\);
-
--- Location: LABCELL_X12_Y1_N54
-\Mux3~1\ : cyclonev_lcell_comb
--- Equation(s):
--- \Mux3~1_combout\ = ( \Mux3~0_combout\ & ( \Mux4~0_combout\ ) )
+-- \Equal2~2_combout\ = ( \Equal2~1_combout\ & ( \Equal2~0_combout\ ) )
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1738,101 +776,1511 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datac => \ALT_INV_Mux4~0_combout\,
-	dataf => \ALT_INV_Mux3~0_combout\,
-	combout => \Mux3~1_combout\);
+	datac => \ALT_INV_Equal2~0_combout\,
+	dataf => \ALT_INV_Equal2~1_combout\,
+	combout => \Equal2~2_combout\);
 
--- Location: LABCELL_X11_Y1_N51
-\Mux12~4\ : cyclonev_lcell_comb
+-- Location: MLABCELL_X87_Y21_N54
+\bitNumber[7]~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux12~4_combout\ = ( \midiNoteNumber[1]~input_o\ & ( \midiNoteNumber[0]~input_o\ ) )
+-- \bitNumber[7]~0_combout\ = ( \Equal0~0_combout\ & ( \MIDI_RX~input_o\ & ( (\midiState.stateSignalAvailable~q\ & \Equal2~2_combout\) ) ) ) # ( !\Equal0~0_combout\ & ( \MIDI_RX~input_o\ & ( (\midiState.stateSignalAvailable~q\ & \Equal2~2_combout\) ) ) ) # ( 
+-- \Equal0~0_combout\ & ( !\MIDI_RX~input_o\ & ( (!\midiState.stateWaitingForSignal~q\ & (((\midiState.stateSignalAvailable~q\ & \Equal2~2_combout\)) # (\Equal0~1_combout\))) # (\midiState.stateWaitingForSignal~q\ & (((\midiState.stateSignalAvailable~q\ & 
+-- \Equal2~2_combout\)))) ) ) ) # ( !\Equal0~0_combout\ & ( !\MIDI_RX~input_o\ & ( (\midiState.stateSignalAvailable~q\ & \Equal2~2_combout\) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000000000000000001111111111111111",
+	lut_mask => "0000000000001111001000100010111100000000000011110000000000001111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datae => \ALT_INV_midiNoteNumber[1]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[0]~input_o\,
-	combout => \Mux12~4_combout\);
+	dataa => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	datab => \ALT_INV_Equal0~1_combout\,
+	datac => \ALT_INV_midiState.stateSignalAvailable~q\,
+	datad => \ALT_INV_Equal2~2_combout\,
+	datae => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_MIDI_RX~input_o\,
+	combout => \bitNumber[7]~0_combout\);
 
--- Location: LABCELL_X12_Y1_N24
-\Mux2~0\ : cyclonev_lcell_comb
+-- Location: FF_X88_Y21_N32
+\bitNumber[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~5_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(0));
+
+-- Location: LABCELL_X88_Y21_N33
+\Add2~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux2~0_combout\ = ( !\midiNoteNumber[5]~input_o\ & ( (!\midiNoteNumber[6]~input_o\ & !\midiNoteNumber[7]~input_o\) ) )
+-- \Add2~1_sumout\ = SUM(( bitNumber(1) ) + ( GND ) + ( \Add2~6\ ))
+-- \Add2~2\ = CARRY(( bitNumber(1) ) + ( GND ) + ( \Add2~6\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1100000011000000110000001100000000000000000000000000000000000000",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \ALT_INV_midiNoteNumber[6]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[7]~input_o\,
-	dataf => \ALT_INV_midiNoteNumber[5]~input_o\,
-	combout => \Mux2~0_combout\);
+	datad => ALT_INV_bitNumber(1),
+	cin => \Add2~6\,
+	sumout => \Add2~1_sumout\,
+	cout => \Add2~2\);
 
--- Location: LABCELL_X11_Y1_N24
-\Mux2~1\ : cyclonev_lcell_comb
+-- Location: FF_X88_Y21_N35
+\bitNumber[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~1_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(1));
+
+-- Location: LABCELL_X88_Y21_N36
+\Add2~9\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux2~1_combout\ = ( \Mux2~0_combout\ & ( (!\midiNoteNumber[2]~input_o\ & ((!\Mux12~4_combout\ $ (\midiNoteNumber[4]~input_o\)) # (\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[2]~input_o\ & ((!\Mux12~4_combout\ & ((\midiNoteNumber[4]~input_o\))) # 
--- (\Mux12~4_combout\ & (!\midiNoteNumber[3]~input_o\)))) ) )
+-- \Add2~9_sumout\ = SUM(( bitNumber(2) ) + ( GND ) + ( \Add2~2\ ))
+-- \Add2~10\ = CARRY(( bitNumber(2) ) + ( GND ) + ( \Add2~2\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000010011100011111101001110001111110",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_Mux12~4_combout\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[3]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_Mux2~0_combout\,
-	combout => \Mux2~1_combout\);
+	datad => ALT_INV_bitNumber(2),
+	cin => \Add2~2\,
+	sumout => \Add2~9_sumout\,
+	cout => \Add2~10\);
 
--- Location: LABCELL_X11_Y1_N27
-\Mux1~0\ : cyclonev_lcell_comb
+-- Location: FF_X88_Y21_N38
+\bitNumber[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~9_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(2));
+
+-- Location: LABCELL_X88_Y21_N39
+\Add2~29\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux1~0_combout\ = ( \Mux2~0_combout\ & ( (!\midiNoteNumber[4]~input_o\ & (((\Mux12~4_combout\ & \midiNoteNumber[2]~input_o\)) # (\midiNoteNumber[3]~input_o\))) # (\midiNoteNumber[4]~input_o\ & (!\Mux12~4_combout\ & (!\midiNoteNumber[2]~input_o\ & 
--- !\midiNoteNumber[3]~input_o\))) ) )
+-- \Add2~29_sumout\ = SUM(( bitNumber(3) ) + ( GND ) + ( \Add2~10\ ))
+-- \Add2~30\ = CARRY(( bitNumber(3) ) + ( GND ) + ( \Add2~10\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000011000111100000001100011110000",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \ALT_INV_Mux12~4_combout\,
-	datab => \ALT_INV_midiNoteNumber[2]~input_o\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	datad => \ALT_INV_midiNoteNumber[3]~input_o\,
-	dataf => \ALT_INV_Mux2~0_combout\,
-	combout => \Mux1~0_combout\);
+	datad => ALT_INV_bitNumber(3),
+	cin => \Add2~10\,
+	sumout => \Add2~29_sumout\,
+	cout => \Add2~30\);
 
--- Location: LABCELL_X11_Y1_N15
-\Mux0~0\ : cyclonev_lcell_comb
+-- Location: FF_X88_Y21_N41
+\bitNumber[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~29_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(3));
+
+-- Location: LABCELL_X88_Y21_N42
+\Add2~25\ : cyclonev_lcell_comb
 -- Equation(s):
--- \Mux0~0_combout\ = ( \Mux2~0_combout\ & ( (!\Mux8~3_combout\) # (\midiNoteNumber[4]~input_o\) ) ) # ( !\Mux2~0_combout\ )
+-- \Add2~25_sumout\ = SUM(( bitNumber(4) ) + ( GND ) + ( \Add2~30\ ))
+-- \Add2~26\ = CARRY(( bitNumber(4) ) + ( GND ) + ( \Add2~30\ ))
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1111111111111111111111111111111111001111110011111100111111001111",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datab => \ALT_INV_Mux8~3_combout\,
-	datac => \ALT_INV_midiNoteNumber[4]~input_o\,
-	dataf => \ALT_INV_Mux2~0_combout\,
-	combout => \Mux0~0_combout\);
+	datad => ALT_INV_bitNumber(4),
+	cin => \Add2~30\,
+	sumout => \Add2~25_sumout\,
+	cout => \Add2~26\);
 
--- Location: LABCELL_X29_Y11_N0
+-- Location: FF_X88_Y21_N44
+\bitNumber[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~25_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(4));
+
+-- Location: LABCELL_X88_Y21_N45
+\Add2~21\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add2~21_sumout\ = SUM(( bitNumber(5) ) + ( GND ) + ( \Add2~26\ ))
+-- \Add2~22\ = CARRY(( bitNumber(5) ) + ( GND ) + ( \Add2~26\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datad => ALT_INV_bitNumber(5),
+	cin => \Add2~26\,
+	sumout => \Add2~21_sumout\,
+	cout => \Add2~22\);
+
+-- Location: FF_X88_Y21_N47
+\bitNumber[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~21_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(5));
+
+-- Location: LABCELL_X88_Y21_N48
+\Add2~17\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add2~17_sumout\ = SUM(( bitNumber(6) ) + ( GND ) + ( \Add2~22\ ))
+-- \Add2~18\ = CARRY(( bitNumber(6) ) + ( GND ) + ( \Add2~22\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datad => ALT_INV_bitNumber(6),
+	cin => \Add2~22\,
+	sumout => \Add2~17_sumout\,
+	cout => \Add2~18\);
+
+-- Location: FF_X88_Y21_N50
+\bitNumber[6]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~17_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(6));
+
+-- Location: LABCELL_X88_Y21_N51
+\Add2~13\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add2~13_sumout\ = SUM(( bitNumber(7) ) + ( GND ) + ( \Add2~18\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datad => ALT_INV_bitNumber(7),
+	cin => \Add2~18\,
+	sumout => \Add2~13_sumout\);
+
+-- Location: FF_X88_Y21_N53
+\bitNumber[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add2~13_sumout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \bitNumber[7]~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => bitNumber(7));
+
+-- Location: LABCELL_X88_Y21_N24
+\midiState~15\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiState~15_combout\ = ( !bitNumber(5) & ( !bitNumber(7) & ( (bitNumber(2) & (!bitNumber(3) & (!bitNumber(6) & !bitNumber(4)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0100000000000000000000000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_bitNumber(2),
+	datab => ALT_INV_bitNumber(3),
+	datac => ALT_INV_bitNumber(6),
+	datad => ALT_INV_bitNumber(4),
+	datae => ALT_INV_bitNumber(5),
+	dataf => ALT_INV_bitNumber(7),
+	combout => \midiState~15_combout\);
+
+-- Location: MLABCELL_X87_Y21_N24
+\Selector2~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Selector2~0_combout\ = ( bitNumber(0) & ( bitNumber(1) & ( (\Equal2~1_combout\ & (\midiState~15_combout\ & (\Equal2~0_combout\ & \midiState.stateSignalAvailable~q\))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000000000000000001",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~1_combout\,
+	datab => \ALT_INV_midiState~15_combout\,
+	datac => \ALT_INV_Equal2~0_combout\,
+	datad => \ALT_INV_midiState.stateSignalAvailable~q\,
+	datae => ALT_INV_bitNumber(0),
+	dataf => ALT_INV_bitNumber(1),
+	combout => \Selector2~0_combout\);
+
+-- Location: MLABCELL_X87_Y21_N42
+\Selector2~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Selector2~2_combout\ = ( \Equal0~0_combout\ & ( \Selector2~0_combout\ & ( !\Selector2~1_combout\ $ (((!\MIDI_RX~input_o\ & (\Equal0~1_combout\ & !\midiState.stateWaitingForSignal~q\)))) ) ) ) # ( !\Equal0~0_combout\ & ( \Selector2~0_combout\ & ( 
+-- !\Selector2~1_combout\ ) ) ) # ( \Equal0~0_combout\ & ( !\Selector2~0_combout\ & ( !\Selector2~1_combout\ $ ((((!\Equal0~1_combout\) # (\midiState.stateWaitingForSignal~q\)) # (\MIDI_RX~input_o\))) ) ) ) # ( !\Equal0~0_combout\ & ( !\Selector2~0_combout\ 
+-- & ( \Selector2~1_combout\ ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011111111001000001101111111111111000000001101111100100000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datab => \ALT_INV_Equal0~1_combout\,
+	datac => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	datad => \ALT_INV_Selector2~1_combout\,
+	datae => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Selector2~0_combout\,
+	combout => \Selector2~2_combout\);
+
+-- Location: FF_X87_Y21_N26
+\midiState.stateByteComplete\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Selector2~0_combout\,
+	ena => \Selector2~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \midiState.stateByteComplete~q\);
+
+-- Location: MLABCELL_X87_Y21_N39
+\Selector2~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Selector2~1_combout\ = ( \midiState.stateByteComplete~q\ & ( (\Equal2~1_combout\ & \Equal2~0_combout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000101000001010000010100000101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~1_combout\,
+	datac => \ALT_INV_Equal2~0_combout\,
+	dataf => \ALT_INV_midiState.stateByteComplete~q\,
+	combout => \Selector2~1_combout\);
+
+-- Location: MLABCELL_X87_Y21_N36
+\midiState.stateWaitingForSignal~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiState.stateWaitingForSignal~0_combout\ = ( !\Selector2~1_combout\ )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1111111111111111111111111111111100000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataf => \ALT_INV_Selector2~1_combout\,
+	combout => \midiState.stateWaitingForSignal~0_combout\);
+
+-- Location: FF_X87_Y21_N38
+\midiState.stateWaitingForSignal\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \midiState.stateWaitingForSignal~0_combout\,
+	ena => \Selector2~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \midiState.stateWaitingForSignal~q\);
+
+-- Location: FF_X84_Y21_N5
+\debounceCountDown[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~0_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(0));
+
+-- Location: MLABCELL_X84_Y21_N33
+\Add0~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~5_sumout\ = SUM(( !debounceCountDown(1) ) + ( VCC ) + ( \Add0~2\ ))
+-- \Add0~6\ = CARRY(( !debounceCountDown(1) ) + ( VCC ) + ( \Add0~2\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000001111000011110000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_debounceCountDown(1),
+	cin => \Add0~2\,
+	sumout => \Add0~5_sumout\,
+	cout => \Add0~6\);
+
+-- Location: MLABCELL_X84_Y21_N6
+\debounceCountDown~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~1_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (!\Add0~5_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & !\Add0~5_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1010000010100000101000001010000010100000000000001010000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~5_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~1_combout\);
+
+-- Location: FF_X84_Y21_N8
+\debounceCountDown[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~1_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(1));
+
+-- Location: MLABCELL_X84_Y21_N36
+\Add0~9\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~9_sumout\ = SUM(( debounceCountDown(2) ) + ( VCC ) + ( \Add0~6\ ))
+-- \Add0~10\ = CARRY(( debounceCountDown(2) ) + ( VCC ) + ( \Add0~6\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000011001100110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => ALT_INV_debounceCountDown(2),
+	cin => \Add0~6\,
+	sumout => \Add0~9_sumout\,
+	cout => \Add0~10\);
+
+-- Location: MLABCELL_X84_Y21_N15
+\debounceCountDown~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~2_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~9_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~9_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101000001010000010100000101000001010000000000000101000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~9_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~2_combout\);
+
+-- Location: FF_X84_Y21_N17
+\debounceCountDown[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~2_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(2));
+
+-- Location: MLABCELL_X84_Y21_N39
+\Add0~13\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~13_sumout\ = SUM(( !debounceCountDown(3) ) + ( VCC ) + ( \Add0~10\ ))
+-- \Add0~14\ = CARRY(( !debounceCountDown(3) ) + ( VCC ) + ( \Add0~10\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000001111000011110000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_debounceCountDown(3),
+	cin => \Add0~10\,
+	sumout => \Add0~13_sumout\,
+	cout => \Add0~14\);
+
+-- Location: MLABCELL_X84_Y21_N12
+\debounceCountDown~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~3_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (!\Add0~13_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & !\Add0~13_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1000100010001000100010001000100010001000000000001000100000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datab => \ALT_INV_Add0~13_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~3_combout\);
+
+-- Location: FF_X84_Y21_N14
+\debounceCountDown[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~3_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(3));
+
+-- Location: MLABCELL_X84_Y21_N42
+\Add0~17\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~17_sumout\ = SUM(( debounceCountDown(4) ) + ( VCC ) + ( \Add0~14\ ))
+-- \Add0~18\ = CARRY(( debounceCountDown(4) ) + ( VCC ) + ( \Add0~14\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_debounceCountDown(4),
+	cin => \Add0~14\,
+	sumout => \Add0~17_sumout\,
+	cout => \Add0~18\);
+
+-- Location: MLABCELL_X84_Y21_N0
+\debounceCountDown~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~4_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~17_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~17_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0010001000100010001000100010001000100010000000000010001000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datab => \ALT_INV_Add0~17_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~4_combout\);
+
+-- Location: FF_X84_Y21_N2
+\debounceCountDown[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~4_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(4));
+
+-- Location: MLABCELL_X84_Y21_N45
+\Add0~21\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~21_sumout\ = SUM(( debounceCountDown(5) ) + ( VCC ) + ( \Add0~18\ ))
+-- \Add0~22\ = CARRY(( debounceCountDown(5) ) + ( VCC ) + ( \Add0~18\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000101010101010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_debounceCountDown(5),
+	cin => \Add0~18\,
+	sumout => \Add0~21_sumout\,
+	cout => \Add0~22\);
+
+-- Location: MLABCELL_X84_Y21_N21
+\debounceCountDown~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~5_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~21_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~21_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101000001010000010100000101000001010000000000000101000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~21_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~5_combout\);
+
+-- Location: FF_X84_Y21_N23
+\debounceCountDown[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~5_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(5));
+
+-- Location: MLABCELL_X84_Y21_N48
+\Add0~25\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~25_sumout\ = SUM(( debounceCountDown(6) ) + ( VCC ) + ( \Add0~22\ ))
+-- \Add0~26\ = CARRY(( debounceCountDown(6) ) + ( VCC ) + ( \Add0~22\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_debounceCountDown(6),
+	cin => \Add0~22\,
+	sumout => \Add0~25_sumout\,
+	cout => \Add0~26\);
+
+-- Location: MLABCELL_X84_Y21_N18
+\debounceCountDown~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~6_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~25_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~25_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101000001010000010100000101000001010000000000000101000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~25_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~6_combout\);
+
+-- Location: FF_X84_Y21_N20
+\debounceCountDown[6]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~6_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(6));
+
+-- Location: MLABCELL_X84_Y21_N51
+\Add0~29\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add0~29_sumout\ = SUM(( debounceCountDown(7) ) + ( VCC ) + ( \Add0~26\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000101010101010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_debounceCountDown(7),
+	cin => \Add0~26\,
+	sumout => \Add0~29_sumout\);
+
+-- Location: MLABCELL_X84_Y21_N27
+\debounceCountDown~7\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \debounceCountDown~7_combout\ = ( \Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & (\Add0~29_sumout\ & !\Equal0~0_combout\)) ) ) # ( !\Equal0~1_combout\ & ( (!\MIDI_RX~input_o\ & \Add0~29_sumout\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000101000001010000010100000101000001010000000000000101000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_Add0~29_sumout\,
+	datad => \ALT_INV_Equal0~0_combout\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \debounceCountDown~7_combout\);
+
+-- Location: FF_X84_Y21_N29
+\debounceCountDown[7]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \debounceCountDown~7_combout\,
+	ena => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => debounceCountDown(7));
+
+-- Location: MLABCELL_X84_Y21_N24
+\Equal0~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Equal0~1_combout\ = (!debounceCountDown(6) & !debounceCountDown(7))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1111000000000000111100000000000011110000000000001111000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_debounceCountDown(6),
+	datad => ALT_INV_debounceCountDown(7),
+	combout => \Equal0~1_combout\);
+
+-- Location: MLABCELL_X87_Y21_N21
+\midiState~17\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiState~17_combout\ = ( bitNumber(0) & ( bitNumber(1) & ( (!\Equal2~0_combout\) # ((!\midiState~15_combout\) # (!\Equal2~1_combout\)) ) ) ) # ( !bitNumber(0) & ( bitNumber(1) ) ) # ( bitNumber(0) & ( !bitNumber(1) ) ) # ( !bitNumber(0) & ( 
+-- !bitNumber(1) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1111111111111111111111111111111111111111111111111111111111111010",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~0_combout\,
+	datac => \ALT_INV_midiState~15_combout\,
+	datad => \ALT_INV_Equal2~1_combout\,
+	datae => ALT_INV_bitNumber(0),
+	dataf => ALT_INV_bitNumber(1),
+	combout => \midiState~17_combout\);
+
+-- Location: MLABCELL_X87_Y21_N12
+\Selector2~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Selector2~3_combout\ = ( !\midiState.stateSignalAvailable~q\ & ( (\Equal0~1_combout\ & (\Equal0~0_combout\ & (!\MIDI_RX~input_o\ & (!\Selector2~1_combout\ & !\midiState.stateWaitingForSignal~q\)))) ) ) # ( \midiState.stateSignalAvailable~q\ & ( 
+-- (((\midiState~17_combout\ & (!\Selector2~1_combout\)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "on",
+	lut_mask => "0001000000000000000011110000000000000000000000000000111100000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal0~1_combout\,
+	datab => \ALT_INV_Equal0~0_combout\,
+	datac => \ALT_INV_midiState~17_combout\,
+	datad => \ALT_INV_Selector2~1_combout\,
+	datae => \ALT_INV_midiState.stateSignalAvailable~q\,
+	dataf => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	datag => \ALT_INV_MIDI_RX~input_o\,
+	combout => \Selector2~3_combout\);
+
+-- Location: FF_X87_Y21_N14
+\midiState.stateSignalAvailable\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Selector2~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \midiState.stateSignalAvailable~q\);
+
+-- Location: LABCELL_X85_Y21_N48
+\midiCount[10]~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiCount[10]~0_combout\ = ( \Equal2~0_combout\ & ( \midiState.stateWaitingForSignal~q\ & ( (\Equal2~1_combout\ & \midiState.stateSignalAvailable~q\) ) ) ) # ( \Equal2~0_combout\ & ( !\midiState.stateWaitingForSignal~q\ & ( (!\Equal2~1_combout\) # 
+-- (!\midiState.stateSignalAvailable~q\) ) ) ) # ( !\Equal2~0_combout\ & ( !\midiState.stateWaitingForSignal~q\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1111111111111111111111001111110000000000000000000000001100000011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => \ALT_INV_Equal2~1_combout\,
+	datac => \ALT_INV_midiState.stateSignalAvailable~q\,
+	datae => \ALT_INV_Equal2~0_combout\,
+	dataf => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	combout => \midiCount[10]~0_combout\);
+
+-- Location: FF_X85_Y21_N2
+\midiCount[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~13_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(0));
+
+-- Location: LABCELL_X85_Y21_N3
+\Add1~17\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~17_sumout\ = SUM(( midiCount(1) ) + ( GND ) + ( \Add1~14\ ))
+-- \Add1~18\ = CARRY(( midiCount(1) ) + ( GND ) + ( \Add1~14\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000101010101010101",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_midiCount(1),
+	cin => \Add1~14\,
+	sumout => \Add1~17_sumout\,
+	cout => \Add1~18\);
+
+-- Location: FF_X85_Y21_N5
+\midiCount[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~17_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(1));
+
+-- Location: LABCELL_X85_Y21_N6
+\Add1~21\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~21_sumout\ = SUM(( midiCount(2) ) + ( GND ) + ( \Add1~18\ ))
+-- \Add1~22\ = CARRY(( midiCount(2) ) + ( GND ) + ( \Add1~18\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000011001100110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => ALT_INV_midiCount(2),
+	cin => \Add1~18\,
+	sumout => \Add1~21_sumout\,
+	cout => \Add1~22\);
+
+-- Location: FF_X85_Y21_N8
+\midiCount[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~21_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(2));
+
+-- Location: LABCELL_X85_Y21_N9
+\Add1~25\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~25_sumout\ = SUM(( midiCount(3) ) + ( GND ) + ( \Add1~22\ ))
+-- \Add1~26\ = CARRY(( midiCount(3) ) + ( GND ) + ( \Add1~22\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_midiCount(3),
+	cin => \Add1~22\,
+	sumout => \Add1~25_sumout\,
+	cout => \Add1~26\);
+
+-- Location: FF_X85_Y21_N11
+\midiCount[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~25_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(3));
+
+-- Location: LABCELL_X85_Y21_N12
+\Add1~29\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~29_sumout\ = SUM(( midiCount(4) ) + ( GND ) + ( \Add1~26\ ))
+-- \Add1~30\ = CARRY(( midiCount(4) ) + ( GND ) + ( \Add1~26\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000011001100110011",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datab => ALT_INV_midiCount(4),
+	cin => \Add1~26\,
+	sumout => \Add1~29_sumout\,
+	cout => \Add1~30\);
+
+-- Location: FF_X85_Y21_N14
+\midiCount[4]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~29_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(4));
+
+-- Location: LABCELL_X85_Y21_N15
+\Add1~9\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Add1~9_sumout\ = SUM(( midiCount(5) ) + ( GND ) + ( \Add1~30\ ))
+-- \Add1~10\ = CARRY(( midiCount(5) ) + ( GND ) + ( \Add1~30\ ))
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000000000000000000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_midiCount(5),
+	cin => \Add1~30\,
+	sumout => \Add1~9_sumout\,
+	cout => \Add1~10\);
+
+-- Location: FF_X85_Y21_N17
+\midiCount[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~9_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(5));
+
+-- Location: FF_X85_Y21_N20
+\midiCount[6]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Add1~33_sumout\,
+	sclr => \midiCount[10]~0_combout\,
+	ena => \byteValue[0]~12_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => midiCount(6));
+
+-- Location: LABCELL_X85_Y21_N42
+\Equal2~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Equal2~1_combout\ = ( midiCount(9) & ( !midiCount(8) & ( (midiCount(6) & (!midiCount(3) & (!midiCount(7) & !midiCount(4)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000010000000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_midiCount(6),
+	datab => ALT_INV_midiCount(3),
+	datac => ALT_INV_midiCount(7),
+	datad => ALT_INV_midiCount(4),
+	datae => ALT_INV_midiCount(9),
+	dataf => ALT_INV_midiCount(8),
+	combout => \Equal2~1_combout\);
+
+-- Location: MLABCELL_X87_Y21_N48
+\Selector0~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \Selector0~0_combout\ = ( \isByteAvailable~reg0_q\ & ( \midiState.stateByteComplete~q\ ) ) # ( !\isByteAvailable~reg0_q\ & ( \midiState.stateByteComplete~q\ & ( (\Equal2~1_combout\ & \Equal2~0_combout\) ) ) ) # ( \isByteAvailable~reg0_q\ & ( 
+-- !\midiState.stateByteComplete~q\ & ( \midiState.stateSignalAvailable~q\ ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000001100110011001100000101000001011111111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~1_combout\,
+	datab => \ALT_INV_midiState.stateSignalAvailable~q\,
+	datac => \ALT_INV_Equal2~0_combout\,
+	datae => \ALT_INV_isByteAvailable~reg0_q\,
+	dataf => \ALT_INV_midiState.stateByteComplete~q\,
+	combout => \Selector0~0_combout\);
+
+-- Location: FF_X87_Y21_N49
+\isByteAvailable~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \Selector0~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \isByteAvailable~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N54
+\midiState~14\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiState~14_combout\ = ( !bitNumber(3) & ( (!bitNumber(6) & (!bitNumber(4) & (!bitNumber(7) & !bitNumber(5)))) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "1000000000000000100000000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_bitNumber(6),
+	datab => ALT_INV_bitNumber(4),
+	datac => ALT_INV_bitNumber(7),
+	datad => ALT_INV_bitNumber(5),
+	dataf => ALT_INV_bitNumber(3),
+	combout => \midiState~14_combout\);
+
+-- Location: LABCELL_X88_Y21_N57
+\byteValue~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~0_combout\ = ( !bitNumber(0) & ( (\midiState~14_combout\ & !bitNumber(2)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000111100000000000011110000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ALT_INV_midiState~14_combout\,
+	datad => ALT_INV_bitNumber(2),
+	dataf => ALT_INV_bitNumber(0),
+	combout => \byteValue~0_combout\);
+
+-- Location: MLABCELL_X87_Y21_N3
+\byteValue~1\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~1_combout\ = ( \byteValue[0]~reg0_q\ & ( \MIDI_RX~input_o\ ) ) # ( !\byteValue[0]~reg0_q\ & ( \MIDI_RX~input_o\ & ( (!bitNumber(1) & (\byteValue~0_combout\ & \Equal2~2_combout\)) ) ) ) # ( \byteValue[0]~reg0_q\ & ( !\MIDI_RX~input_o\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000111111111111111100000010000000101111111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => ALT_INV_bitNumber(1),
+	datab => \ALT_INV_byteValue~0_combout\,
+	datac => \ALT_INV_Equal2~2_combout\,
+	datae => \ALT_INV_byteValue[0]~reg0_q\,
+	dataf => \ALT_INV_MIDI_RX~input_o\,
+	combout => \byteValue~1_combout\);
+
+-- Location: MLABCELL_X84_Y21_N9
+\byteValue[0]~2\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue[0]~2_combout\ = ( \Equal0~1_combout\ & ( (!\midiState.stateByteComplete~q\ & (((!\MIDI_RX~input_o\ & \Equal0~0_combout\)) # (\midiState.stateWaitingForSignal~q\))) ) ) # ( !\Equal0~1_combout\ & ( (!\midiState.stateByteComplete~q\ & 
+-- \midiState.stateWaitingForSignal~q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011110000000000001111000000100000111100000010000011110000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_MIDI_RX~input_o\,
+	datab => \ALT_INV_Equal0~0_combout\,
+	datac => \ALT_INV_midiState.stateByteComplete~q\,
+	datad => \ALT_INV_midiState.stateWaitingForSignal~q\,
+	dataf => \ALT_INV_Equal0~1_combout\,
+	combout => \byteValue[0]~2_combout\);
+
+-- Location: FF_X87_Y21_N4
+\byteValue[0]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~1_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[0]~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N6
+\byteValue~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~3_combout\ = ( bitNumber(0) & ( (\midiState~14_combout\ & !bitNumber(2)) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000001111000000000000111100000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ALT_INV_midiState~14_combout\,
+	datad => ALT_INV_bitNumber(2),
+	dataf => ALT_INV_bitNumber(0),
+	combout => \byteValue~3_combout\);
+
+-- Location: LABCELL_X88_Y21_N0
+\byteValue~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~4_combout\ = ( bitNumber(1) & ( \byteValue[1]~reg0_q\ ) ) # ( !bitNumber(1) & ( ((\Equal2~2_combout\ & (\byteValue~3_combout\ & \MIDI_RX~input_o\))) # (\byteValue[1]~reg0_q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000111111111000000011111111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_byteValue~3_combout\,
+	datac => \ALT_INV_MIDI_RX~input_o\,
+	datad => \ALT_INV_byteValue[1]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~4_combout\);
+
+-- Location: FF_X88_Y21_N1
+\byteValue[1]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~4_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[1]~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N9
+\byteValue~5\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~5_combout\ = ( bitNumber(1) & ( ((\Equal2~2_combout\ & (\MIDI_RX~input_o\ & \byteValue~0_combout\))) # (\byteValue[2]~reg0_q\) ) ) # ( !bitNumber(1) & ( \byteValue[2]~reg0_q\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011111111000000001111111100000001111111110000000111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_byteValue~0_combout\,
+	datad => \ALT_INV_byteValue[2]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~5_combout\);
+
+-- Location: FF_X88_Y21_N10
+\byteValue[2]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~5_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[2]~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N3
+\byteValue~6\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~6_combout\ = ( bitNumber(1) & ( ((\Equal2~2_combout\ & (\byteValue~3_combout\ & \MIDI_RX~input_o\))) # (\byteValue[3]~reg0_q\) ) ) # ( !bitNumber(1) & ( \byteValue[3]~reg0_q\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011111111000000001111111100000001111111110000000111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_byteValue~3_combout\,
+	datac => \ALT_INV_MIDI_RX~input_o\,
+	datad => \ALT_INV_byteValue[3]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~6_combout\);
+
+-- Location: FF_X88_Y21_N4
+\byteValue[3]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~6_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[3]~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N12
+\byteValue~7\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~7_combout\ = ( !bitNumber(0) & ( \midiState~15_combout\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000111100001111000011110000111100000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => \ALT_INV_midiState~15_combout\,
+	dataf => ALT_INV_bitNumber(0),
+	combout => \byteValue~7_combout\);
+
+-- Location: LABCELL_X88_Y21_N15
+\byteValue~8\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~8_combout\ = ( bitNumber(1) & ( \byteValue[4]~reg0_q\ ) ) # ( !bitNumber(1) & ( ((\Equal2~2_combout\ & (\MIDI_RX~input_o\ & \byteValue~7_combout\))) # (\byteValue[4]~reg0_q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000111111111000000011111111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_byteValue~7_combout\,
+	datad => \ALT_INV_byteValue[4]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~8_combout\);
+
+-- Location: FF_X88_Y21_N16
+\byteValue[4]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~8_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[4]~reg0_q\);
+
+-- Location: MLABCELL_X87_Y21_N9
+\midiState~16\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \midiState~16_combout\ = ( \midiState~15_combout\ & ( bitNumber(0) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000001111000011110000111100001111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	datac => ALT_INV_bitNumber(0),
+	dataf => \ALT_INV_midiState~15_combout\,
+	combout => \midiState~16_combout\);
+
+-- Location: LABCELL_X88_Y21_N21
+\byteValue~9\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~9_combout\ = ( bitNumber(1) & ( \byteValue[5]~reg0_q\ ) ) # ( !bitNumber(1) & ( ((\Equal2~2_combout\ & (\MIDI_RX~input_o\ & \midiState~16_combout\))) # (\byteValue[5]~reg0_q\) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000111111111000000011111111100000000111111110000000011111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_midiState~16_combout\,
+	datad => \ALT_INV_byteValue[5]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~9_combout\);
+
+-- Location: FF_X88_Y21_N22
+\byteValue[5]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~9_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[5]~reg0_q\);
+
+-- Location: LABCELL_X88_Y21_N18
+\byteValue~10\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~10_combout\ = ( bitNumber(1) & ( ((\Equal2~2_combout\ & (\MIDI_RX~input_o\ & \byteValue~7_combout\))) # (\byteValue[6]~reg0_q\) ) ) # ( !bitNumber(1) & ( \byteValue[6]~reg0_q\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011111111000000001111111100000001111111110000000111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_Equal2~2_combout\,
+	datab => \ALT_INV_MIDI_RX~input_o\,
+	datac => \ALT_INV_byteValue~7_combout\,
+	datad => \ALT_INV_byteValue[6]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~10_combout\);
+
+-- Location: FF_X88_Y21_N19
+\byteValue[6]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~10_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[6]~reg0_q\);
+
+-- Location: MLABCELL_X87_Y21_N6
+\byteValue~11\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \byteValue~11_combout\ = ( bitNumber(1) & ( ((\midiState~16_combout\ & (\Equal2~2_combout\ & \MIDI_RX~input_o\))) # (\byteValue[7]~reg0_q\) ) ) # ( !bitNumber(1) & ( \byteValue[7]~reg0_q\ ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000011111111000000001111111100000001111111110000000111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \ALT_INV_midiState~16_combout\,
+	datab => \ALT_INV_Equal2~2_combout\,
+	datac => \ALT_INV_MIDI_RX~input_o\,
+	datad => \ALT_INV_byteValue[7]~reg0_q\,
+	dataf => ALT_INV_bitNumber(1),
+	combout => \byteValue~11_combout\);
+
+-- Location: FF_X87_Y21_N7
+\byteValue[7]~reg0\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \byteValue~11_combout\,
+	sclr => \ALT_INV_midiState.stateSignalAvailable~q\,
+	ena => \byteValue[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \byteValue[7]~reg0_q\);
+
+-- Location: LABCELL_X17_Y51_N0
 \~QUARTUS_CREATED_GND~I\ : cyclonev_lcell_comb
 -- Equation(s):
 

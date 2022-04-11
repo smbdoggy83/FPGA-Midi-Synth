@@ -8,86 +8,69 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/simulation/modelsim
-Emidibytereader
-Z1 w1649257158
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
-Z5 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader.vhd
-Z6 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader.vhd
-l0
-L14
-V;R=6gDHIYhOK99QA7=l2o2
-!s100 mO=IhBQdf=[1N72?CGZPk1
-Z7 OV;C;10.5b;63
-31
-Z8 !s110 1649701101
+vMidiByteReader_verilog
+Z1 !s110 1649712457
 !i10b 1
-Z9 !s108 1649701101.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader.vhd|
-Z11 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader.vhd|
+!s100 QW`i:VmRiO6>h>2X@kj[J1
+I?6;C4>FH>DH2P8_CSN=_W0
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1649711364
+8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v
+FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v
+L0 1
+OV;L;10.5b;63
+r1
+!s85 0
+31
+Z2 !s108 1649712457.000000
+!s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert
+tCvgOpt 0
+n@midi@byte@reader_verilog
+Emidibytereader_verilog_tb
+Z3 w1649712053
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog_tb.vhd
+Z8 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog_tb.vhd
+l0
+L5
+V`=oPjV`ghGnc64a8e=YNo3
+!s100 nijoBna91OGFj<PCg6d472
+Z9 OV;C;10.5b;63
+31
+R1
+!i10b 1
+R2
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog_tb.vhd|
+Z11 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog_tb.vhd|
 !i113 1
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
-Afrom_verilog
-R2
-R3
-R4
-Z14 DEx4 work 14 midibytereader 0 22 ;R=6gDHIYhOK99QA7=l2o2
-l36
-L29
-V>kbzaZ=[8h?3^Qn4Fm7@f1
-!s100 0=7m3S^EPW[U_LF=LVL<B2
-R7
-31
-R8
-!i10b 1
-R9
-R10
-R11
-!i113 1
-R12
-R13
-Emidibytereader_tb
-Z15 w1649692880
-R2
-R3
-R4
-R0
-Z16 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_tb.vhd
-Z17 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_tb.vhd
-l0
-L5
-V;T[507`[o;aXR;Yml84G41
-!s100 1hR>7P]V03P_[k_KiCkUL1
-R7
-31
-R8
-!i10b 1
-R9
-Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_tb.vhd|
-Z19 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_tb.vhd|
-!i113 1
-R12
-R13
 Atb
-R14
-R2
-R3
+DPx7 verilog 8 vl_types 0 22 bmGnzhS4n>6F^Dki9hX>O3
+DEx4 work 22 MidiByteReader_verilog 0 22 Dg1SIo80bB@j0V0VzS_@n1
 R4
-DEx4 work 17 midibytereader_tb 0 22 ;T[507`[o;aXR;Yml84G41
+R5
+R6
+DEx4 work 25 midibytereader_verilog_tb 0 22 `=oPjV`ghGnc64a8e=YNo3
 l15
 L8
-V2m<HbNgBXn^Y?Lc7C`2gC1
-!s100 X:DD]`<zK0RSOEa[^P>z90
-R7
-31
-!s110 1649701102
-!i10b 1
+VRERlzm95Z_h?YK85BYAVl0
+!s100 ?j8l?=JfIb3ihJY[<Yb[R2
 R9
-R18
-R19
+31
+R1
+!i10b 1
+R2
+R10
+R11
 !i113 1
 R12
 R13
