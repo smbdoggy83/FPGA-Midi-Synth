@@ -27,8 +27,8 @@ end entity;
 --   stateSignalAvailable = 1
 --   stateWaitingForSignal = 0
 architecture from_verilog of MidiByteReader is
-  signal byteValue_Reg : unsigned(7 downto 0);
-  signal isByteAvailable_Reg : std_logic;
+  signal byteValue_Reg : unsigned(7 downto 0) := X"00"; --  signal byteValue_Reg : unsigned(7 downto 0);
+  signal isByteAvailable_Reg : std_logic := '0'; --  signal isByteAvailable_Reg : std_logic;
   signal bitNumber : unsigned(7 downto 0) := X"00";  -- Declared at MidiByteReader.v:18
   signal debounceCountDown : unsigned(7 downto 0) := X"0a";  -- Declared at MidiByteReader.v:20
   signal midiCount : unsigned(11 downto 0) := X"000";  -- Declared at MidiByteReader.v:19
@@ -38,12 +38,12 @@ begin
   isByteAvailable <= isByteAvailable_Reg;
   
   -- Generated from initial process in MidiByteReader (MidiByteReader.v:1)
-  process is
-  begin
-    isByteAvailable_Reg <= '0';
-    byteValue_Reg <= X"00";
-    wait;
-  end process;
+--  process is
+--  begin
+--    isByteAvailable_Reg <= '0';
+--    byteValue_Reg <= X"00";
+--    wait;
+--  end process;
   
   -- Generated from always process in MidiByteReader (MidiByteReader.v:22)
   process (CLOCK_50) is

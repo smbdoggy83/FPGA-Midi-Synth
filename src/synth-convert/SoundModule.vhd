@@ -12,7 +12,7 @@ entity SoundModule is
     I2S_BIT_CLOCK : out std_logic;
     I2S_LEFT_RIGHT_SELECT : out std_logic;
     I2S_SOUND_DATA : out std_logic;
-		LED : out std_logic_vector(7 downto 0);
+		LED : out unsigned(7 downto 0);
 	 --    LED : out unsigned(7 downto 0);
     MIDI_RX : in std_logic
   );
@@ -26,16 +26,16 @@ architecture from_verilog of SoundModule is
 			CLOCK_50 : in std_logic;
 			MIDI_RX : in std_logic;
 			isNoteOn : out std_logic;
-			noteSampleTicks : out std_logic_vector(23 downto 0);
-			modulationValue : out std_logic_vector(7 downto 0)
+			noteSampleTicks : out unsigned(23 downto 0);
+			modulationValue : out unsigned(7 downto 0)
 		);
 	end component;
 
 	component synthesizer
 		port(
 			CLOCK_50, isNoteOn : in std_logic;
-			noteSampleTicks : in std_logic_vector(23 downto 0);
-			modulationValue : in std_logic_vector(7 downto 0);
+			noteSampleTicks : in unsigned(23 downto 0);
+			modulationValue : in unsigned(7 downto 0);
 			i2sBitClock, i2sSoundData, i2sLeftRightSelect : out std_logic
 		);
 	end component;
@@ -44,14 +44,14 @@ architecture from_verilog of SoundModule is
   signal I2S_LEFT_RIGHT_SELECT_Reg : std_logic;
   signal I2S_SOUND_DATA_Reg : std_logic;
 --  signal LED_Reg : unsigned(7 downto 0);
-	signal LED_Reg : std_logic_vector(7 downto 0);
+	signal LED_Reg : unsigned(7 downto 0);
   signal i2sBitClock : std_logic;  -- Declared at SoundModule-Copy.v:10
   signal i2sLeftRightSelect : std_logic;  -- Declared at SoundModule-Copy.v:12
   signal i2sSoundData : std_logic;  -- Declared at SoundModule-Copy.v:11
   signal isNoteOn : std_logic;  -- Declared at SoundModule-Copy.v:14
 --  signal noteSampleTicks : unsigned(23 downto 0);  -- Declared at SoundModule-Copy.v:15
-	signal noteSampleTicks : std_logic_vector(23 downto 0);
-	signal modulationValue : std_logic_vector(7 downto 0);
+	signal noteSampleTicks : unsigned(23 downto 0);
+	signal modulationValue : unsigned(7 downto 0);
   
 begin
   I2S_BIT_CLOCK <= I2S_BIT_CLOCK_Reg; -- port stuff

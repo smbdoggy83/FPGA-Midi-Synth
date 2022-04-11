@@ -18,6 +18,23 @@ end entity;
 
 -- Generated from Verilog module MidiProcessor (MidiProcessor-Copy.v:1)
 architecture from_verilog of MidiProcessor is
+
+  component midiByteReader
+	port(
+		CLOCK_50 : in std_logic;
+		MIDI_RX : in std_logic;
+		isByteAvailable : out std_logic;
+		byteValue : out unsigned(7 downto 0)
+	);
+	end component;	
+  
+  component midiNoteNumberToSampleTicks
+	port(
+		midiNoteNumber : in unsigned(7 downto 0);
+		noteSampleTicks : out unsigned(23 downto 0)
+	);
+	end component;
+
   signal isNoteOn_Reg : std_logic;
   signal modulationValue_Reg : unsigned(7 downto 0);
   signal noteSampleTicks_Reg : unsigned(23 downto 0);
@@ -33,7 +50,8 @@ architecture from_verilog of MidiProcessor is
   signal midiNoteNumber : unsigned(7 downto 0) := X"00";  -- Declared at MidiProcessor-Copy.v:16
   signal sampleTicks : unsigned(23 downto 0);  -- Declared at MidiProcessor-Copy.v:21
   signal status : unsigned(3 downto 0) := X"0";  -- Declared at MidiProcessor-Copy.v:9
-begin
+  
+  begin
   isNoteOn <= isNoteOn_Reg;
   modulationValue <= modulationValue_Reg;
   noteSampleTicks <= noteSampleTicks_Reg;
@@ -42,6 +60,11 @@ begin
   sampleTicks <= (others => 'Z');
   -- Removed one empty process
   
+  MidiByteReader_inst : midiByteReader
+  port map(CLOCK_50, MIDI_RX, isByteAvailable, byteValue);
+  
+  midiNoteNumberToSampleTicks_inst : midiNoteNumberToSampleTicks
+  port map(midiNoteNumber, sampleTicks);
   
   -- Generated from always process in MidiProcessor (MidiProcessor-Copy.v:26)
   process (CLOCK_50) is

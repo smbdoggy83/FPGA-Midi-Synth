@@ -22,6 +22,41 @@ end entity;
 -- Generated from Verilog module Synthesizer (Synthesizer-Copy.v:1)
 --   i2sTicks = 18
 architecture from_verilog of Synthesizer is
+
+	component WaveTable0Rom
+		port(
+			address : in unsigned(7 downto 0); --waveTableIndex
+			clock : in std_logic; --CLOCK_50
+			q : out unsigned(15 downto 0) --waveTableSample0
+		);
+	end component;
+
+	component WaveTable1Rom
+		port(
+			address : in unsigned(7 downto 0); --waveTableIndex
+			clock : in std_logic; --CLOCK_50
+			q : out unsigned(15 downto 0) --waveTableSample0
+		);
+	end component;
+	
+	component WaveTable2Rom
+		port(
+			address : in unsigned(7 downto 0); --waveTableIndex
+			clock : in std_logic; --CLOCK_50
+			q : out unsigned(15 downto 0) --waveTableSample0
+		);
+	end component;
+	
+	component SampleMixer
+		port(
+			sample0 : in unsigned(15 downto 0);
+			sample1 : in unsigned(15 downto 0);
+			sample2 : in unsigned(15 downto 0);
+			modulationValue : in unsigned(7 downto 0);
+			renderedSample : out unsigned(15 downto 0)
+		);
+	end component;
+	
   signal i2sBitClock_Reg : std_logic;
   signal i2sLeftRightSelect_Reg : std_logic;
   signal i2sSoundData_Reg : std_logic;
@@ -34,13 +69,30 @@ architecture from_verilog of Synthesizer is
   signal renderedSample : unsigned(15 downto 0);  -- Declared at Synthesizer-Copy.v:26
   signal sampleIndex : unsigned(7 downto 0) := X"00";  -- Declared at Synthesizer-Copy.v:17
   signal waveTableIndex : unsigned(7 downto 0) := X"00";  -- Declared at Synthesizer-Copy.v:18
-begin
+
+  -- These are probably needed
+  signal waveTableSample0 : unsigned(15 downto 0);
+  signal waveTableSample1 : unsigned(15 downto 0);
+  signal waveTableSample2 : unsigned(15 downto 0);
+
+ begin
   i2sBitClock <= i2sBitClock_Reg;
   i2sLeftRightSelect <= i2sLeftRightSelect_Reg;
   i2sSoundData <= i2sSoundData_Reg;
   renderedSample <= (others => 'Z');
   -- Removed one empty process
   
+  WaveTable0Rom_inst : WaveTable0Rom
+  port map(waveTableIndex, CLOCK_50, waveTableSample0);
+
+  WaveTable1Rom_inst : WaveTable1Rom
+  port map(waveTableIndex, CLOCK_50, waveTableSample1);
+  
+  WaveTable2Rom_inst : WaveTable2Rom
+  port map(waveTableIndex, CLOCK_50, waveTableSample2);
+  
+  SampleMixer_inst : SampleMixer
+  port map(waveTableSample0, waveTableSample1, waveTableSample2, modulation, renderedSample);
   
   -- Generated from always process in Synthesizer (Synthesizer-Copy.v:34)
   process (CLOCK_50) is
