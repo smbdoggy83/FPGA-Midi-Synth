@@ -6,7 +6,8 @@ module MidiByteReader_verilog(
 );
 
 localparam
-	midiTicks = 12'd1600,  // 50,000,000 / 31,250 (DE0 Nano clock / MIDI clock);
+	midiTicks = 12'd1600,  // 50,000,000 / 31,250 (DE0 Nano clock / MIDI clock); = 1600 
+									// 1600Hz = 625000ns = 625 us = 0.625ms
 	debounceTicks = 8'd10;
 
 localparam
@@ -24,35 +25,35 @@ begin
 	case (midiState)
 		stateWaitingForSignal: // starts here
 			begin
-				isByteAvailable <= 1'b0;
+				isByteAvailable <= 1'b0; // No bytes available
 			
-				if (MIDI_RX == 1'b0)
+				if (MIDI_RX == 1'b0) // If a 0 is detected?
 					begin
 						debounceCountDown <= debounceCountDown - 1'b1;
 						
-						if (debounceCountDown == 1'b0)
+						if (debounceCountDown == 1'b0) //once the debounce countdown is done (can just comment this out)
 							begin
-								debounceCountDown <= debounceTicks;
-								midiState <= stateSignalAvailable;
-								midiCount <= 1'b0;
+								debounceCountDown <= debounceTicks; //reset it
+								midiState <= stateSignalAvailable; //declare that "there is some kind of signal"
+								midiCount <= 1'b0; //reset everything we will need
 								bitNumber <= 1'b0;
 								byteValue <= 1'b0;
 							end
 					end
-				else
+				else // if a 1 is detected
 					debounceCountDown <= debounceTicks;
 			end
-		stateSignalAvailable:
+		stateSignalAvailable: // some signal is detected
 			begin
-				midiCount <= midiCount + 1'b1;
+				midiCount <= midiCount + 1'b1; // increment the midi count
 			
-				if (midiCount == midiTicks)
+				if (midiCount == midiTicks) //once a bit has been present for long enough
 					begin
-						midiCount <= 1'b0;
+						midiCount <= 1'b0; //reset the count (prepares it for next note)
 					
-						bitNumber <= bitNumber + 1'b1;	
+						bitNumber <= bitNumber + 1'b1;	//increment bit number (used for multiplication / strength of signal)
 
-						if (MIDI_RX == 1'b1)
+						if (MIDI_RX == 1'b1)					// if the signal is a 1, shift byte value?
 							byteValue <= byteValue | (1'b1 << bitNumber);
 		
 						if (bitNumber == 8'd7)

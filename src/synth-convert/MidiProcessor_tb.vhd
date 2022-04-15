@@ -12,6 +12,7 @@ architecture tb of MidiProcessor_tb is
 	signal isNoteOn : std_logic;
 	signal modulationValue : unsigned(7 downto 0);
 	signal noteSampleTicks : unsigned(23 downto 0);
+	signal count : unsigned(2 downto 0);
 
 	
 begin
@@ -32,83 +33,86 @@ begin
 			--0000: channel (supposedly ignored for now)
 			--01000101: frequency = 440
 			--01100000: velocity = 96 (supposedly ignored for now)
+			
+		wait for 200ns; -- waiting for byteValue to initialize (likely due to debounce)
 		
-		MIDI_RX <= '1'; 
+--		wait for 7ms; -- some other delay im not sure about
 
-		wait for 20ns;
+		MIDI_RX <= '1'; 
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
+----------------------------------------------------------
 		
-		
-		wait for 150ns;		
+		wait for 160ns;		
 		
 		finished <= '1';
 		wait;

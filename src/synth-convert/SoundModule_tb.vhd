@@ -32,78 +32,80 @@ begin
 			--0000: channel (supposedly ignored for now)
 			--01000101: frequency = 440
 			--01100000: velocity = 96 (supposedly ignored for now)
-							
-		MIDI_RX <= '1';
-		wait for 20ns;
+		
+		wait for 200ns;
+		
+		MIDI_RX <= '1'; 
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
-		
-		MIDI_RX <= '1';
-		wait for 20ns;
-		
-		MIDI_RX <= '0';
-		wait for 20ns;
-		
-		MIDI_RX <= '0';
-		wait for 20ns;
-		
-		MIDI_RX <= '0';
-		wait for 20ns;
-		
-		MIDI_RX <= '0';
-		wait for 20ns;
-		
-		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
+		
+		MIDI_RX <= '0';
+		wait for 625us;
+		
+		MIDI_RX <= '0';
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
+		
+		MIDI_RX <= '0';
+		wait for 625us;
+		
+		MIDI_RX <= '0';
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
+		
+		MIDI_RX <= '0';
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
+		
+		MIDI_RX <= '1';
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		
 		

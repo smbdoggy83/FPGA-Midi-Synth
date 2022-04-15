@@ -31,79 +31,79 @@ begin
 			--01000101: frequency = 440
 			--01100000: velocity = 96 (supposedly ignored for now)
 
-		wait for 200ns; -- waiting for byteValue to initialize (not sure why this happens)
+		wait for 200ns; -- waiting for byteValue to initialize (likely due to debounce)
 		
 		MIDI_RX <= '1'; 
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '1';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		MIDI_RX <= '0';
-		wait for 20ns;
+		wait for 625us;
 		
 		
 		

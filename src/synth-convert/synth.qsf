@@ -4,7 +4,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY MidiByteReader_verilog
+set_global_assignment -name TOP_LEVEL_ENTITY SoundModule
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "16.0.2"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:15:36 MARCH 27,2022"
@@ -174,7 +174,7 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH MidiByteReader_verilog_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH SoundModule_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME SoundModule_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SoundModule_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SoundModule_tb -section_id SoundModule_tb
@@ -190,6 +190,30 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MidiNoteNumberToSampleTic
 set_global_assignment -name EDA_TEST_BENCH_NAME Synthesizer_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Synthesizer_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Synthesizer_tb -section_id Synthesizer_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME MidiByteReader_verilog_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id MidiByteReader_verilog_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MidiByteReader_verilog_tb -section_id MidiByteReader_verilog_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME MidiProcessor_verilog_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id MidiProcessor_verilog_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MidiProcessor_verilog_tb -section_id MidiProcessor_verilog_tb
+set_global_assignment -name VERILOG_FILE MidiNoteNumberToSampleTicks_verilog.v
+set_global_assignment -name VERILOG_FILE MidiProcessor_verilog.v
+set_global_assignment -name VERILOG_FILE MidiByteReader_verilog.v
+set_global_assignment -name VHDL_FILE MidiByteReader_tb.vhd
+set_global_assignment -name VHDL_FILE MidiProcessor_tb.vhd
+set_global_assignment -name VHDL_FILE WaveTable2Rom_bb.vhd
+set_global_assignment -name VHDL_FILE WaveTable1Rom_bb.vhd
+set_global_assignment -name VHDL_FILE WaveTable0Rom_bb.vhd
+set_global_assignment -name VHDL_FILE SampleMixer.vhd
+set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks.vhd
+set_global_assignment -name VHDL_FILE MidiByteReader.vhd
+set_global_assignment -name VHDL_FILE MidiProcessor.vhd
+set_global_assignment -name VHDL_FILE Synthesizer.vhd
+set_global_assignment -name VHDL_FILE Top_Level.vhd
+set_global_assignment -name VHDL_FILE SoundModule.vhd
+set_global_assignment -name VHDL_FILE SoundModule_tb.vhd
+set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks_tb.vhd
+set_global_assignment -name VHDL_FILE Synthesizer_tb.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -310,29 +334,11 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACLRCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_XCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SCLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SDAT
-set_global_assignment -name VERILOG_FILE MidiByteReader_verilog.v
-set_global_assignment -name VHDL_FILE MidiByteReader_tb.vhd
-set_global_assignment -name VHDL_FILE MidiProcessor_tb.vhd
-set_global_assignment -name VHDL_FILE WaveTable2Rom_bb.vhd
-set_global_assignment -name VHDL_FILE WaveTable1Rom_bb.vhd
-set_global_assignment -name VHDL_FILE WaveTable0Rom_bb.vhd
-set_global_assignment -name VHDL_FILE SampleMixer.vhd
-set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks.vhd
-set_global_assignment -name VHDL_FILE MidiByteReader.vhd
-set_global_assignment -name VHDL_FILE MidiProcessor.vhd
-set_global_assignment -name VHDL_FILE Synthesizer.vhd
-set_global_assignment -name VHDL_FILE Top_Level.vhd
-set_global_assignment -name VHDL_FILE SoundModule.vhd
-set_global_assignment -name VHDL_FILE SoundModule_tb.vhd
-set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks_tb.vhd
-set_global_assignment -name VHDL_FILE Synthesizer_tb.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE SoundModule_tb.vhd -section_id SoundModule_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiProcessor_tb.vhd -section_id MidiProcessor_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiByteReader_tb.vhd -section_id MidiByteReader_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiNoteNumberToSampleTicks_tb.vhd -section_id MidiNoteNumberToSampleTicks_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE Synthesizer_tb.vhd -section_id Synthesizer_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME MidiByteReader_verilog_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id MidiByteReader_verilog_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME MidiByteReader_verilog_tb -section_id MidiByteReader_verilog_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiByteReader_verilog_tb.vhd -section_id MidiByteReader_verilog_tb
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE MidiProcessor_verilog_tb.vhd -section_id MidiProcessor_verilog_tb
