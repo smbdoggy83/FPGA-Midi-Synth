@@ -137,12 +137,13 @@ always @(negedge RESET or  posedge CLOCK )
 							end
 					//=========start===========
 					6'd1  : begin 
-								SD  = I2C_DATA;
+								SD  = I2C_DATA; //24-Bit I2C Data
 								SDO = 0;
 							end
 							
-					6'd2  : 	SCLK = 0;
+					6'd2  : 	SCLK = 07
 					//======SLAVE ADDR=========
+					//Bits 24-17 are the Slave Addresses of the I2C Data Word
 					6'd3  : 	SDO = SD[23];
 					6'd4  : 	SDO = SD[22];
 					6'd5  : 	SDO = SD[21];
@@ -154,6 +155,7 @@ always @(negedge RESET or  posedge CLOCK )
 					6'd11 : 	SDO = 1'b1;//ACK
 
 					//========SUB ADDR==========
+					//Bits 16-9 are the Sub Addresses of the I2C Data Word
 					6'd12  : begin 
 								SDO  = SD[15]; 
 								ACK1 = I2C_SDAT; 
@@ -168,6 +170,7 @@ always @(negedge RESET or  posedge CLOCK )
 					6'd20  : 	SDO = 1'b1;//ACK
 
 					//===========DATA============
+					//Bits 8-1 are the actual data of the I2C Data Word
 					6'd21  : begin 
 								SDO  = SD[7]; 
 								ACK2 = I2C_SDAT; 

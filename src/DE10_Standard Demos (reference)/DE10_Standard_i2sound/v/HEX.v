@@ -1,3 +1,5 @@
+// This Code Establishes the 7 Segment Hex Component on the DE-10 Standard.
+
 module  HEX(
 input	[3:0]	hex,
 output	[6:0]	hex_fps

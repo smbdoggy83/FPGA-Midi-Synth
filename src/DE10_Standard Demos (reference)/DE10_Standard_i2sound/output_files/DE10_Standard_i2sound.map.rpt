@@ -1,5 +1,5 @@
-Analysis & Elaboration report for DE10_Standard_i2sound
-Wed Apr 13 16:51:03 2022
+Analysis & Synthesis report for DE10_Standard_i2sound
+Mon Apr 18 15:22:39 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -7,12 +7,23 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Port Connectivity Checks: "i2c:u2"
-  6. Port Connectivity Checks: "keytr:u3"
-  7. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (No Restructuring Performed)
+ 13. Parameter Settings for Inferred Entity Instance: CLOCK_500:u1|lpm_divide:Div0
+ 14. Port Connectivity Checks: "i2c:u2"
+ 15. Port Connectivity Checks: "keytr:u3"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -35,42 +46,31 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Wed Apr 13 16:51:03 2022       ;
-; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                 ; DE10_Standard_i2sound                       ;
-; Top-level Entity Name         ; DE10_Standard_i2sound                       ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Apr 18 15:22:39 2022       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; DE10_Standard_i2sound                       ;
+; Top-level Entity Name           ; DE10_Standard_i2sound                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 76                                          ;
+; Total pins                      ; 168                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                                 ;
+; Analysis & Synthesis Settings                                                                                                   ;
 +---------------------------------------------------------------------------------+-----------------------+-----------------------+
 ; Option                                                                          ; Setting               ; Default Value         ;
 +---------------------------------------------------------------------------------+-----------------------+-----------------------+
@@ -156,6 +156,186 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+-----------------------+-----------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; v/HEX.v                          ; yes             ; User Verilog HDL File        ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/HEX.v                    ;         ;
+; v/keytr.v                        ; yes             ; User Verilog HDL File        ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v                  ;         ;
+; v/i2c.v                          ; yes             ; User Verilog HDL File        ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v                    ;         ;
+; v/clock_500.v                    ; yes             ; User Verilog HDL File        ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v              ;         ;
+; de10_standard_i2sound.v          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v    ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                                             ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc                                                                            ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                                        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                                             ;         ;
+; db/lpm_divide_gbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/lpm_divide_gbm.tdf      ;         ;
+; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/sign_div_unsign_mlh.tdf ;         ;
+; db/alt_u_div_ive.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/alt_u_div_ive.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 65                          ;
+;                                             ;                             ;
+; Combinational ALUT usage for logic          ; 117                         ;
+;     -- 7 input functions                    ; 0                           ;
+;     -- 6 input functions                    ; 11                          ;
+;     -- 5 input functions                    ; 17                          ;
+;     -- 4 input functions                    ; 30                          ;
+;     -- <=3 input functions                  ; 59                          ;
+;                                             ;                             ;
+; Dedicated logic registers                   ; 76                          ;
+;                                             ;                             ;
+; I/O pins                                    ; 168                         ;
+;                                             ;                             ;
+; Total DSP Blocks                            ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; CLOCK_500:u1|COUNTER_500[9] ;
+; Maximum fan-out                             ; 46                          ;
+; Total fan-out                               ; 796                         ;
+; Average fan-out                             ; 1.44                        ;
++---------------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                             ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Entity Name           ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |DE10_Standard_i2sound                    ; 117 (0)             ; 76 (0)                    ; 0                 ; 0          ; 168  ; 0            ; |DE10_Standard_i2sound                                                                                                              ; DE10_Standard_i2sound ; work         ;
+;    |CLOCK_500:u1|                         ; 60 (35)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1                                                                                                 ; CLOCK_500             ; work         ;
+;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gbm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated                                                   ; lpm_divide_gbm        ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh   ; work         ;
+;                |alt_u_div_ive:divider|    ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_ive:divider ; alt_u_div_ive         ; work         ;
+;    |HEX:u4|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|HEX:u4                                                                                                       ; HEX                   ; work         ;
+;    |i2c:u2|                               ; 27 (27)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|i2c:u2                                                                                                       ; i2c                   ; work         ;
+;    |keytr:u3|                             ; 23 (23)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|keytr:u3                                                                                                     ; keytr                 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; CLOCK_500:u1|DATA_A[8,13..15]          ; Stuck at GND due to stuck port data_in ;
+; i2c:u2|SD[22,23]                       ; Stuck at GND due to stuck port data_in ;
+; i2c:u2|SD[20,21]                       ; Stuck at VCC due to stuck port data_in ;
+; i2c:u2|SD[19]                          ; Stuck at GND due to stuck port data_in ;
+; i2c:u2|SD[18]                          ; Stuck at VCC due to stuck port data_in ;
+; i2c:u2|SD[8,13..17]                    ; Stuck at GND due to stuck port data_in ;
+; CLOCK_500:u1|address[4,5]              ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 18 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                  ;
++-------------------------+---------------------------+----------------------------------------+
+; Register name           ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------------+---------------------------+----------------------------------------+
+; CLOCK_500:u1|DATA_A[15] ; Stuck at GND              ; i2c:u2|SD[15]                          ;
+;                         ; due to stuck port data_in ;                                        ;
+; CLOCK_500:u1|DATA_A[14] ; Stuck at GND              ; i2c:u2|SD[14]                          ;
+;                         ; due to stuck port data_in ;                                        ;
+; CLOCK_500:u1|DATA_A[13] ; Stuck at GND              ; i2c:u2|SD[13]                          ;
+;                         ; due to stuck port data_in ;                                        ;
+; CLOCK_500:u1|DATA_A[8]  ; Stuck at GND              ; i2c:u2|SD[8]                           ;
+;                         ; due to stuck port data_in ;                                        ;
+; CLOCK_500:u1|address[5] ; Stuck at GND              ; CLOCK_500:u1|address[4]                ;
+;                         ; due to stuck port data_in ;                                        ;
++-------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 76    ;
+; Number of registers using Synchronous Clear  ; 18    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; CLOCK_500:u1|vol[4]                    ; 10      ;
+; CLOCK_500:u1|vol[2]                    ; 13      ;
+; CLOCK_500:u1|vol[3]                    ; 10      ;
+; CLOCK_500:u1|vol[1]                    ; 7       ;
+; CLOCK_500:u1|vol[0]                    ; 7       ;
+; keytr:u3|flag                          ; 6       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DE10_Standard_i2sound|i2c:u2|SD_COUNTER[5]   ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |DE10_Standard_i2sound|CLOCK_500:u1|DATA_A[3] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |DE10_Standard_i2sound|HEX:u4|hex_fps[5]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CLOCK_500:u1|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                             ;
+; LPM_WIDTHD             ; 2              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_gbm ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "i2c:u2"                                                                                                                                            ;
 +------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -179,76 +359,296 @@ refer to the applicable agreement for further details.
 +---------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 76                          ;
+;     CLR               ; 10                          ;
+;     ENA               ; 16                          ;
+;     SCLR              ; 18                          ;
+;     plain             ; 32                          ;
+; arriav_io_obuf        ; 24                          ;
+; arriav_lcell_comb     ; 119                         ;
+;     arith             ; 44                          ;
+;         0 data inputs ; 5                           ;
+;         1 data inputs ; 28                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 6                           ;
+;     normal            ; 75                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 24                          ;
+;         5 data inputs ; 17                          ;
+;         6 data inputs ; 11                          ;
+; boundary_port         ; 168                         ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 2.59                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Apr 13 16:50:45 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound --analysis_and_elaboration
+    Info: Processing started: Mon Apr 18 15:22:15 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file v/hex.v
-    Info (12023): Found entity 1: HEX File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/HEX.v Line: 1
+    Info (12023): Found entity 1: HEX File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/HEX.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file v/keytr.v
-    Info (12023): Found entity 1: keytr File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 47
+    Info (12023): Found entity 1: keytr File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file v/i2c.v
-    Info (12023): Found entity 1: i2c File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 43
+    Info (12023): Found entity 1: i2c File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 43
 Info (12021): Found 1 design units, including 1 entities, in source file v/clock_500.v
-    Info (12023): Found entity 1: CLOCK_500 File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 45
+    Info (12023): Found entity 1: CLOCK_500 File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 45
 Warning (12125): Using design file de10_standard_i2sound.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: DE10_Standard_i2sound File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 6
+    Info (12023): Found entity 1: DE10_Standard_i2sound File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 6
 Info (12127): Elaborating entity "DE10_Standard_i2sound" for the top level hierarchy
-Warning (10034): Output port "HEX2" at de10_standard_i2sound.v(26) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
-Warning (10034): Output port "HEX3" at de10_standard_i2sound.v(27) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
-Warning (10034): Output port "HEX4" at de10_standard_i2sound.v(28) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
-Warning (10034): Output port "HEX5" at de10_standard_i2sound.v(29) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
-Warning (10034): Output port "DRAM_ADDR" at de10_standard_i2sound.v(32) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
-Warning (10034): Output port "DRAM_BA" at de10_standard_i2sound.v(33) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 33
-Warning (10034): Output port "VGA_B" at de10_standard_i2sound.v(53) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
-Warning (10034): Output port "VGA_G" at de10_standard_i2sound.v(55) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
-Warning (10034): Output port "VGA_R" at de10_standard_i2sound.v(57) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
-Warning (10034): Output port "DRAM_CAS_N" at de10_standard_i2sound.v(34) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 34
-Warning (10034): Output port "DRAM_CKE" at de10_standard_i2sound.v(35) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 35
-Warning (10034): Output port "DRAM_CLK" at de10_standard_i2sound.v(36) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 36
-Warning (10034): Output port "DRAM_CS_N" at de10_standard_i2sound.v(37) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 37
-Warning (10034): Output port "DRAM_LDQM" at de10_standard_i2sound.v(39) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 39
-Warning (10034): Output port "DRAM_RAS_N" at de10_standard_i2sound.v(40) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 40
-Warning (10034): Output port "DRAM_UDQM" at de10_standard_i2sound.v(41) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 41
-Warning (10034): Output port "DRAM_WE_N" at de10_standard_i2sound.v(42) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 42
-Warning (10034): Output port "TD_RESET_N" at de10_standard_i2sound.v(48) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 48
-Warning (10034): Output port "VGA_BLANK_N" at de10_standard_i2sound.v(52) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 52
-Warning (10034): Output port "VGA_CLK" at de10_standard_i2sound.v(54) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 54
-Warning (10034): Output port "VGA_HS" at de10_standard_i2sound.v(56) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 56
-Warning (10034): Output port "VGA_SYNC_N" at de10_standard_i2sound.v(58) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 58
-Warning (10034): Output port "VGA_VS" at de10_standard_i2sound.v(59) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 59
-Warning (10034): Output port "ADC_CONVST" at de10_standard_i2sound.v(76) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 76
-Warning (10034): Output port "ADC_DIN" at de10_standard_i2sound.v(77) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 77
-Warning (10034): Output port "ADC_SCLK" at de10_standard_i2sound.v(79) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 79
-Warning (10034): Output port "IRDA_TXD" at de10_standard_i2sound.v(88) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 88
-Info (12128): Elaborating entity "keytr" for hierarchy "keytr:u3" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 117
-Warning (10230): Verilog HDL assignment warning at keytr.v(135): truncated value with size 32 to match size of target (16) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 135
-Warning (10034): Output port "counter" at keytr.v(66) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 66
-Warning (10034): Output port "ON" at keytr.v(64) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 64
-Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:u1" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 131
-Warning (10230): Verilog HDL assignment warning at clock_500.v(84): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 84
-Warning (10230): Verilog HDL assignment warning at clock_500.v(91): truncated value with size 32 to match size of target (11) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 91
-Warning (10230): Verilog HDL assignment warning at clock_500.v(103): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 103
-Warning (10230): Verilog HDL assignment warning at clock_500.v(117): truncated value with size 32 to match size of target (5) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 117
-Warning (10230): Verilog HDL assignment warning at clock_500.v(122): truncated value with size 32 to match size of target (4) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
-Warning (10230): Verilog HDL assignment warning at clock_500.v(123): truncated value with size 32 to match size of target (7) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 123
-Info (12128): Elaborating entity "i2c" for hierarchy "i2c:u2" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 145
-Warning (10230): Verilog HDL assignment warning at i2c.v(86): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 86
-Warning (10230): Verilog HDL assignment warning at i2c.v(85): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 85
-Warning (10230): Verilog HDL assignment warning at i2c.v(110): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 110
-Info (12128): Elaborating entity "HEX" for hierarchy "HEX:u4" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 150
+Warning (10034): Output port "HEX2" at de10_standard_i2sound.v(26) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+Warning (10034): Output port "HEX3" at de10_standard_i2sound.v(27) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+Warning (10034): Output port "HEX4" at de10_standard_i2sound.v(28) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+Warning (10034): Output port "HEX5" at de10_standard_i2sound.v(29) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+Warning (10034): Output port "DRAM_ADDR" at de10_standard_i2sound.v(32) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+Warning (10034): Output port "DRAM_BA" at de10_standard_i2sound.v(33) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 33
+Warning (10034): Output port "VGA_B" at de10_standard_i2sound.v(53) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+Warning (10034): Output port "VGA_G" at de10_standard_i2sound.v(55) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+Warning (10034): Output port "VGA_R" at de10_standard_i2sound.v(57) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+Warning (10034): Output port "DRAM_CAS_N" at de10_standard_i2sound.v(34) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 34
+Warning (10034): Output port "DRAM_CKE" at de10_standard_i2sound.v(35) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 35
+Warning (10034): Output port "DRAM_CLK" at de10_standard_i2sound.v(36) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 36
+Warning (10034): Output port "DRAM_CS_N" at de10_standard_i2sound.v(37) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 37
+Warning (10034): Output port "DRAM_LDQM" at de10_standard_i2sound.v(39) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 39
+Warning (10034): Output port "DRAM_RAS_N" at de10_standard_i2sound.v(40) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 40
+Warning (10034): Output port "DRAM_UDQM" at de10_standard_i2sound.v(41) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 41
+Warning (10034): Output port "DRAM_WE_N" at de10_standard_i2sound.v(42) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 42
+Warning (10034): Output port "TD_RESET_N" at de10_standard_i2sound.v(48) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 48
+Warning (10034): Output port "VGA_BLANK_N" at de10_standard_i2sound.v(52) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 52
+Warning (10034): Output port "VGA_CLK" at de10_standard_i2sound.v(54) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 54
+Warning (10034): Output port "VGA_HS" at de10_standard_i2sound.v(56) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 56
+Warning (10034): Output port "VGA_SYNC_N" at de10_standard_i2sound.v(58) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 58
+Warning (10034): Output port "VGA_VS" at de10_standard_i2sound.v(59) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 59
+Warning (10034): Output port "ADC_CONVST" at de10_standard_i2sound.v(76) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 76
+Warning (10034): Output port "ADC_DIN" at de10_standard_i2sound.v(77) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 77
+Warning (10034): Output port "ADC_SCLK" at de10_standard_i2sound.v(79) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 79
+Warning (10034): Output port "IRDA_TXD" at de10_standard_i2sound.v(88) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 88
+Info (12128): Elaborating entity "keytr" for hierarchy "keytr:u3" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 117
+Warning (10230): Verilog HDL assignment warning at keytr.v(135): truncated value with size 32 to match size of target (16) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 135
+Warning (10034): Output port "counter" at keytr.v(66) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 66
+Warning (10034): Output port "ON" at keytr.v(64) has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 64
+Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:u1" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 131
+Warning (10230): Verilog HDL assignment warning at clock_500.v(84): truncated value with size 32 to match size of target (1) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 84
+Warning (10230): Verilog HDL assignment warning at clock_500.v(91): truncated value with size 32 to match size of target (11) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 91
+Warning (10230): Verilog HDL assignment warning at clock_500.v(103): truncated value with size 32 to match size of target (6) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 103
+Warning (10230): Verilog HDL assignment warning at clock_500.v(117): truncated value with size 32 to match size of target (5) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 117
+Warning (10230): Verilog HDL assignment warning at clock_500.v(122): truncated value with size 32 to match size of target (4) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
+Warning (10230): Verilog HDL assignment warning at clock_500.v(123): truncated value with size 32 to match size of target (7) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 123
+Info (12128): Elaborating entity "i2c" for hierarchy "i2c:u2" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 145
+Warning (10230): Verilog HDL assignment warning at i2c.v(86): truncated value with size 32 to match size of target (1) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 86
+Warning (10230): Verilog HDL assignment warning at i2c.v(85): truncated value with size 32 to match size of target (1) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 85
+Warning (10230): Verilog HDL assignment warning at i2c.v(110): truncated value with size 32 to match size of target (6) File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 110
+Info (12128): Elaborating entity "HEX" for hierarchy "HEX:u4" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 150
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "CLOCK_500:u1|Div0" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
+Info (12130): Elaborated megafunction instantiation "CLOCK_500:u1|lpm_divide:Div0" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
+Info (12133): Instantiated megafunction "CLOCK_500:u1|lpm_divide:Div0" with the following parameter: File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "2"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gbm.tdf
+    Info (12023): Found entity 1: lpm_divide_gbm File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/lpm_divide_gbm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_mlh File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/sign_div_unsign_mlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ive.tdf
+    Info (12023): Found entity 1: alt_u_div_ive File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/db/alt_u_div_ive.tdf Line: 22
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 42 warnings
-    Info: Peak virtual memory: 4778 megabytes
-    Info: Processing ended: Wed Apr 13 16:51:03 2022
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:45
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 63
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 64
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 66
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 70
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 71
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 72
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 73
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 21
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 29
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 32
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 33
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 33
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 34
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 35
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 36
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 37
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 39
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 40
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 41
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 42
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 48
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 52
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 53
+    Warning (13410): Pin "VGA_CLK" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 54
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 55
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 56
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 57
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 58
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 59
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 76
+    Warning (13410): Pin "ADC_DIN" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 77
+    Warning (13410): Pin "ADC_SCLK" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 79
+    Warning (13410): Pin "IRDA_TXD" is stuck at GND File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 88
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 28 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 11
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 15
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "TD_CLK27" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 45
+    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 47
+    Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 49
+    Warning (15610): No output dependent on input pin "ADC_DOUT" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 78
+    Warning (15610): No output dependent on input pin "IRDA_RXD" File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 86
+Info (21057): Implemented 302 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 32 input pins
+    Info (21059): Implemented 112 output pins
+    Info (21060): Implemented 24 bidirectional pins
+    Info (21061): Implemented 134 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 198 warnings
+    Info: Peak virtual memory: 4842 megabytes
+    Info: Processing ended: Mon Apr 18 15:22:39 2022
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:46
 
 
