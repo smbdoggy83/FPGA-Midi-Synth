@@ -5,58 +5,58 @@
 
 module DE10_Standard_i2sound(
 
-	//////////// CLOCK //////////
-	input 		          		CLOCK2_50,
-	input 		          		CLOCK3_50,
-	input 		          		CLOCK4_50,
-	input 		          		CLOCK_50,
+//	//////////// CLOCK //////////
+//	input 		          		CLOCK2_50,
+//	input 		          		CLOCK3_50,
+//	input 		          		CLOCK4_50,
+//	input 		          		CLOCK_50,
 
 	//////////// KEY //////////
 	input 		     [3:0]		KEY,
 
-	//////////// SW //////////
-	input 		     [9:0]		SW,
-
-	//////////// LED //////////
-	output		     [9:0]		LEDR,
+//	//////////// SW //////////
+//	input 		     [9:0]		SW,
+//
+//	//////////// LED //////////
+//	output		     [9:0]		LEDR,
 
 	//////////// Seg7 //////////
 	output		     [6:0]		HEX0,
 	output		     [6:0]		HEX1,
-	output		     [6:0]		HEX2,
-	output		     [6:0]		HEX3,
-	output		     [6:0]		HEX4,
-	output		     [6:0]		HEX5,
-
-	//////////// SDRAM //////////
-	output		    [12:0]		DRAM_ADDR,
-	output		     [1:0]		DRAM_BA,
-	output		          		DRAM_CAS_N,
-	output		          		DRAM_CKE,
-	output		          		DRAM_CLK,
-	output		          		DRAM_CS_N,
-	inout 		    [15:0]		DRAM_DQ,
-	output		          		DRAM_LDQM,
-	output		          		DRAM_RAS_N,
-	output		          		DRAM_UDQM,
-	output		          		DRAM_WE_N,
-
-	//////////// Video-In //////////
-	input 		          		TD_CLK27,
-	input 		     [7:0]		TD_DATA,
-	input 		          		TD_HS,
-	output		          		TD_RESET_N,
-	input 		          		TD_VS,
-
-	//////////// VGA //////////
-	output		          		VGA_BLANK_N,
-	output		     [7:0]		VGA_B,
-	output		          		VGA_CLK,
-	output		     [7:0]		VGA_G,
-	output		          		VGA_HS,
-	output		     [7:0]		VGA_R,
-	output		          		VGA_SYNC_N,
-	output		          		VGA_VS,
+//	output		     [6:0]		HEX2,
+//	output		     [6:0]		HEX3,
+//	output		     [6:0]		HEX4,
+//	output		     [6:0]		HEX5,
+//
+//	//////////// SDRAM //////////
+//	output		    [12:0]		DRAM_ADDR,
+//	output		     [1:0]		DRAM_BA,
+//	output		          		DRAM_CAS_N,
+//	output		          		DRAM_CKE,
+//	output		          		DRAM_CLK,
+//	output		          		DRAM_CS_N,
+//	inout 		    [15:0]		DRAM_DQ,
+//	output		          		DRAM_LDQM,
+//	output		          		DRAM_RAS_N,
+//	output		          		DRAM_UDQM,
+//	output		          		DRAM_WE_N,
+//
+//	//////////// Video-In //////////
+//	input 		          		TD_CLK27,
+//	input 		     [7:0]		TD_DATA,
+//	input 		          		TD_HS,
+//	output		          		TD_RESET_N,
+//	input 		          		TD_VS,
+//
+//	//////////// VGA //////////
+//	output		          		VGA_BLANK_N,
+//	output		     [7:0]		VGA_B,
+//	output		          		VGA_CLK,
+//	output		     [7:0]		VGA_G,
+//	output		          		VGA_HS,
+//	output		     [7:0]		VGA_R,
+//	output		          		VGA_SYNC_N,
+//	output		          		VGA_VS,
 
 	//////////// Audio //////////
 	input 		          		AUD_ADCDAT,
@@ -66,25 +66,25 @@ module DE10_Standard_i2sound(
 	inout 		          		AUD_DACLRCK,
 	output		          		AUD_XCK,
 
-	//////////// PS2 //////////
-	inout 		          		PS2_CLK,
-	inout 		          		PS2_CLK2,
-	inout 		          		PS2_DAT,
-	inout 		          		PS2_DAT2,
-
-	//////////// ADC //////////
-	output		          		ADC_CONVST,
-	output		          		ADC_DIN,
-	input 		          		ADC_DOUT,
-	output		          		ADC_SCLK,
+//	//////////// PS2 //////////
+//	inout 		          		PS2_CLK,
+//	inout 		          		PS2_CLK2,
+//	inout 		          		PS2_DAT,
+//	inout 		          		PS2_DAT2,
+//
+//	//////////// ADC //////////
+//	output		          		ADC_CONVST,
+//	output		          		ADC_DIN,
+//	input 		          		ADC_DOUT,
+//	output		          		ADC_SCLK,
 
 	//////////// I2C for Audio and Video-In //////////
 	output		          		FPGA_I2C_SCLK,
-	inout 		          		FPGA_I2C_SDAT,
+	inout 		          		FPGA_I2C_SDAT
 
-	//////////// IR //////////
-	input 		          		IRDA_RXD,
-	output		          		IRDA_TXD
+//	//////////// IR //////////
+//	input 		          		IRDA_RXD,
+//	output		          		IRDA_TXD
 );
 
 
@@ -118,35 +118,35 @@ keytr			u3(
 
 //I2C output data
 CLOCK_500		u1(
-	.CLOCK(CLOCK_50),
-	.rst_n(KEY[1]),					 
-	.END(END),
-	.KEY0_EDGE(KEY0_EDGE),
+	.CLOCK(CLOCK_50), //The Outputting Clock Signal is Connected to the CLOCK_50 Signal on the DE-10
+	.rst_n(KEY[1]), // The Reset Signal is Connected to KEY1 on the DE-10					 
+	.END(END), //Stopping the Process of Outputting the I2C Data to the I2S on the DE-10
+	.KEY0_EDGE(KEY0_EDGE), //The Edge Signal for KEY0 is Connected to the Edge Signal for KEY0 on the DE-10
 	
-	.CLOCK_500(CLK_1M),
-	.GO(GO),             
-	.CLOCK_2(AUD_XCK),
-	.DATA(AUD_I2C_DATA),
-	.level_vol(level_vol)
+	.CLOCK_500(CLK_1M), //The Clock_500 Signal Outputting from the I2C is Connected to a 1MHz on the DE-10
+	.GO(GO), //Process of Moving the I2C Serial Data             
+	.CLOCK_2(AUD_XCK), //The Clock_2 Signal Outputting from the I2C is Connected to the Audio XCK Signal on the I2S in the DE-10
+	.DATA(AUD_I2C_DATA), //The Data Signal Outputting from the I2C is Connected to the Audio I2C Data Signal on the I2S in the DE-10
+	.level_vol(level_vol) //The Outputting Volume Level is Mapped to the I2C Volume Level on the DE-10
 	);
 					 
-//i2c controller
+//i2c input controller
 i2c				u2( 
 	// Host Side
-	.CLOCK(CLK_1M),
-	.RESET(1'b1),
+	.CLOCK(CLK_1M), //The Overall Clock Signal from the Controller is Connected to a 1MHz Clock on the DE-10
+	.RESET(1'b1), //The Reset Signal from the Controller is Connected to the Value 1'b1 on the DE-10
 	// I2C Side
-	.I2C_SDAT(FPGA_I2C_SDAT),
-	.I2C_DATA(AUD_I2C_DATA),
-	.I2C_SCLK(FPGA_I2C_SCLK),
+	.I2C_SDAT(FPGA_I2C_SDAT), //The I2C Data Signal from the Controller is Connected to the FPGA I2C Data Signal for the Audio In of the I2S on the DE-10
+	.I2C_DATA(AUD_I2C_DATA), //The 24 Bit I2C Serial Data from the Controller is Connected to the 24 Bit Audio I2C Data Signal for the I2S on the DE-10
+	.I2C_SCLK(FPGA_I2C_SCLK), //The I2C Clock Signal from the Controller is Connected to the FPGA I2C Clock Signal for the Audio In of the I2S on the DE-10
 	// Control Signals
-	.GO(GO),
-	.END(END)
+	.GO(GO), //Process of Moving the I2C Serial Data
+	.END(END) //Stopping the Process of Moving I2C Serial Data
 	);
 					 
 HEX				u4(
-	.hex(level_vol),
-	.hex_fps(HEX0)
+	.hex(level_vol), 
+	.hex_fps(HEX0) //Displays the Volume Level on the DE-10
 	);
 
 
