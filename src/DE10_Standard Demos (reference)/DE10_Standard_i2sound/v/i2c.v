@@ -141,7 +141,7 @@ always @(negedge RESET or  posedge CLOCK )
 								SDO = 0;
 							end
 							
-					6'd2  : 	SCLK = 07
+					6'd2  : 	SCLK = 07;
 					//======SLAVE ADDR=========
 					//Bits 24-17 are the Slave Addresses of the I2C Data Word
 					6'd3  : 	SDO = SD[23];
@@ -150,7 +150,7 @@ always @(negedge RESET or  posedge CLOCK )
 					6'd6  : 	SDO = SD[20];
 					6'd7  : 	SDO = SD[19];
 					6'd8  : 	SDO = SD[18];
-					6'd9  :	    SDO	= SD[17];
+					6'd9  :	SDO = SD[17];
 					6'd10 : 	SDO = SD[16];	
 					6'd11 : 	SDO = 1'b1;//ACK
 
