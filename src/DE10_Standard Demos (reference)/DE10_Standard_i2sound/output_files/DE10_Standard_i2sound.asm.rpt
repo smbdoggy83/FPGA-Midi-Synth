@@ -1,5 +1,9 @@
 Assembler report for DE10_Standard_i2sound
+<<<<<<< Updated upstream
 Mon Apr 18 15:24:01 2022
+=======
+Mon Apr 18 15:40:53 2022
+>>>>>>> Stashed changes
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +14,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
+<<<<<<< Updated upstream
   5. Assembler Device Options: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.sof
+=======
+  5. Assembler Device Options: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.sof
+>>>>>>> Stashed changes
   6. Assembler Messages
 
 
@@ -37,9 +45,15 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
+<<<<<<< Updated upstream
 ; Assembler Status      ; Successful - Mon Apr 18 15:24:01 2022 ;
 ; Revision Name         ; DE10_Standard_i2sound                 ;
 ; Top-level Entity Name ; DE10_Standard_i2sound                 ;
+=======
+; Assembler Status      ; Successful - Mon Apr 18 15:40:53 2022 ;
+; Revision Name         ; DE10_Standard_i2sound                 ;
+; Top-level Entity Name ; DE10_Standard_i2sound_all             ;
+>>>>>>> Stashed changes
 ; Family                ; Cyclone V                             ;
 ; Device                ; 5CSXFC6D6F31C6                        ;
 +-----------------------+---------------------------------------+
@@ -52,6 +66,7 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
+<<<<<<< Updated upstream
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Assembler Generated Files                                                                                                                                     ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -69,6 +84,25 @@ refer to the applicable agreement for further details.
 ; JTAG usercode  ; 0x00B1D488                                                                                                                                                             ;
 ; Checksum       ; 0x00B1D488                                                                                                                                                             ;
 +----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+=======
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.sof ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.sof ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                                                                  ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00B1D488                                                                                                                                                               ;
+; Checksum       ; 0x00B1D488                                                                                                                                                               ;
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+>>>>>>> Stashed changes
 
 
 +--------------------+
@@ -77,14 +111,25 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< Updated upstream
     Info: Processing started: Mon Apr 18 15:23:50 2022
+=======
+    Info: Processing started: Mon Apr 18 15:40:47 2022
+>>>>>>> Stashed changes
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+<<<<<<< Updated upstream
     Info: Peak virtual memory: 4833 megabytes
     Info: Processing ended: Mon Apr 18 15:24:01 2022
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:11
+=======
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Mon Apr 18 15:40:53 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
+>>>>>>> Stashed changes
 
 

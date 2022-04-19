@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 Fitter Status : Successful - Mon Apr 18 15:23:47 2022
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : DE10_Standard_i2sound
 Top-level Entity Name : DE10_Standard_i2sound
+=======
+Fitter Status : Successful - Mon Apr 18 15:40:46 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : DE10_Standard_i2sound
+Top-level Entity Name : DE10_Standard_i2sound_all
+>>>>>>> Stashed changes
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final

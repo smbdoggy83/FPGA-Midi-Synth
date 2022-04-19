@@ -14,10 +14,17 @@ module DE10_Standard_i2sound(
 	//////////// KEY //////////
 	input 		     [3:0]		KEY,
 
+<<<<<<< Updated upstream
 //	//////////// SW //////////
 //	input 		     [9:0]		SW,
 //
 //	//////////// LED //////////
+=======
+	//////////// SW //////////
+//	input 		     [9:0]		SW,
+
+	//////////// LED //////////
+>>>>>>> Stashed changes
 //	output		     [9:0]		LEDR,
 
 	//////////// Seg7 //////////
@@ -27,8 +34,13 @@ module DE10_Standard_i2sound(
 //	output		     [6:0]		HEX3,
 //	output		     [6:0]		HEX4,
 //	output		     [6:0]		HEX5,
+<<<<<<< Updated upstream
 //
 //	//////////// SDRAM //////////
+=======
+
+	//////////// SDRAM //////////
+>>>>>>> Stashed changes
 //	output		    [12:0]		DRAM_ADDR,
 //	output		     [1:0]		DRAM_BA,
 //	output		          		DRAM_CAS_N,
@@ -40,15 +52,25 @@ module DE10_Standard_i2sound(
 //	output		          		DRAM_RAS_N,
 //	output		          		DRAM_UDQM,
 //	output		          		DRAM_WE_N,
+<<<<<<< Updated upstream
 //
 //	//////////// Video-In //////////
+=======
+
+	//////////// Video-In //////////
+>>>>>>> Stashed changes
 //	input 		          		TD_CLK27,
 //	input 		     [7:0]		TD_DATA,
 //	input 		          		TD_HS,
 //	output		          		TD_RESET_N,
 //	input 		          		TD_VS,
+<<<<<<< Updated upstream
 //
 //	//////////// VGA //////////
+=======
+
+	//////////// VGA //////////
+>>>>>>> Stashed changes
 //	output		          		VGA_BLANK_N,
 //	output		     [7:0]		VGA_B,
 //	output		          		VGA_CLK,
@@ -66,13 +88,22 @@ module DE10_Standard_i2sound(
 	inout 		          		AUD_DACLRCK,
 	output		          		AUD_XCK,
 
+<<<<<<< Updated upstream
 //	//////////// PS2 //////////
+=======
+	//////////// PS2 //////////
+>>>>>>> Stashed changes
 //	inout 		          		PS2_CLK,
 //	inout 		          		PS2_CLK2,
 //	inout 		          		PS2_DAT,
 //	inout 		          		PS2_DAT2,
+<<<<<<< Updated upstream
 //
 //	//////////// ADC //////////
+=======
+
+	//////////// ADC //////////
+>>>>>>> Stashed changes
 //	output		          		ADC_CONVST,
 //	output		          		ADC_DIN,
 //	input 		          		ADC_DOUT,
@@ -82,7 +113,11 @@ module DE10_Standard_i2sound(
 	output		          		FPGA_I2C_SCLK,
 	inout 		          		FPGA_I2C_SDAT
 
+<<<<<<< Updated upstream
 //	//////////// IR //////////
+=======
+	//////////// IR //////////
+>>>>>>> Stashed changes
 //	input 		          		IRDA_RXD,
 //	output		          		IRDA_TXD
 );

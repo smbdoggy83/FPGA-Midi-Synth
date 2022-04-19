@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 Analysis & Synthesis report for DE10_Standard_i2sound
 Mon Apr 18 15:22:39 2022
+=======
+Analysis & Elaboration report for DE10_Standard_i2sound
+Mon Apr 18 17:32:18 2022
+>>>>>>> Stashed changes
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -46,6 +51,7 @@ refer to the applicable agreement for further details.
 
 
 
+<<<<<<< Updated upstream
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
@@ -67,6 +73,40 @@ refer to the applicable agreement for further details.
 ; Total PLLs                      ; 0                                           ;
 ; Total DLLs                      ; 0                                           ;
 +---------------------------------+---------------------------------------------+
+=======
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Mon Apr 18 17:32:18 2022       ;
+; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                 ; DE10_Standard_i2sound                       ;
+; Top-level Entity Name         ; DE10_Standard_i2sound                       ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+>>>>>>> Stashed changes
 
 
 +---------------------------------------------------------------------------------------------------------------------------------+
@@ -407,6 +447,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< Updated upstream
     Info: Processing started: Mon Apr 18 15:22:15 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
@@ -414,9 +455,17 @@ Warning (18236): Number of processors has not been specified which may cause ove
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file v/hex.v
     Info (12023): Found entity 1: HEX File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/HEX.v Line: 1
+=======
+    Info: Processing started: Mon Apr 18 17:32:01 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound --analysis_and_elaboration
+Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+>>>>>>> Stashed changes
 Info (12021): Found 1 design units, including 1 entities, in source file v/keytr.v
     Info (12023): Found entity 1: keytr File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file v/i2c.v
+<<<<<<< Updated upstream
     Info (12023): Found entity 1: i2c File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 43
 Info (12021): Found 1 design units, including 1 entities, in source file v/clock_500.v
     Info (12023): Found entity 1: CLOCK_500 File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 45
@@ -649,6 +698,37 @@ Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 198 warnings
     Info: Peak virtual memory: 4842 megabytes
     Info: Processing ended: Mon Apr 18 15:22:39 2022
     Info: Elapsed time: 00:00:24
+=======
+    Info (12023): Found entity 1: i2c File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file v/hex.v
+    Info (12023): Found entity 1: HEX File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/HEX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file v/clock_500.v
+    Info (12023): Found entity 1: CLOCK_500 File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file de10_standard_i2sound.v
+    Info (12023): Found entity 1: DE10_Standard_i2sound File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.v Line: 6
+Info (12127): Elaborating entity "DE10_Standard_i2sound" for the top level hierarchy
+Info (12128): Elaborating entity "keytr" for hierarchy "keytr:u3" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.v Line: 117
+Warning (10230): Verilog HDL assignment warning at keytr.v(135): truncated value with size 32 to match size of target (16) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 135
+Warning (10034): Output port "counter" at keytr.v(66) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 66
+Warning (10034): Output port "ON" at keytr.v(64) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/keytr.v Line: 64
+Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:u1" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.v Line: 131
+Warning (10230): Verilog HDL assignment warning at clock_500.v(84): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 84
+Warning (10230): Verilog HDL assignment warning at clock_500.v(91): truncated value with size 32 to match size of target (11) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 91
+Warning (10230): Verilog HDL assignment warning at clock_500.v(103): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 103
+Warning (10230): Verilog HDL assignment warning at clock_500.v(117): truncated value with size 32 to match size of target (5) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 117
+Warning (10230): Verilog HDL assignment warning at clock_500.v(122): truncated value with size 32 to match size of target (4) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 122
+Warning (10230): Verilog HDL assignment warning at clock_500.v(123): truncated value with size 32 to match size of target (7) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/clock_500.v Line: 123
+Info (12128): Elaborating entity "i2c" for hierarchy "i2c:u2" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.v Line: 145
+Warning (10230): Verilog HDL assignment warning at i2c.v(86): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 86
+Warning (10230): Verilog HDL assignment warning at i2c.v(85): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 85
+Warning (10230): Verilog HDL assignment warning at i2c.v(110): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/v/i2c.v Line: 110
+Info (12128): Elaborating entity "HEX" for hierarchy "HEX:u4" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.v Line: 150
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Mon Apr 18 17:32:18 2022
+    Info: Elapsed time: 00:00:17
+>>>>>>> Stashed changes
     Info: Total CPU time (on all processors): 00:00:46
 
 

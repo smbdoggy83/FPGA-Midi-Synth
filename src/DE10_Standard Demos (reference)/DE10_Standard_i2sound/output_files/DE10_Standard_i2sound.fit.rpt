@@ -1,5 +1,9 @@
 Fitter report for DE10_Standard_i2sound
+<<<<<<< Updated upstream
 Mon Apr 18 15:23:47 2022
+=======
+Mon Apr 18 15:40:46 2022
+>>>>>>> Stashed changes
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -63,10 +67,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
+<<<<<<< Updated upstream
 ; Fitter Status                   ; Successful - Mon Apr 18 15:23:47 2022       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; DE10_Standard_i2sound                       ;
 ; Top-level Entity Name           ; DE10_Standard_i2sound                       ;
+=======
+; Fitter Status                   ; Successful - Mon Apr 18 15:40:46 2022       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; DE10_Standard_i2sound                       ;
+; Top-level Entity Name           ; DE10_Standard_i2sound_all                   ;
+>>>>>>> Stashed changes
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
@@ -150,6 +161,7 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
+<<<<<<< Updated upstream
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
@@ -161,6 +173,25 @@ refer to the applicable agreement for further details.
 ;     Processor 2            ;   0.3%      ;
 ;     Processor 3            ;   0.3%      ;
 ;     Processor 4            ;   0.2%      ;
+=======
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.2%      ;
+;     Processor 5            ;   0.2%      ;
+;     Processor 6            ;   0.2%      ;
+;     Processor 7            ;   0.2%      ;
+;     Processor 8            ;   0.2%      ;
+;     Processor 9            ;   0.2%      ;
+;     Processors 10-16       ;   0.1%      ;
+>>>>>>> Stashed changes
 +----------------------------+-------------+
 
 
@@ -213,7 +244,11 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
+<<<<<<< Updated upstream
 The pin-out file can be found in C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.pin.
+=======
+The pin-out file can be found in C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.pin.
+>>>>>>> Stashed changes
 
 
 +------------------------------------------------------------------------------------------+
@@ -1676,6 +1711,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +---------------+--------------------------------------+
 
 
+<<<<<<< Updated upstream
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
 +-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
@@ -1691,6 +1727,23 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;    |i2c:u2|                               ; 18.3 (18.3)          ; 21.3 (21.3)                      ; 3.0 (3.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (27)             ; 22 (22)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|i2c:u2                                                                                                       ; i2c                   ; work         ;
 ;    |keytr:u3|                             ; 12.5 (12.5)          ; 15.1 (15.1)                      ; 2.6 (2.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 23 (23)             ; 23 (23)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|keytr:u3                                                                                                     ; keytr                 ; work         ;
 +-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+=======
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node                ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                     ; Entity Name               ; Library Name ;
++-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; |DE10_Standard_i2sound_all                ; 65.0 (0.5)           ; 72.5 (0.5)                       ; 7.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 118 (1)             ; 78 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 168  ; 0            ; |DE10_Standard_i2sound_all                                                                                                              ; DE10_Standard_i2sound_all ; work         ;
+;    |CLOCK_500:u1|                         ; 30.3 (18.3)          ; 32.1 (20.3)                      ; 1.8 (2.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 60 (35)             ; 33 (33)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|CLOCK_500:u1                                                                                                 ; CLOCK_500                 ; work         ;
+;       |lpm_divide:Div0|                   ; 11.8 (0.0)           ; 11.8 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|CLOCK_500:u1|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_gbm:auto_generated|  ; 11.8 (0.0)           ; 11.8 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated                                                   ; lpm_divide_gbm            ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 11.8 (0.0)           ; 11.8 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh       ; work         ;
+;                |alt_u_div_ive:divider|    ; 11.8 (11.8)          ; 11.8 (11.8)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 25 (25)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_ive:divider ; alt_u_div_ive             ; work         ;
+;    |HEX:u4|                               ; 3.3 (3.3)            ; 3.5 (3.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|HEX:u4                                                                                                       ; HEX                       ; work         ;
+;    |i2c:u2|                               ; 18.3 (18.3)          ; 21.3 (21.3)                      ; 3.0 (3.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (27)             ; 22 (22)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|i2c:u2                                                                                                       ; i2c                       ; work         ;
+;    |keytr:u3|                             ; 12.5 (12.5)          ; 15.1 (15.1)                      ; 2.6 (2.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 23 (23)             ; 23 (23)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound_all|keytr:u3                                                                                                     ; keytr                     ; work         ;
++-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+>>>>>>> Stashed changes
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -2364,7 +2417,11 @@ Note: This table only shows the top 2 path(s) that have the largest delay added 
 +-----------------+
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+<<<<<<< Updated upstream
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+=======
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+>>>>>>> Stashed changes
 Info (119006): Selected device 5CSXFC6D6F31C6 for design "DE10_Standard_i2sound"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -2376,6 +2433,7 @@ Info (11191): Automatically promoted 1 clock (1 global)
     Info (11162): CLOCK_50~inputCLKENA0 with 10 fanout uses global clock CLKCTRL_G6
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Info (176233): Starting register packing
+<<<<<<< Updated upstream
 Info (332104): Reading SDC File: 'DE10_Standard_i2sound.SDC'
 Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(15): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
 Warning (332049): Ignored create_clock at DE10_Standard_i2sound.sdc(15): Argument <targets> is not an object ID File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
@@ -2393,6 +2451,25 @@ Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(18): altera_reserv
 Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument <targets> is an empty collection File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
     Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
 Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument -clock is not an object ID File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+=======
+Info (332104): Reading SDC File: 'DE10_Standard_i2sound.sdc'
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(15): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+Warning (332049): Ignored create_clock at DE10_Standard_i2sound.sdc(15): Argument <targets> is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+    Info (332050): create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck} File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(16): altera_reserved_tdi could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(16): altera_reserved_tck could not be matched with a clock File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(16): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(16): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(17): altera_reserved_tms could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(17): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(17): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(18): altera_reserved_tdo could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+    Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+>>>>>>> Stashed changes
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
 Warning (332060): Node: keytr:u3|D1 was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register CLOCK_500:u1|vol[3] is being clocked by keytr:u3|D1
@@ -2420,6 +2497,7 @@ Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+<<<<<<< Updated upstream
 Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:02
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -2436,10 +2514,29 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X33_Y0 to location X44_Y10
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
 Info (11888): Total time spent on timing analysis during the Fitter is 0.91 seconds.
+=======
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
+Info (176233): Starting register packing
+Info (176235): Finished register packing
+    Extra Info (176219): No registers were packed into other blocks
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:13
+Info (170189): Fitter placement preparation operations beginning
+Info (14951): The Fitter is using Advanced Physical Optimization.
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:08
+Info (170191): Fitter placement operations beginning
+Info (170137): Fitter placement was successful
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
+Info (170193): Fitter routing operations beginning
+Info (170195): Router estimated average interconnect usage is 0% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X33_Y0 to location X44_Y10
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
+Info (11888): Total time spent on timing analysis during the Fitter is 0.98 seconds.
+>>>>>>> Stashed changes
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+<<<<<<< Updated upstream
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:06
 Warning (169064): Following 23 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
     Info (169065): Pin DRAM_DQ[0] has a permanently disabled output enable File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/de10_standard_i2sound.v Line: 38
@@ -2471,11 +2568,48 @@ Info: Quartus Prime Fitter was successful. 0 errors, 19 warnings
     Info: Processing ended: Mon Apr 18 15:23:48 2022
     Info: Elapsed time: 00:01:07
     Info: Total CPU time (on all processors): 00:01:53
+=======
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:05
+Warning (169064): Following 23 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
+    Info (169065): Pin DRAM_DQ[0] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[1] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[2] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[3] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[4] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[5] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[6] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[7] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[8] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[9] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[10] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[11] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[12] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[13] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[14] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin DRAM_DQ[15] has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 38
+    Info (169065): Pin AUD_ADCLRCK has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 63
+    Info (169065): Pin AUD_BCLK has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 64
+    Info (169065): Pin AUD_DACLRCK has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 66
+    Info (169065): Pin PS2_CLK has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 70
+    Info (169065): Pin PS2_CLK2 has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 71
+    Info (169065): Pin PS2_DAT has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 72
+    Info (169065): Pin PS2_DAT2 has a permanently disabled output enable File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound_all.v Line: 73
+Info (144001): Generated suppressed messages file C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 7977 megabytes
+    Info: Processing ended: Mon Apr 18 15:40:46 2022
+    Info: Elapsed time: 00:00:56
+    Info: Total CPU time (on all processors): 00:03:57
+>>>>>>> Stashed changes
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
+<<<<<<< Updated upstream
 The suppressed messages can be found in C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.fit.smsg.
+=======
+The suppressed messages can be found in C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/output_files/DE10_Standard_i2sound.fit.smsg.
+>>>>>>> Stashed changes
 
 

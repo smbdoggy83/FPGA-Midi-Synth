@@ -37,6 +37,8 @@ begin
 		modulationValue <= X"00";
 		noteSampleTicks <= X"B48599";
 		
+		wait for 40ns;
+		
 		finished <= '1';
 		wait;
 	end process;

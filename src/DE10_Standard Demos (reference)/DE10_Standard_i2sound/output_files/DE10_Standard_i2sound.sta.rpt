@@ -1,5 +1,9 @@
 Timing Analyzer report for DE10_Standard_i2sound
+<<<<<<< Updated upstream
 Mon Apr 18 15:24:14 2022
+=======
+Mon Apr 18 15:41:01 2022
+>>>>>>> Stashed changes
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -97,6 +101,7 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
+<<<<<<< Updated upstream
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
@@ -108,6 +113,25 @@ refer to the applicable agreement for further details.
 ;     Processor 2            ;   1.9%      ;
 ;     Processor 3            ;   1.9%      ;
 ;     Processor 4            ;   1.9%      ;
+=======
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.15        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.4%      ;
+;     Processor 3            ;   1.3%      ;
+;     Processor 4            ;   1.3%      ;
+;     Processor 5            ;   1.3%      ;
+;     Processor 6            ;   1.3%      ;
+;     Processor 7            ;   1.3%      ;
+;     Processor 8            ;   1.3%      ;
+;     Processor 9            ;   1.3%      ;
+;     Processors 10-16       ;   0.7%      ;
+>>>>>>> Stashed changes
 +----------------------------+-------------+
 
 
@@ -116,7 +140,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------+--------------------------+
 ; SDC File Path             ; Status ; Read at                  ;
 +---------------------------+--------+--------------------------+
+<<<<<<< Updated upstream
 ; DE10_Standard_i2sound.SDC ; OK     ; Mon Apr 18 15:24:06 2022 ;
+=======
+; DE10_Standard_i2sound.sdc ; OK     ; Mon Apr 18 15:40:56 2022 ;
+>>>>>>> Stashed changes
 +---------------------------+--------+--------------------------+
 
 
@@ -1261,6 +1289,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< Updated upstream
     Info: Processing started: Mon Apr 18 15:24:02 2022
 Info: Command: quartus_sta DE10_Standard_i2sound -c DE10_Standard_i2sound
 Info: qsta_default_script.tcl version: #1
@@ -1285,6 +1314,32 @@ Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(18): altera_reserv
 Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument <targets> is an empty collection File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
     Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
 Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument -clock is not an object ID File: C:/Users/richi/OneDrive/Desktop/DE10Standard/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+=======
+    Info: Processing started: Mon Apr 18 15:40:54 2022
+Info: Command: quartus_sta DE10_Standard_i2sound -c DE10_Standard_i2sound
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'DE10_Standard_i2sound.sdc'
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(15): altera_reserved_tck could not be matched with a port or pin or register or keeper or net or combinational node or node File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+Warning (332049): Ignored create_clock at DE10_Standard_i2sound.sdc(15): Argument <targets> is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+    Info (332050): create_clock -name {altera_reserved_tck} -period 40 {altera_reserved_tck} File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 15
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(16): altera_reserved_tdi could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(16): altera_reserved_tck could not be matched with a clock File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(16): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(16): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 16
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(17): altera_reserved_tms could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(17): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+    Info (332050): set_input_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332049): Ignored set_input_delay at DE10_Standard_i2sound.sdc(17): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 17
+Warning (332174): Ignored filter at DE10_Standard_i2sound.sdc(18): altera_reserved_tdo could not be matched with a port File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument <targets> is an empty collection File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+    Info (332050): set_output_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo] File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+Warning (332049): Ignored set_output_delay at DE10_Standard_i2sound.sdc(18): Argument -clock is not an object ID File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound/DE10_Standard_i2sound.sdc Line: 18
+>>>>>>> Stashed changes
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
 Warning (332060): Node: keytr:u3|D1 was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register CLOCK_500:u1|vol[3] is being clocked by keytr:u3|D1
@@ -1382,9 +1437,16 @@ Info (332146): Worst-case minimum pulse width slack is 8.732
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 25 warnings
+<<<<<<< Updated upstream
     Info: Peak virtual memory: 5141 megabytes
     Info: Processing ended: Mon Apr 18 15:24:14 2022
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:12
+=======
+    Info: Peak virtual memory: 5286 megabytes
+    Info: Processing ended: Mon Apr 18 15:41:01 2022
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:08
+>>>>>>> Stashed changes
 
 
