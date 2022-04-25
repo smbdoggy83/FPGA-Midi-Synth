@@ -10,95 +10,47 @@
 # Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:10:04 on Apr 13,2022
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert" C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v 
-# -- Compiling module MidiProcessor_verilog
-# 
-# Top level modules:
-# 	MidiProcessor_verilog
-# End time: 11:10:04 on Apr 13,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:10:04 on Apr 13,2022
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert" C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v 
-# -- Compiling module MidiByteReader_verilog
-# 
-# Top level modules:
-# 	MidiByteReader_verilog
-# End time: 11:10:04 on Apr 13,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd}
+# vcom -93 -work work {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:10:04 on Apr 13,2022
-# vcom -reportprogress 300 -93 -work work C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd 
+# Start time: 18:57:27 on Apr 15,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity MidiNoteNumberToSampleTicks
-# -- Compiling architecture from_verilog of MidiNoteNumberToSampleTicks
-# End time: 11:10:05 on Apr 13,2022, Elapsed time: 0:00:01
+# -- Compiling entity SampleMixer
+# -- Compiling architecture from_verilog of SampleMixer
+# End time: 18:57:27 on Apr 15,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd}
+# vcom -93 -work work {C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:10:05 on Apr 13,2022
-# vcom -reportprogress 300 -93 -work work C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd 
+# Start time: 18:57:27 on Apr 15,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity MidiProcessor_verilog_tb
-# -- Compiling architecture tb of MidiProcessor_verilog_tb
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(18): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(26): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(27): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(40): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(43): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(46): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(49): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(52): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(55): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(58): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(64): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(67): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(73): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(76): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(79): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(82): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(85): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(88): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(91): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(94): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(97): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(100): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(103): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(106): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(109): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd(113): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# -- Loading package vl_types
-# -- Loading entity MidiProcessor_verilog
-# End time: 11:10:05 on Apr 13,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 29
+# -- Compiling entity SampleMixer_tb
+# -- Compiling architecture tb of SampleMixer_tb
+# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd(28): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd(29): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd(31): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# -- Loading entity SampleMixer
+# End time: 18:57:27 on Apr 15,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 5
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  MidiProcessor_verilog_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" MidiProcessor_verilog_tb 
-# Start time: 11:10:05 on Apr 13,2022
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  SampleMixer_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" SampleMixer_tb 
+# Start time: 18:57:27 on Apr 15,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading verilog.vl_types(body)
-# Loading work.midiprocessor_verilog_tb(tb)
-# Loading work.MidiProcessor_verilog
-# Loading work.MidiByteReader_verilog
-# Loading work.midinotenumbertosampleticks(from_verilog)
+# Loading work.samplemixer_tb(tb)
+# Loading work.samplemixer(from_verilog)
 # 
 # add wave *
 # view structure
@@ -106,5 +58,13 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# End time: 12:20:19 on Apr 13,2022, Elapsed time: 1:10:14
-# Errors: 0, Warnings: 0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /samplemixer_tb/uut
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /samplemixer_tb/uut
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /samplemixer_tb/uut
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /samplemixer_tb/uut
+# End time: 19:06:32 on Apr 15,2022, Elapsed time: 0:09:05
+# Errors: 0, Warnings: 4

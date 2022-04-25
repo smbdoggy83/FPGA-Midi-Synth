@@ -8,133 +8,86 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/simulation/modelsim
-vMidiByteReader_verilog
-Z1 !s110 1649862604
-!i10b 1
-!s100 PAh6XRg0oi7I^_2ok6zKZ0
-I5ImeQzR@lWM=92hhm7ILJ0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+Esamplemixer
+Z1 w1649085506
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-w1649858183
-8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v
-FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v
-L0 1
-Z3 OV;L;10.5b;63
-r1
-!s85 0
-31
-Z4 !s108 1649862604.000000
-!s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiByteReader_verilog.v|
-!i113 1
-Z5 o-vlog01compat -work work
-Z6 !s92 -vlog01compat -work work +incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert
-Z7 tCvgOpt 0
-n@midi@byte@reader_verilog
-Emidinotenumbertosampleticks
-Z8 w1648655557
-Z9 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z10 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z11 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
-Z12 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd
-Z13 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd
+Z5 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd
+Z6 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd
 l0
 L9
-VkX8T:z0QF`VzLN9@4?Gdd3
-!s100 3PRb`9W7MOd2_8R7::Fj>1
-Z14 OV;C;10.5b;63
+VGVU8l`hR<KIf]]ecG8;jF0
+!s100 g@PMAflHfHe=mP9I>=0^_2
+Z7 OV;C;10.5b;63
 31
-Z15 !s110 1649862605
+Z8 !s110 1650063447
 !i10b 1
-R4
-Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd|
-Z17 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiNoteNumberToSampleTicks.vhd|
+Z9 !s108 1650063447.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd|
+Z11 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer.vhd|
 !i113 1
-Z18 o-93 -work work
-Z19 tExplicit 1 CvgOpt 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
 Afrom_verilog
-R9
-R10
-R11
-DEx4 work 27 midinotenumbertosampleticks 0 22 kX8T:z0QF`VzLN9@4?Gdd3
-l19
-L17
-VGS4fgK3amYWU^06a7F5Fc2
-!s100 l=8BDiV5eFS>[@0Pe4;ao2
-R14
-31
-R15
-!i10b 1
-R4
-R16
-R17
-!i113 1
-R18
-R19
-vMidiProcessor_verilog
-R1
-!i10b 1
-!s100 ll8dGdG4<WlVbReQ082YE1
-IHHBL^^H2ljVN0HfNVSXz:0
 R2
-R0
-w1649862516
-8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v
-FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v
-L0 1
 R3
-r1
-!s85 0
-31
 R4
-!s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog.v|
-!i113 1
-R5
-R6
+Z14 DEx4 work 11 samplemixer 0 22 GVU8l`hR<KIf]]ecG8;jF0
+l25
+L20
+VI6;G[LoA4DTN@<zdMRFW;3
+!s100 T7cOLI>@UCH6FHjH4P6SC2
 R7
-n@midi@processor_verilog
-Emidiprocessor_verilog_tb
-Z20 w1649861814
+31
+R8
+!i10b 1
 R9
 R10
 R11
+!i113 1
+R12
+R13
+Esamplemixer_tb
+Z15 w1650063435
+R2
+R3
+R4
 R0
-Z21 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd
-Z22 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd
+Z16 8C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd
+Z17 FC:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd
 l0
 L5
-VOZUob07RUVPGnF0`;Zz2Q3
-!s100 [97QR`f0Iz6MDfBo_G^JI3
-R14
+V]KAMPS]CPziJZg;UKZGh^2
+!s100 ;19=Y0KIKCFWA]Qf9X4XR1
+R7
 31
-R15
+R8
 !i10b 1
-Z23 !s108 1649862605.000000
-Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd|
-Z25 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/MidiProcessor_verilog_tb.vhd|
-!i113 1
-R18
-R19
-Atb
-DPx7 verilog 8 vl_types 0 22 bmGnzhS4n>6F^Dki9hX>O3
-DEx4 work 21 MidiProcessor_verilog 0 22 Dg1SIo80bB@j0V0VzS_@n1
 R9
-R10
-R11
-DEx4 work 24 midiprocessor_verilog_tb 0 22 OZUob07RUVPGnF0`;Zz2Q3
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd|
+Z19 !s107 C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/synth-convert/SampleMixer_tb.vhd|
+!i113 1
+R12
+R13
+Atb
+R14
+R2
+R3
+R4
+DEx4 work 14 samplemixer_tb 0 22 ]KAMPS]CPziJZg;UKZGh^2
 l16
 L8
-V;ACCB^T<l@bV5;k@:[ziI1
-!s100 ?DHNk6BUXIN89Y3ozEVeS0
-R14
+V9N5o27LMZ2V6`fd3`YGSB1
+!s100 G;9[ZIOI@YLn09LQ`TAHe3
+R7
 31
-R15
+R8
 !i10b 1
-R23
-R24
-R25
-!i113 1
+R9
 R18
 R19
+!i113 1
+R12
+R13

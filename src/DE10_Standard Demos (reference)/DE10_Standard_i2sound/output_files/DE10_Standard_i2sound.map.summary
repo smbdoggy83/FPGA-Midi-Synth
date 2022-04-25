@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Mon Apr 18 15:22:39 2022
+Analysis & Synthesis Status : Successful - Tue Apr 19 16:30:03 2022
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : DE10_Standard_i2sound
 Top-level Entity Name : DE10_Standard_i2sound
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 76
-Total pins : 168
+Total registers : 0
+Total pins : 26
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

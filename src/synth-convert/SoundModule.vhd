@@ -12,8 +12,7 @@ entity SoundModule is
     I2S_BIT_CLOCK : out std_logic;
     I2S_LEFT_RIGHT_SELECT : out std_logic;
     I2S_SOUND_DATA : out std_logic;
-		LED : out unsigned(7 downto 0);
-	 --    LED : out unsigned(7 downto 0);
+	 LED : out unsigned(7 downto 0);
     MIDI_RX : in std_logic
   );
 end entity; 
