@@ -1,0 +1,666 @@
+Analysis & Synthesis report for DE10_Standard_i2sound
+Mon Apr 25 19:19:15 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (No Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: highpass_FIR:u5
+ 14. Parameter Settings for Inferred Entity Instance: CLOCK_500:u1|lpm_divide:Div0
+ 15. Port Connectivity Checks: "highpass_FIR:u5"
+ 16. Port Connectivity Checks: "i2c:u2"
+ 17. Port Connectivity Checks: "CLOCK_500:u1"
+ 18. Port Connectivity Checks: "keytr:u3"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Apr 25 19:19:15 2022       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; DE10_Standard_i2sound                       ;
+; Top-level Entity Name           ; DE10_Standard_i2sound                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 52                                          ;
+; Total pins                      ; 78                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                   ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+; Option                                                                          ; Setting               ; Default Value         ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6        ;                       ;
+; Top-level entity name                                                           ; DE10_Standard_i2sound ; DE10_Standard_i2sound ;
+; Family name                                                                     ; Cyclone V             ; Cyclone V             ;
+; Restructure Multiplexers                                                        ; Off                   ; Auto                  ;
+; Optimization Technique                                                          ; Speed                 ; Balanced              ;
+; Use smart compilation                                                           ; Off                   ; Off                   ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                    ; On                    ;
+; Enable compact report table                                                     ; Off                   ; Off                   ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                   ; Off                   ;
+; Create Debugging Nodes for IP Cores                                             ; Off                   ; Off                   ;
+; Preserve fewer node names                                                       ; On                    ; On                    ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                ; Enable                ;
+; Verilog Version                                                                 ; Verilog_2001          ; Verilog_2001          ;
+; VHDL Version                                                                    ; VHDL_1993             ; VHDL_1993             ;
+; State Machine Processing                                                        ; Auto                  ; Auto                  ;
+; Safe State Machine                                                              ; Off                   ; Off                   ;
+; Extract Verilog State Machines                                                  ; On                    ; On                    ;
+; Extract VHDL State Machines                                                     ; On                    ; On                    ;
+; Ignore Verilog initial constructs                                               ; Off                   ; Off                   ;
+; Iteration limit for constant Verilog loops                                      ; 5000                  ; 5000                  ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                   ; 250                   ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                    ; On                    ;
+; Infer RAMs from Raw Logic                                                       ; On                    ; On                    ;
+; Parallel Synthesis                                                              ; On                    ; On                    ;
+; DSP Block Balancing                                                             ; Auto                  ; Auto                  ;
+; NOT Gate Push-Back                                                              ; On                    ; On                    ;
+; Power-Up Don't Care                                                             ; On                    ; On                    ;
+; Remove Redundant Logic Cells                                                    ; Off                   ; Off                   ;
+; Remove Duplicate Registers                                                      ; On                    ; On                    ;
+; Ignore CARRY Buffers                                                            ; Off                   ; Off                   ;
+; Ignore CASCADE Buffers                                                          ; Off                   ; Off                   ;
+; Ignore GLOBAL Buffers                                                           ; Off                   ; Off                   ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                   ; Off                   ;
+; Ignore LCELL Buffers                                                            ; Off                   ; Off                   ;
+; Ignore SOFT Buffers                                                             ; On                    ; On                    ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                   ; Off                   ;
+; Carry Chain Length                                                              ; 70                    ; 70                    ;
+; Auto Carry Chains                                                               ; On                    ; On                    ;
+; Auto Open-Drain Pins                                                            ; On                    ; On                    ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                   ; Off                   ;
+; Auto ROM Replacement                                                            ; On                    ; On                    ;
+; Auto RAM Replacement                                                            ; On                    ; On                    ;
+; Auto DSP Block Replacement                                                      ; On                    ; On                    ;
+; Auto Shift Register Replacement                                                 ; Auto                  ; Auto                  ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                  ; Auto                  ;
+; Auto Clock Enable Replacement                                                   ; On                    ; On                    ;
+; Strict RAM Replacement                                                          ; Off                   ; Off                   ;
+; Allow Synchronous Control Signals                                               ; On                    ; On                    ;
+; Force Use of Synchronous Clear Signals                                          ; Off                   ; Off                   ;
+; Auto Resource Sharing                                                           ; Off                   ; Off                   ;
+; Allow Any RAM Size For Recognition                                              ; Off                   ; Off                   ;
+; Allow Any ROM Size For Recognition                                              ; Off                   ; Off                   ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                   ; Off                   ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                    ; On                    ;
+; Ignore translate_off and synthesis_off directives                               ; Off                   ; Off                   ;
+; Timing-Driven Synthesis                                                         ; On                    ; On                    ;
+; Report Parameter Settings                                                       ; On                    ; On                    ;
+; Report Source Assignments                                                       ; On                    ; On                    ;
+; Report Connectivity Checks                                                      ; On                    ; On                    ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                   ; Off                   ;
+; Synchronization Register Chain Length                                           ; 3                     ; 3                     ;
+; Power Optimization During Synthesis                                             ; Normal compilation    ; Normal compilation    ;
+; HDL message level                                                               ; Level2                ; Level2                ;
+; Suppress Register Optimization Related Messages                                 ; Off                   ; Off                   ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                  ; 5000                  ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                  ; 5000                  ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                   ; 100                   ;
+; Clock MUX Protection                                                            ; On                    ; On                    ;
+; Auto Gated Clock Conversion                                                     ; Off                   ; Off                   ;
+; Block Design Naming                                                             ; Auto                  ; Auto                  ;
+; SDC constraint protection                                                       ; Off                   ; Off                   ;
+; Synthesis Effort                                                                ; Auto                  ; Auto                  ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                    ; On                    ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                   ; Off                   ;
+; Analysis & Synthesis Message Level                                              ; Medium                ; Medium                ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                  ; Auto                  ;
+; Resource Aware Inference For Block RAM                                          ; On                    ; On                    ;
+; Automatic Parallel Synthesis                                                    ; On                    ; On                    ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                   ; Off                   ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                               ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; highpass_FIR.v                   ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/highpass_FIR.v             ;         ;
+; v/keytr.v                        ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/keytr.v                  ;         ;
+; v/i2c.v                          ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v                    ;         ;
+; v/HEX.v                          ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/HEX.v                    ;         ;
+; v/clock_500.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v              ;         ;
+; DE10_Standard_i2sound.v          ; yes             ; User Verilog HDL File        ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v    ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                                                      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc                                                                                     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                                                 ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                                                      ;         ;
+; db/lpm_divide_gbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/lpm_divide_gbm.tdf      ;         ;
+; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/sign_div_unsign_mlh.tdf ;         ;
+; db/alt_u_div_ive.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/alt_u_div_ive.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 55                          ;
+;                                             ;                             ;
+; Combinational ALUT usage for logic          ; 100                         ;
+;     -- 7 input functions                    ; 0                           ;
+;     -- 6 input functions                    ; 8                           ;
+;     -- 5 input functions                    ; 14                          ;
+;     -- 4 input functions                    ; 24                          ;
+;     -- <=3 input functions                  ; 54                          ;
+;                                             ;                             ;
+; Dedicated logic registers                   ; 52                          ;
+;                                             ;                             ;
+; I/O pins                                    ; 78                          ;
+;                                             ;                             ;
+; Total DSP Blocks                            ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; CLOCK_500:u1|COUNTER_500[9] ;
+; Maximum fan-out                             ; 34                          ;
+; Total fan-out                               ; 554                         ;
+; Average fan-out                             ; 1.78                        ;
++---------------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                             ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Entity Name           ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |DE10_Standard_i2sound                    ; 100 (0)             ; 52 (0)                    ; 0                 ; 0          ; 78   ; 0            ; |DE10_Standard_i2sound                                                                                                              ; DE10_Standard_i2sound ; work         ;
+;    |CLOCK_500:u1|                         ; 48 (23)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1                                                                                                 ; CLOCK_500             ; work         ;
+;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gbm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated                                                   ; lpm_divide_gbm        ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 25 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh   ; work         ;
+;                |alt_u_div_ive:divider|    ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|CLOCK_500:u1|lpm_divide:Div0|lpm_divide_gbm:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_ive:divider ; alt_u_div_ive         ; work         ;
+;    |HEX:u4|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|HEX:u4                                                                                                       ; HEX                   ; work         ;
+;    |i2c:u2|                               ; 22 (22)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|i2c:u2                                                                                                       ; i2c                   ; work         ;
+;    |keytr:u3|                             ; 23 (23)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Standard_i2sound|keytr:u3                                                                                                     ; keytr                 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; i2c:u2|SD[0..23]                       ; Stuck at GND due to stuck port data_in ;
+; CLOCK_500:u1|address[4,5]              ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 26 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                  ;
++-------------------------+---------------------------+----------------------------------------+
+; Register name           ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------------+---------------------------+----------------------------------------+
+; CLOCK_500:u1|address[5] ; Stuck at GND              ; CLOCK_500:u1|address[4]                ;
+;                         ; due to stuck port data_in ;                                        ;
++-------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 52    ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; CLOCK_500:u1|vol[4]                    ; 9       ;
+; CLOCK_500:u1|vol[2]                    ; 12      ;
+; CLOCK_500:u1|vol[3]                    ; 9       ;
+; CLOCK_500:u1|vol[1]                    ; 6       ;
+; CLOCK_500:u1|vol[0]                    ; 6       ;
+; keytr:u3|flag                          ; 6       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DE10_Standard_i2sound|i2c:u2|SD_COUNTER[5] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |DE10_Standard_i2sound|HEX:u4|hex_fps[5]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: highpass_FIR:u5 ;
++----------------+--------------------------+------------------+
+; Parameter Name ; Value                    ; Type             ;
++----------------+--------------------------+------------------+
+; coeff1         ; 111110100111110010111010 ; Signed Binary    ;
+; coeff2         ; 000000101011001111100001 ; Signed Binary    ;
+; coeff3         ; 000001101110101000000010 ; Signed Binary    ;
+; coeff4         ; 000000100010010110101001 ; Signed Binary    ;
+; coeff5         ; 111110010101010010001000 ; Signed Binary    ;
+; coeff6         ; 111111000011111111010001 ; Signed Binary    ;
+; coeff7         ; 000010011111110110111110 ; Signed Binary    ;
+; coeff8         ; 000010101101000100001111 ; Signed Binary    ;
+; coeff9         ; 111101010000100101100010 ; Signed Binary    ;
+; coeff10        ; 111010001101010001101010 ; Signed Binary    ;
+; coeff11        ; 000011001000110111100110 ; Signed Binary    ;
+; coeff12        ; 010100000101010111011111 ; Signed Binary    ;
+; coeff13        ; 011100110101111101101010 ; Signed Binary    ;
+; coeff14        ; 010100000101010111011111 ; Signed Binary    ;
+; coeff15        ; 000011001000110111100110 ; Signed Binary    ;
+; coeff16        ; 111010001101010001101010 ; Signed Binary    ;
+; coeff17        ; 111101010000100101100010 ; Signed Binary    ;
+; coeff18        ; 000010101101000100001111 ; Signed Binary    ;
+; coeff19        ; 000010011111110110111110 ; Signed Binary    ;
+; coeff20        ; 111111000011111111010001 ; Signed Binary    ;
+; coeff21        ; 111110010101010010001000 ; Signed Binary    ;
+; coeff22        ; 000000100010010110101001 ; Signed Binary    ;
+; coeff23        ; 000001101110101000000010 ; Signed Binary    ;
+; coeff24        ; 000000101011001111100001 ; Signed Binary    ;
+; coeff25        ; 111110100111110010111010 ; Signed Binary    ;
++----------------+--------------------------+------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CLOCK_500:u1|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                             ;
+; LPM_WIDTHD             ; 2              ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_gbm ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "highpass_FIR:u5"                                                                          ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; clk_enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; reset      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; filter_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2c:u2"                                                                                                                                            ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                      ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; RESET      ; Input  ; Info     ; Stuck at VCC                                                                                                                                 ;
+; W_R        ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; ACK        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; SD_COUNTER ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; SDO        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CLOCK_500:u1"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; DATA ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keytr:u3"                                                                                                   ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                  ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; ON      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; counter ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 52                          ;
+;     CLR               ; 10                          ;
+;     ENA               ; 4                           ;
+;     SCLR              ; 16                          ;
+;     plain             ; 22                          ;
+; arriav_io_obuf        ; 4                           ;
+; arriav_lcell_comb     ; 102                         ;
+;     arith             ; 44                          ;
+;         0 data inputs ; 5                           ;
+;         1 data inputs ; 28                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 6                           ;
+;     normal            ; 58                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 18                          ;
+;         5 data inputs ; 14                          ;
+;         6 data inputs ; 8                           ;
+; boundary_port         ; 78                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 3.06                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Apr 25 19:18:54 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound -c DE10_Standard_i2sound
+Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file highpass_fir.v
+    Info (12023): Found entity 1: highpass_FIR File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/highpass_FIR.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file v/keytr.v
+    Info (12023): Found entity 1: keytr File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/keytr.v Line: 47
+Info (12021): Found 1 design units, including 1 entities, in source file v/i2c.v
+    Info (12023): Found entity 1: i2c File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file v/hex.v
+    Info (12023): Found entity 1: HEX File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/HEX.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file v/clock_500.v
+    Info (12023): Found entity 1: CLOCK_500 File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file de10_standard_i2sound.v
+    Info (12023): Found entity 1: DE10_Standard_i2sound File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 6
+Info (12127): Elaborating entity "DE10_Standard_i2sound" for the top level hierarchy
+Warning (10858): Verilog HDL warning at DE10_Standard_i2sound.v(59): object audio_out_reg used but never assigned File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 59
+Warning (10030): Net "audio_out_reg" at DE10_Standard_i2sound.v(59) has no driver or initial value, using a default initial value '0' File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 59
+Warning (10034): Output port "LEDR[8..0]" at DE10_Standard_i2sound.v(21) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+Warning (10034): Output port "HEX2" at DE10_Standard_i2sound.v(26) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+Warning (10034): Output port "HEX3" at DE10_Standard_i2sound.v(27) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+Warning (10034): Output port "HEX4" at DE10_Standard_i2sound.v(28) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+Warning (10034): Output port "HEX5" at DE10_Standard_i2sound.v(29) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+Info (12128): Elaborating entity "keytr" for hierarchy "keytr:u3" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 80
+Warning (10230): Verilog HDL assignment warning at keytr.v(135): truncated value with size 32 to match size of target (16) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/keytr.v Line: 135
+Warning (10034): Output port "counter" at keytr.v(66) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/keytr.v Line: 66
+Warning (10034): Output port "ON" at keytr.v(64) has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/keytr.v Line: 64
+Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:u1" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 94
+Warning (10230): Verilog HDL assignment warning at clock_500.v(84): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 84
+Warning (10230): Verilog HDL assignment warning at clock_500.v(91): truncated value with size 32 to match size of target (11) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 91
+Warning (10230): Verilog HDL assignment warning at clock_500.v(103): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 103
+Warning (10230): Verilog HDL assignment warning at clock_500.v(117): truncated value with size 32 to match size of target (5) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 117
+Warning (10230): Verilog HDL assignment warning at clock_500.v(122): truncated value with size 32 to match size of target (4) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 122
+Warning (10230): Verilog HDL assignment warning at clock_500.v(123): truncated value with size 32 to match size of target (7) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 123
+Info (12128): Elaborating entity "i2c" for hierarchy "i2c:u2" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 108
+Warning (10230): Verilog HDL assignment warning at i2c.v(86): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v Line: 86
+Warning (10230): Verilog HDL assignment warning at i2c.v(85): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v Line: 85
+Warning (10230): Verilog HDL assignment warning at i2c.v(110): truncated value with size 32 to match size of target (6) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v Line: 110
+Warning (10230): Verilog HDL assignment warning at i2c.v(144): truncated value with size 32 to match size of target (1) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/i2c.v Line: 144
+Info (12128): Elaborating entity "HEX" for hierarchy "HEX:u4" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 113
+Info (12128): Elaborating entity "highpass_FIR" for hierarchy "highpass_FIR:u5" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 121
+Warning (10230): Verilog HDL assignment warning at highpass_FIR.v(502): truncated value with size 49 to match size of target (24) File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/highpass_FIR.v Line: 502
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "AUD_I2C_DATA[23]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[22]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[21]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[20]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[19]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[18]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[17]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[16]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[15]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[14]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[13]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[12]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[11]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[10]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[9]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[8]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[7]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[6]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[5]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[4]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[3]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[2]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[1]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[0]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "AUD_I2C_DATA[23]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[22]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[21]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[20]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[19]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[18]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[17]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[16]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[15]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[14]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[13]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[12]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[11]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[10]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[9]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[8]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[7]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[6]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[5]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[4]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[3]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[2]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[1]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[0]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "AUD_I2C_DATA[23]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[22]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[21]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[20]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[19]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[18]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[17]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[16]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[15]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[14]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[13]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[12]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[11]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[10]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[9]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[8]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[7]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[6]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[5]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[4]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[3]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[2]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[1]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+    Warning (12110): Net "AUD_I2C_DATA[0]" is missing source, defaulting to GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 53
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "CLOCK_500:u1|Div0" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 122
+Info (12130): Elaborated megafunction instantiation "CLOCK_500:u1|lpm_divide:Div0" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 122
+Info (12133): Instantiated megafunction "CLOCK_500:u1|lpm_divide:Div0" with the following parameter: File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/v/clock_500.v Line: 122
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "2"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gbm.tdf
+    Info (12023): Found entity 1: lpm_divide_gbm File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/lpm_divide_gbm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_mlh File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/sign_div_unsign_mlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ive.tdf
+    Info (12023): Found entity 1: alt_u_div_ive File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/db/alt_u_div_ive.tdf Line: 22
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 33
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 34
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 36
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 21
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 25
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 26
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 27
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 28
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 29
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 14 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 11
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 15
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound - Copy/DE10_Standard_i2sound.v Line: 18
+Info (21057): Implemented 183 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 55 output pins
+    Info (21060): Implemented 4 bidirectional pins
+    Info (21061): Implemented 105 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 162 warnings
+    Info: Peak virtual memory: 4879 megabytes
+    Info: Processing ended: Mon Apr 25 19:19:15 2022
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:51
+
+

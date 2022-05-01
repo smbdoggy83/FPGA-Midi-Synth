@@ -1,0 +1,150 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2018  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+# Date created = 10:34:50  April 20, 2022
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		DE10_Standard_i2sound_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSXFC6D6F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY DE10_Standard_i2sound
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:34:50  APRIL 20, 2022"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
+set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH iir5_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME FilterProgrammable_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FilterProgrammable_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FilterProgrammable_tb -section_id FilterProgrammable_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME lowpass_new_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id lowpass_new_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME lowpass_new_tb -section_id lowpass_new_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME highpass_24_ver_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id highpass_24_ver_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME highpass_24_ver_tb -section_id highpass_24_ver_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME nyquist_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id nyquist_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME nyquist_tb -section_id nyquist_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME bandstop_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bandstop_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bandstop_tb -section_id bandstop_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME bandpass_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bandpass_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bandpass_tb -section_id bandpass_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME arbit_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id arbit_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME arbit_tb -section_id arbit_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME bandstop2_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bandstop2_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bandstop2_tb -section_id bandstop2_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME lowpass1_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id lowpass1_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME lowpass1_tb -section_id lowpass1_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME lowpass2_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id lowpass2_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME lowpass2_tb -section_id lowpass2_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME firfilter_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id firfilter_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME firfilter_tb -section_id firfilter_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME iirlowpass_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id iirlowpass_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME iirlowpass_tb -section_id iirlowpass_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME iir4_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id iir4_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME iir4_tb -section_id iir4_tb
+set_global_assignment -name VHDL_FILE filters/iir5.vhd
+set_global_assignment -name VHDL_FILE filters/iir5_tb.vhd
+set_global_assignment -name VHDL_FILE filters/iir4.vhd
+set_global_assignment -name VHDL_FILE filters/iir4_tb.vhd
+set_global_assignment -name VHDL_FILE filters/iirlowpass_tb.vhd
+set_global_assignment -name VHDL_FILE filters/iirlowpass.vhd
+set_global_assignment -name VHDL_FILE filters/firfilter_tb.vhd
+set_global_assignment -name VHDL_FILE filters/firfilter.vhd
+set_global_assignment -name VHDL_FILE filters/lowpass1.vhd
+set_global_assignment -name VHDL_FILE filters/bandstop2_tb.vhd
+set_global_assignment -name VHDL_FILE filters/bandstop2.vhd
+set_global_assignment -name VHDL_FILE filters/lowpass2_tb.vhd
+set_global_assignment -name VHDL_FILE filters/lowpass2.vhd
+set_global_assignment -name VHDL_FILE filters/lowpass1_tb.vhd
+set_global_assignment -name VHDL_FILE filters/bandstop_tb.vhd
+set_global_assignment -name VHDL_FILE filters/bandstop.vhd
+set_global_assignment -name VHDL_FILE filters/bandpass_tb.vhd
+set_global_assignment -name VHDL_FILE filters/bandpass.vhd
+set_global_assignment -name VHDL_FILE filters/arbit_tb.vhd
+set_global_assignment -name VHDL_FILE filters/arbit.vhd
+set_global_assignment -name VHDL_FILE filters/nyquist_tb.vhd
+set_global_assignment -name VHDL_FILE filters/nyquist.vhd
+set_global_assignment -name VERILOG_FILE filters/highpass_FIR.v
+set_global_assignment -name VERILOG_FILE filters/highpass_24_ver.v
+set_global_assignment -name VERILOG_FILE filters/highpass_24_ver_tb.v
+set_global_assignment -name VHDL_FILE filters/lowpass_new_tb.vhd
+set_global_assignment -name VHDL_FILE filters/lowpass_new.vhd
+set_global_assignment -name VERILOG_FILE v/keytr.v
+set_global_assignment -name VERILOG_FILE v/i2c.v
+set_global_assignment -name VERILOG_FILE v/HEX.v
+set_global_assignment -name VERILOG_FILE v/clock_500.v
+set_global_assignment -name VERILOG_FILE DE10_Standard_i2sound.v
+set_global_assignment -name VHDL_FILE FilterProgrammable.vhd
+set_global_assignment -name VHDL_FILE FilterProgrammable_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_FILE FilterProgrammable_tb.vhd -section_id FilterProgrammable_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/lowpass_new_tb.vhd -section_id lowpass_new_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/highpass_24_ver_tb.v -section_id highpass_24_ver_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/nyquist_tb.vhd -section_id nyquist_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/bandstop_tb.vhd -section_id bandstop_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/bandpass_tb.vhd -section_id bandpass_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/arbit_tb.vhd -section_id arbit_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/bandstop2_tb.vhd -section_id bandstop2_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/lowpass1_tb.vhd -section_id lowpass1_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/lowpass2_tb.vhd -section_id lowpass2_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/firfilter_tb.vhd -section_id firfilter_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/iirlowpass_tb.vhd -section_id iirlowpass_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/iir4_tb.vhd -section_id iir4_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME iir5_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id iir5_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME iir5_tb -section_id iir5_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE filters/iir5_tb.vhd -section_id iir5_tb
+set_global_assignment -name VHDL_FILE filters/lowpass_800.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

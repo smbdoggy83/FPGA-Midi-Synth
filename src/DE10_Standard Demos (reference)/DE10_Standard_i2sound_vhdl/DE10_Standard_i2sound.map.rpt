@@ -1,5 +1,5 @@
 Analysis & Elaboration report for DE10_Standard_i2sound
-Mon Apr 18 19:22:03 2022
+Thu Apr 28 20:10:40 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Failed - Mon Apr 18 19:22:03 2022           ;
+; Analysis & Elaboration Status ; Failed - Thu Apr 28 20:10:40 2022           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                 ; DE10_Standard_i2sound                       ;
 ; Top-level Entity Name         ; DE10_Standard_i2sound_vhdl                  ;
@@ -160,7 +160,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Apr 18 19:21:44 2022
+    Info: Processing started: Thu Apr 28 20:10:28 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound_vhdl -c DE10_Standard_i2sound --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -181,14 +181,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file de10_st
     Info (12023): Found entity 1: DE10_Standard_i2sound_vhdl File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/DE10_Standard_i2sound_vhdl.vhd Line: 9
 Info (12127): Elaborating entity "DE10_Standard_i2sound_vhdl" for the top level hierarchy
 Info (12128): Elaborating entity "CLOCK_500" for hierarchy "CLOCK_500:u1" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/DE10_Standard_i2sound_vhdl.vhd Line: 139
-Info (12128): Elaborating entity "i2c" for hierarchy "i2c:u2" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/DE10_Standard_i2sound_vhdl.vhd Line: 154
-Error (10628): VHDL error at i2c.vhd(95): can't implement register for two clock edges combined with a binary operator File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/vhd/i2c.vhd Line: 95
-Error (10658): VHDL Operator error at i2c.vhd(95): failed to evaluate call to operator ""or"" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/vhd/i2c.vhd Line: 95
-Error (12152): Can't elaborate user hierarchy "i2c:u2" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/DE10_Standard_i2sound_vhdl.vhd Line: 154
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 3 errors, 1 warning
+Error (10442): VHDL Process Statement error at clock_500.vhd(123): Process Statement must contain either a sensitivity list or a Wait Statement File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/vhd/clock_500.vhd Line: 123
+Error (12152): Can't elaborate user hierarchy "CLOCK_500:u1" File: C:/Users/Seth/Documents/GitHub/FPGA-Midi-Synth/FPGA-Midi-Synth/src/DE10_Standard Demos (reference)/DE10_Standard_i2sound_vhdl/DE10_Standard_i2sound_vhdl.vhd Line: 139
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 2 errors, 1 warning
     Error: Peak virtual memory: 4844 megabytes
-    Error: Processing ended: Mon Apr 18 19:22:03 2022
-    Error: Elapsed time: 00:00:19
-    Error: Total CPU time (on all processors): 00:00:47
+    Error: Processing ended: Thu Apr 28 20:10:40 2022
+    Error: Elapsed time: 00:00:12
+    Error: Total CPU time (on all processors): 00:00:29
 
 

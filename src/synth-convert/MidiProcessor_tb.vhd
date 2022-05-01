@@ -27,92 +27,92 @@ begin
 		MIDI_RX <= '0';
 		wait for 10ns;
 		wait for 20ns; -- wait an extra clock cycle to be safe
-
+			
+		wait for 200ns; -- waiting for byteValue to initialize (likely due to debounce)
+		wait for 200us; -- to be extra safe
+		
 		-- start message: 10010000 01000101 01100000	
 			--1001: Note on
 			--0000: channel (supposedly ignored for now)
 			--01000101: frequency = 440
 			--01100000: velocity = 96 (supposedly ignored for now)
-			
-		wait for 200ns; -- waiting for byteValue to initialize (likely due to debounce)
 		
---		wait for 7ms; -- some other delay im not sure about
 
 		MIDI_RX <= '1'; 
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '1';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 		MIDI_RX <= '0';
-		wait for 625us;
+		wait for 288.34us;
 		
 ----------------------------------------------------------
 		
-		wait for 160ns;		
+		wait for 200us;		
 		
 		finished <= '1';
 		wait;

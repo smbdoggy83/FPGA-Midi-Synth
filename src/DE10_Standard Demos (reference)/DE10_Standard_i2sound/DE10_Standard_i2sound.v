@@ -27,10 +27,10 @@ module DE10_Standard_i2sound(
 
 	//////////// Audio //////////
 	input 		          		AUD_ADCDAT,
-	inout 		          		AUD_ADCLRCK,
-	inout 		          		AUD_BCLK,
+//	inout 		          		AUD_ADCLRCK,
+//	inout 		          		AUD_BCLK,
 	output		          		AUD_DACDAT,
-	inout 		          		AUD_DACLRCK,
+//	inout 		          		AUD_DACLRCK,
 	output		          		AUD_XCK,
 
 	//////////// I2C for Audio and Video-In //////////
@@ -50,17 +50,18 @@ wire			 	KEY0_EDGE;
 wire	[23:0] 		AUD_I2C_DATA;
 wire         		GO;
 wire  	[3:0]  		level_vol;
+wire [23:0] 	audio_out;
+reg  [23:0]    audio_out_reg;
 
 //=======================================================
 //  Structural coding
 //=======================================================
 assign		LEDR = 10'h000;
 assign		HEX1 = 7'h40;
-assign		AUD_DACDAT = AUD_ADCDAT
-;
+assign		AUD_DACDAT = AUD_ADCDAT;
 
-//KEY triggle
-keytr			u3(
+//KEY triggle - Takes in the button (key) and uses the clock to debounce it, returns a signal that just represents the pressing-in-edge of pressing the button
+keytr			u3( 
 	.clock(CLK_1M),
 	.key0(KEY[0]),
 	.rst_n(KEY[1]),
@@ -101,6 +102,12 @@ HEX				u4(
 	.hex_fps(HEX0) //Displays the Volume Level on the DE-10
 	);
 
-
+lowpass_800 u5(
+	.clk(CLOCK_50),
+	.clk_enable(1'b1),
+	.reset(1'b0),
+	.filter_in(AUD_I2C_DATA),
+	.filter_out(audio_out),
+	);
 
 endmodule

@@ -1,0 +1,192 @@
+Flow report for DE10_Standard_i2sound
+Fri Apr 29 18:20:20 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Fri Apr 29 18:20:20 2022       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; DE10_Standard_i2sound                       ;
+; Top-level Entity Name           ; DE10_Standard_i2sound                       ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSXFC6D6F31C6                              ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 1 / 41,910 ( < 1 % )                        ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 64 / 499 ( 13 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
+; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
+; Total HSSI RX PCSs              ; 0 / 9 ( 0 % )                               ;
+; Total HSSI PMA RX Deserializers ; 0 / 9 ( 0 % )                               ;
+; Total HSSI TX PCSs              ; 0 / 9 ( 0 % )                               ;
+; Total HSSI PMA TX Serializers   ; 0 / 9 ( 0 % )                               ;
+; Total PLLs                      ; 0 / 15 ( 0 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
+
+
++-------------------------------------------+
+; Flow Settings                             ;
++-------------------+-----------------------+
+; Option            ; Setting               ;
++-------------------+-----------------------+
+; Start date & time ; 04/29/2022 18:19:13   ;
+; Main task         ; Compilation           ;
+; Revision Name     ; DE10_Standard_i2sound ;
++-------------------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                    ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id            ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+; COMPILER_SIGNATURE_ID                ; 160593327232017.165127075257720        ; --            ; --          ; --                    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; arbit_tb              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; lowpass2_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; iirlowpass_tb         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; iir5_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; lowpass1_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; bandstop2_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; lowpass_new_tb        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; iir4_tb               ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; bandstop_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; nyquist_tb            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; bandpass_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; highpass_24_ver_tb    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; FilterProgrammable_tb ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; firfilter_tb          ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; iir5_tb                                ; --            ; --          ; eda_simulation        ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation        ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --                    ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_FILE                  ; filters/arbit_tb.vhd                   ; --            ; --          ; arbit_tb              ;
+; EDA_TEST_BENCH_FILE                  ; filters/lowpass2_tb.vhd                ; --            ; --          ; lowpass2_tb           ;
+; EDA_TEST_BENCH_FILE                  ; filters/iirlowpass_tb.vhd              ; --            ; --          ; iirlowpass_tb         ;
+; EDA_TEST_BENCH_FILE                  ; filters/iir5_tb.vhd                    ; --            ; --          ; iir5_tb               ;
+; EDA_TEST_BENCH_FILE                  ; filters/lowpass1_tb.vhd                ; --            ; --          ; lowpass1_tb           ;
+; EDA_TEST_BENCH_FILE                  ; filters/bandstop2_tb.vhd               ; --            ; --          ; bandstop2_tb          ;
+; EDA_TEST_BENCH_FILE                  ; filters/lowpass_new_tb.vhd             ; --            ; --          ; lowpass_new_tb        ;
+; EDA_TEST_BENCH_FILE                  ; filters/iir4_tb.vhd                    ; --            ; --          ; iir4_tb               ;
+; EDA_TEST_BENCH_FILE                  ; filters/bandstop_tb.vhd                ; --            ; --          ; bandstop_tb           ;
+; EDA_TEST_BENCH_FILE                  ; filters/nyquist_tb.vhd                 ; --            ; --          ; nyquist_tb            ;
+; EDA_TEST_BENCH_FILE                  ; filters/bandpass_tb.vhd                ; --            ; --          ; bandpass_tb           ;
+; EDA_TEST_BENCH_FILE                  ; filters/highpass_24_ver_tb.v           ; --            ; --          ; highpass_24_ver_tb    ;
+; EDA_TEST_BENCH_FILE                  ; FilterProgrammable_tb.vhd              ; --            ; --          ; FilterProgrammable_tb ;
+; EDA_TEST_BENCH_FILE                  ; filters/firfilter_tb.vhd               ; --            ; --          ; firfilter_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; arbit_tb                               ; --            ; --          ; arbit_tb              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; lowpass2_tb                            ; --            ; --          ; lowpass2_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; iirlowpass_tb                          ; --            ; --          ; iirlowpass_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; iir5_tb                                ; --            ; --          ; iir5_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; lowpass1_tb                            ; --            ; --          ; lowpass1_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; bandstop2_tb                           ; --            ; --          ; bandstop2_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; lowpass_new_tb                         ; --            ; --          ; lowpass_new_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; iir4_tb                                ; --            ; --          ; iir4_tb               ;
+; EDA_TEST_BENCH_MODULE_NAME           ; bandstop_tb                            ; --            ; --          ; bandstop_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; nyquist_tb                             ; --            ; --          ; nyquist_tb            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; bandpass_tb                            ; --            ; --          ; bandpass_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; highpass_24_ver_tb                     ; --            ; --          ; highpass_24_ver_tb    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; FilterProgrammable_tb                  ; --            ; --          ; FilterProgrammable_tb ;
+; EDA_TEST_BENCH_MODULE_NAME           ; firfilter_tb                           ; --            ; --          ; firfilter_tb          ;
+; EDA_TEST_BENCH_NAME                  ; FilterProgrammable_tb                  ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; lowpass_new_tb                         ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; highpass_24_ver_tb                     ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; nyquist_tb                             ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; bandstop_tb                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; bandpass_tb                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; arbit_tb                               ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; bandstop2_tb                           ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; lowpass1_tb                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; lowpass2_tb                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; firfilter_tb                           ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; iirlowpass_tb                          ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; iir4_tb                                ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; iir5_tb                                ; --            ; --          ; eda_simulation        ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation        ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                    ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                    ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; --          ; Top                   ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; --          ; Top                   ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; --          ; Top                   ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                    ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                    ;
+; VERILOG_INPUT_VERSION                ; SystemVerilog_2005                     ; Verilog_2001  ; --          ; --                    ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES    ; Off                                    ; --            ; --          ; --                    ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4915 MB             ; 00:00:29                           ;
+; Fitter               ; 00:00:37     ; 1.0                     ; 7804 MB             ; 00:02:47                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4835 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 5246 MB             ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4733 MB             ; 00:00:01                           ;
+; Total                ; 00:01:05     ; --                      ; --                  ; 00:03:28                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; SETHSLAPTOP      ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; SETHSLAPTOP      ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; SETHSLAPTOP      ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; SETHSLAPTOP      ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; SETHSLAPTOP      ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off DE10_Standard_i2sound_modulationTest -c DE10_Standard_i2sound
+quartus_fit --read_settings_files=off --write_settings_files=off DE10_Standard_i2sound_modulationTest -c DE10_Standard_i2sound
+quartus_asm --read_settings_files=off --write_settings_files=off DE10_Standard_i2sound_modulationTest -c DE10_Standard_i2sound
+quartus_sta DE10_Standard_i2sound_modulationTest -c DE10_Standard_i2sound
+quartus_eda --read_settings_files=off --write_settings_files=off DE10_Standard_i2sound_modulationTest -c DE10_Standard_i2sound
+
+
+

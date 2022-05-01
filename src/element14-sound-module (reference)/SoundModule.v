@@ -4,7 +4,7 @@ module SoundModule(
 	output reg I2S_BIT_CLOCK,
 	output reg I2S_SOUND_DATA,
 	output reg I2S_LEFT_RIGHT_SELECT,
-	output reg [7:0] LED
+	output reg [7:0] LEDR
 );
 
 wire i2sBitClock;
@@ -24,7 +24,7 @@ begin
 	I2S_SOUND_DATA <= i2sSoundData;
 	I2S_LEFT_RIGHT_SELECT <= i2sLeftRightSelect;
 
-	LED <= isNoteOn ? noteSampleTicks[7:0] : 8'h00;
+	LEDR <= isNoteOn ? noteSampleTicks[7:0] : 8'h00;
 end
 
 endmodule
