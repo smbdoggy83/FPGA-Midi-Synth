@@ -68,7 +68,7 @@ architecture from_verilog of Synthesizer is
   signal sampleIndex : unsigned(7 downto 0) := X"00";
   signal waveTableIndex : unsigned(7 downto 0) := X"00";
 
-  -- The initiation of the wave table sample signals
+  -- The initialization of the wave table sample signals
   -- These are probably needed
   signal waveTableSample0 : unsigned(15 downto 0);
   signal waveTableSample1 : unsigned(15 downto 0);

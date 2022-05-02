@@ -1,11 +1,10 @@
 -- This VHDL was converted from Verilog using the
--- Icarus Verilog VHDL Code Generator 12.0 (devel) (s20150603-1110-g18392a46)
+-- Icarus Verilog VHDL Code Generator
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Generated from Verilog module DE10_Standard_i2sound_all (DE10_Standard_i2sound_all.v:6)
 entity DE10_Standard_i2sound_vhdl is
   port (
     ADC_CONVST : out std_logic;
@@ -66,14 +65,13 @@ entity DE10_Standard_i2sound_vhdl is
   );
 end entity; 
 
--- Generated from Verilog module DE10_Standard_i2sound_all (DE10_Standard_i2sound_all.v:6)
 architecture from_verilog of DE10_Standard_i2sound_vhdl is
-  signal AUD_I2C_DATA : unsigned(23 downto 0);  -- Declared at DE10_Standard_i2sound_all.v:98
-  signal CLK_1M : std_logic;  -- Declared at DE10_Standard_i2sound_all.v:95
-  signal END_sig : std_logic;  -- Declared at DE10_Standard_i2sound_all.v:96
-  signal GO : std_logic;  -- Declared at DE10_Standard_i2sound_all.v:99
-  signal KEY0_EDGE : std_logic;  -- Declared at DE10_Standard_i2sound_all.v:97
-  signal level_vol : unsigned(3 downto 0);  -- Declared at DE10_Standard_i2sound_all.v:100
+  signal AUD_I2C_DATA : unsigned(23 downto 0);
+  signal CLK_1M : std_logic;
+  signal END_sig : std_logic;
+  signal GO : std_logic;
+  signal KEY0_EDGE : std_logic;
+  signal level_vol : unsigned(3 downto 0); 
   signal LPM_q_ivl_6 : std_logic;
   signal LPM_q_ivl_8 : std_logic;
   signal LPM_q_ivl_10 : std_logic;
@@ -135,7 +133,6 @@ begin
   LPM_q_ivl_10 <= KEY(1);
   AUD_XCK <= CLOCK_2_Readable;
   
-  -- Generated from instantiation at DE10_Standard_i2sound_all.v:120
   u1: CLOCK_500
     port map (
       CLOCK => CLOCK_50,
@@ -150,7 +147,6 @@ begin
     );
   FPGA_I2C_SCLK <= I2C_SCLK_Readable;
   
-  -- Generated from instantiation at DE10_Standard_i2sound_all.v:134
   u2: i2c
     port map (
       CLOCK => CLK_1M,
@@ -163,7 +159,6 @@ begin
       W_R => 'Z'
     );
   
-  -- Generated from instantiation at DE10_Standard_i2sound_all.v:111
   u3: keytr
     port map (
       KEY0_EDGE => KEY0_EDGE,
@@ -173,7 +168,6 @@ begin
     );
   HEX0 <= hex_fps_Readable;
   
-  -- Generated from instantiation at DE10_Standard_i2sound_all.v:147
   u4: HEX
     port map (
       hex => level_vol,

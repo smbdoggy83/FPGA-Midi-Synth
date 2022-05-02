@@ -1,16 +1,16 @@
 -- This VHDL was converted from Verilog using the
--- Icarus Verilog VHDL Code Generator 12.0 (devel) (s20150603-1110-g18392a46)
+-- Icarus Verilog VHDL Code Generator
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Generated from Verilog module MidiByteReader (MidiByteReader.v:1)
---   debounceTicks = 10
---   midiTicks = 1600
---   stateByteComplete = 2
---   stateSignalAvailable = 1
---   stateWaitingForSignal = 0
+-- debounceTicks = 10
+-- midiTicks = 1600
+-- stateByteComplete = 2
+-- stateSignalAvailable = 1
+-- stateWaitingForSignal = 0
+
 entity MidiByteReader is
   port (
     CLOCK_50 : in std_logic;
@@ -20,38 +20,37 @@ entity MidiByteReader is
   );
 end entity; 
 
--- Generated from Verilog module MidiByteReader (MidiByteReader.v:1)
---   debounceTicks = 10
---   midiTicks = 1600
---   stateByteComplete = 2
---   stateSignalAvailable = 1
---   stateWaitingForSignal = 0
+-- debounceTicks = 10
+-- midiTicks = 1600
+-- stateByteComplete = 2
+-- stateSignalAvailable = 1
+-- stateWaitingForSignal = 0
+
 architecture from_verilog of MidiByteReader is
-  signal byteValue_Reg : unsigned(7 downto 0) := X"00"; --  signal byteValue_Reg : unsigned(7 downto 0);
-  signal isByteAvailable_Reg : std_logic := '0'; --  signal isByteAvailable_Reg : std_logic;
-  signal bitNumber : unsigned(7 downto 0) := X"00";  -- Declared at MidiByteReader.v:18
-  signal debounceCountDown : unsigned(7 downto 0) := X"0a";  -- Declared at MidiByteReader.v:20
-  signal midiCount : unsigned(11 downto 0) := X"000";  -- Declared at MidiByteReader.v:19
-  signal midiState : unsigned(7 downto 0) := X"00";  -- Declared at MidiByteReader.v:17
+  signal byteValue_Reg : unsigned(7 downto 0) := X"00";
+  signal isByteAvailable_Reg : std_logic := '0';
+  signal bitNumber : unsigned(7 downto 0) := X"00";
+  signal debounceCountDown : unsigned(7 downto 0) := X"0a";
+  signal midiCount : unsigned(11 downto 0) := X"000";
+  signal midiState : unsigned(7 downto 0) := X"00"; 
 begin
   byteValue <= byteValue_Reg;
   isByteAvailable <= isByteAvailable_Reg;
-  
-  -- Generated from initial process in MidiByteReader (MidiByteReader.v:1)
---  process is
---  begin
---    isByteAvailable_Reg <= '0';
---    byteValue_Reg <= X"00";
---    wait;
---  end process;
-  
-  -- Generated from always process in MidiByteReader (MidiByteReader.v:22)
+
+-- process is
+-- begin
+-- isByteAvailable_Reg <= '0';
+-- byteValue_Reg <= X"00";
+-- wait;
+-- end process;
+
+-- A process is initiated with the clock
   process (CLOCK_50) is
   begin
-    if rising_edge(CLOCK_50) then
-      case midiState is
+    if rising_edge(CLOCK_50) then --The following will happen on the rising edge of the clock pulse:
+      case midiState is --A case statement is initiated based on the MIDI state 
         when X"00" =>
-          isByteAvailable_Reg <= '0';
+          isByteAvailable_Reg <= '0';--
           if MIDI_RX = '0' then
             debounceCountDown <= debounceCountDown - X"01";
             if debounceCountDown = X"00" then

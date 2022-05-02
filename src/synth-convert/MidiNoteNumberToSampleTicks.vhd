@@ -1,11 +1,10 @@
 -- This VHDL was converted from Verilog using the
--- Icarus Verilog VHDL Code Generator 12.0 (devel) (s20150603-1110-g18392a46)
+-- Icarus Verilog VHDL Code Generator
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Generated from Verilog module MidiNoteNumberToSampleTicks (MidiNoteNumberToSampleTicks.v:1)
 entity MidiNoteNumberToSampleTicks is
   port (
     midiNoteNumber : in unsigned(7 downto 0);
@@ -13,16 +12,17 @@ entity MidiNoteNumberToSampleTicks is
   );
 end entity; 
 
--- Generated from Verilog module MidiNoteNumberToSampleTicks (MidiNoteNumberToSampleTicks.v:1)
 architecture from_verilog of MidiNoteNumberToSampleTicks is
   signal noteSampleTicks_Reg : unsigned(23 downto 0);
 begin
   noteSampleTicks <= noteSampleTicks_Reg;
   
-  -- Generated from always process in MidiNoteNumberToSampleTicks (MidiNoteNumberToSampleTicks.v:6)
+  -- A process is initiated based on the MIDI note number
   process (midiNoteNumber) is
   begin
-    case midiNoteNumber is
+    case midiNoteNumber is --A case statement is initiated based on the MIDI note number
+	 -- Depending on the MIDI note number, a string will be assigned to the note sample tick register and
+	 -- that will correlate with a speciic sample sound that will be outputted and heard.
       when X"00" =>
         noteSampleTicks_Reg <= X"005d51";
       when X"01" =>

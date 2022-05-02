@@ -1,11 +1,10 @@
 -- This VHDL was converted from Verilog using the
--- Icarus Verilog VHDL Code Generator 12.0 (devel) (s20150603-1110-g18392a46)
+-- Icarus Verilog VHDL Code Generator 
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Generated from Verilog module SampleMixer (SampleMixer.v:1)
 entity SampleMixer is
   port (
     modulationValue : in unsigned(7 downto 0);
@@ -16,19 +15,18 @@ entity SampleMixer is
   );
 end entity; 
 
--- Generated from Verilog module SampleMixer (SampleMixer.v:1)
 architecture from_verilog of SampleMixer is
-  signal tmp_ivl_0 : unsigned(15 downto 0);  -- Temporary created at SampleMixer.v:73
-  signal mixSample0 : unsigned(15 downto 0) := X"0000";  -- Declared at SampleMixer.v:9
-  signal mixSample1 : unsigned(15 downto 0) := X"0000";  -- Declared at SampleMixer.v:10
-  signal mixSample2 : unsigned(15 downto 0) := X"0000";  -- Declared at SampleMixer.v:11
+  signal tmp_ivl_0 : unsigned(15 downto 0);  
+  signal mixSample0 : unsigned(15 downto 0) := X"0000"; 
+  signal mixSample1 : unsigned(15 downto 0) := X"0000";  
+  signal mixSample2 : unsigned(15 downto 0) := X"0000";  
 begin
   tmp_ivl_0 <= mixSample0 + mixSample1;
   renderedSample <= tmp_ivl_0 + mixSample2;
   -- Removed one empty process
   
   
-  -- Generated from always process in SampleMixer (SampleMixer.v:13)
+  -- A process is initiated based on a modulation value and 3 samples
   process (modulationValue, sample2, sample1, sample0) is
   begin
     if sample0(15) = '1' then
