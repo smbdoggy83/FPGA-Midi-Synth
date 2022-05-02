@@ -49,40 +49,40 @@ begin
   begin
     if rising_edge(CLOCK_50) then --The following will happen on the rising edge of the clock pulse:
       case midiState is --A case statement is initiated based on the MIDI state 
-        when X"00" =>
-          isByteAvailable_Reg <= '0';--
-          if MIDI_RX = '0' then
-            debounceCountDown <= debounceCountDown - X"01";
-            if debounceCountDown = X"00" then
-              debounceCountDown <= X"0a";
-              midiState <= X"01";
-              midiCount <= X"000";
-              bitNumber <= X"00";
-              byteValue_Reg <= X"00";
+        when X"00" => --The following will happen when the MIDI state is set to 0:
+          isByteAvailable_Reg <= '0';--The byte availability register is deactivated when the MIDI is 0
+          if MIDI_RX = '0' then --If the MIDI receiver is deactivated:
+            debounceCountDown <= debounceCountDown - X"01";--The debouncing countdown is decremented
+            if debounceCountDown = X"00" then --If the countdown reaches 0:
+              debounceCountDown <= X"0a";--The counter is set to value X"0a"
+              midiState <= X"01";--MIDI state is set to 1
+              midiCount <= X"000";--MIDI count is set to 0
+              bitNumber <= X"00";--The bit number is set to 0
+              byteValue_Reg <= X"00";--The register for the byte value is set to 0
             end if;
-          else
-            debounceCountDown <= X"0a";
+          else --If the MIDI receiver is activated:
+            debounceCountDown <= X"0a";--The debounce counter is set to X"0a"
           end if;
-        when X"01" =>
-          midiCount <= midiCount + X"001";
-          if midiCount = X"640" then
-            midiCount <= X"000";
-            bitNumber <= bitNumber + X"01";
-            if MIDI_RX = '1' then
-              byteValue_Reg <= byteValue_Reg or (X"01" sll To_Integer(bitNumber));
+        when X"01" => --The following will happen when the MIDI state is set to 1:
+          midiCount <= midiCount + X"001";--The MIDI counter is incremented
+          if midiCount = X"640" then --If the MIDI counter reaches X"640":
+            midiCount <= X"000";--The MIDI counter is reset
+            bitNumber <= bitNumber + X"01";--The bit number is incremented
+            if MIDI_RX = '1' then --If the MIDI receiver is activated:
+              byteValue_Reg <= byteValue_Reg or (X"01" sll To_Integer(bitNumber)); --Logical OR of the bit value register and is shifted left 1 into the bit number and assigned to the byte value register
             end if;
-            if bitNumber = X"07" then
-              midiState <= X"02";
+            if bitNumber = X"07" then --If the Bit number is 7:
+              midiState <= X"02"; --The MIDI state is set to 2
             end if;
           end if;
-        when X"02" =>
-          midiCount <= midiCount + X"001";
-          if midiCount = X"640" then
-            isByteAvailable_Reg <= '1';
-            midiState <= X"00";
+        when X"02" => --The following will happen when the MIDI state is set to 2:
+          midiCount <= midiCount + X"001";--The MIDI counter is incremented
+          if midiCount = X"640" then --If the MIDI counter reaches 640:
+            isByteAvailable_Reg <= '1';--The byte availability register is activated
+            midiState <= X"00";--The MIDI state is set to 0
           end if;
         when others =>
-          null;
+          null;--Any other values for the MIDI state is nullified
       end case;
     end if;
   end process;
