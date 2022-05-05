@@ -4,7 +4,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY bandpass_leastPth
+set_global_assignment -name TOP_LEVEL_ENTITY Top_Level
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "16.0.2"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:15:36 MARCH 27,2022"
@@ -174,7 +174,7 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH bandpass_leastPth_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_par2ser -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME SoundModule_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SoundModule_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SoundModule_tb -section_id SoundModule_tb
@@ -209,31 +209,9 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_par2ser
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_par2ser -section_id tb_par2ser
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 1
-set_global_assignment -name VERILOG_FILE "i2sound output/keytr_ver.v"
-set_global_assignment -name VERILOG_FILE "i2sound output/i2c_ver.v"
-set_global_assignment -name VERILOG_FILE "i2sound output/HEX_ver.v"
-set_global_assignment -name VERILOG_FILE "i2sound output/DE10_Standard_i2sound.v"
-set_global_assignment -name VERILOG_FILE "i2sound output/clock_500_ver.v"
-set_global_assignment -name VHDL_FILE "i2sound output vhdl/keytr.vhd"
-set_global_assignment -name VHDL_FILE "i2sound output vhdl/i2c.vhd"
-set_global_assignment -name VHDL_FILE "i2sound output vhdl/HEX.vhd"
-set_global_assignment -name VHDL_FILE "i2sound output vhdl/clock_500.vhd"
-set_global_assignment -name VHDL_FILE filters/bandpass_leastPth.vhd
-set_global_assignment -name VHDL_FILE Top_Level.vhd
-set_global_assignment -name VHDL_FILE "i2sound output vhdl/DE10_Standard_i2sound_vhdl.vhd"
-set_global_assignment -name VHDL_FILE WaveTable2Rom_bb.vhd
-set_global_assignment -name VHDL_FILE WaveTable1Rom_bb.vhd
-set_global_assignment -name VHDL_FILE WaveTable0Rom_bb.vhd
-set_global_assignment -name VHDL_FILE SampleMixer.vhd
-set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks.vhd
-set_global_assignment -name VHDL_FILE MidiByteReader.vhd
-set_global_assignment -name VHDL_FILE MidiProcessor.vhd
-set_global_assignment -name VHDL_FILE Synthesizer.vhd
-set_global_assignment -name VHDL_FILE SoundModule.vhd
-set_global_assignment -name VHDL_FILE parallel2serial.vhd
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_NAME bandpass_leastPth_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bandpass_leastPth_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bandpass_leastPth_tb -section_id bandpass_leastPth_tb
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50
 set_instance_assignment -name IO_STANDARD "2.5 V" -to CLOCK3_50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50
@@ -351,7 +329,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACLRCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_XCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SCLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SDAT
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE SoundModule_tb.vhd -section_id SoundModule_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiProcessor_tb.vhd -section_id MidiProcessor_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE MidiByteReader_tb.vhd -section_id MidiByteReader_tb
@@ -362,7 +339,31 @@ set_global_assignment -name EDA_TEST_BENCH_FILE MidiProcessor_verilog_tb.vhd -se
 set_global_assignment -name EDA_TEST_BENCH_FILE SampleMixer_tb.vhd -section_id SampleMixer_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE parallel2serial_tb.vhd -section_id parallel2serial_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE tb_par2ser.vhd -section_id tb_par2ser
-set_global_assignment -name EDA_TEST_BENCH_NAME bandpass_leastPth_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id bandpass_leastPth_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME bandpass_leastPth_tb -section_id bandpass_leastPth_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE filters/bandpass_leastPth_tb.vhd -section_id bandpass_leastPth_tb
+set_global_assignment -name VHDL_FILE par2ser.vhd
+set_global_assignment -name VERILOG_FILE "i2sound output/keytr_ver.v"
+set_global_assignment -name VERILOG_FILE "i2sound output/i2c_ver.v"
+set_global_assignment -name VERILOG_FILE "i2sound output/HEX_ver.v"
+set_global_assignment -name VERILOG_FILE "i2sound output/DE10_Standard_i2sound.v"
+set_global_assignment -name VERILOG_FILE "i2sound output/clock_500_ver.v"
+set_global_assignment -name VHDL_FILE "i2sound output vhdl/keytr.vhd"
+set_global_assignment -name VHDL_FILE "i2sound output vhdl/i2c.vhd"
+set_global_assignment -name VHDL_FILE "i2sound output vhdl/HEX.vhd"
+set_global_assignment -name VHDL_FILE "i2sound output vhdl/clock_500.vhd"
+set_global_assignment -name VHDL_FILE filters/bandpass_leastPth.vhd
+set_global_assignment -name VHDL_FILE Top_Level.vhd
+set_global_assignment -name VHDL_FILE "i2sound output vhdl/DE10_Standard_i2sound_vhdl.vhd"
+set_global_assignment -name VHDL_FILE WaveTable2Rom_bb.vhd
+set_global_assignment -name VHDL_FILE WaveTable1Rom_bb.vhd
+set_global_assignment -name VHDL_FILE WaveTable0Rom_bb.vhd
+set_global_assignment -name VHDL_FILE SampleMixer.vhd
+set_global_assignment -name VHDL_FILE MidiNoteNumberToSampleTicks.vhd
+set_global_assignment -name VHDL_FILE MidiByteReader.vhd
+set_global_assignment -name VHDL_FILE MidiProcessor.vhd
+set_global_assignment -name VHDL_FILE Synthesizer.vhd
+set_global_assignment -name VHDL_FILE SoundModule.vhd
+set_global_assignment -name VHDL_FILE parallel2serial.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

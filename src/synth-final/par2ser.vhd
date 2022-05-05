@@ -12,7 +12,7 @@ use ieee.math_real.all;
 
 entity par2ser is
 	generic (
-		DATA_W		: natural := 8
+		DATA_W		: natural := 4
 	);
 	port (
 		clk: 		in std_logic;

@@ -42,7 +42,7 @@
 // ============================================================================
 `define rom_size 6'd8
 
-module CLOCK_500_ver(
+module CLOCK_500_ver( // Handles volume control
 	CLOCK,
 	rst_n,
 	END,
@@ -60,7 +60,7 @@ module CLOCK_500_ver(
 input  		 	CLOCK;
 input 		 	rst_n;
 input 		 	END;
-input 		 	KEY0_EDGE;
+input 		 	KEY0_EDGE; // edge of button, usually negative edge
 
 output 	[23:0]	DATA;
 output 			GO;
@@ -92,7 +92,7 @@ begin
 end
 
 
-always @(negedge KEY0_EDGE or posedge END) 
+always @(negedge KEY0_EDGE or posedge END) // Increment adddress after button press or at end
 begin
 	if (!KEY0_EDGE)
 	begin
@@ -107,14 +107,14 @@ end
 reg		[4:0]	vol;
 wire	[6:0]	volume;
 
-always @(negedge KEY0_EDGE or negedge rst_n) 
+always @(negedge KEY0_EDGE or negedge rst_n)  
 begin
 	if(!rst_n)
-		vol = 5'd31;
+		vol = 5'd31;					// Reset volume on reset button
 	else if(vol == 5'd4)
-		vol = 5'd31;
+		vol = 5'd31;					// Reset volume to 9 if at 0 and button is pressed again
 	else if(!KEY0_EDGE)
-		vol = vol - 3;
+		vol = vol - 3;					// Decrease volume
 end
 
 //the volume level, level 0 to level 9,

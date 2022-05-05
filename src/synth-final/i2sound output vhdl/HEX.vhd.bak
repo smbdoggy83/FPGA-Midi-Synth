@@ -6,7 +6,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -- Generated from Verilog module HEX (HEX.v:1)
-entity HEX is -- turns 4 bit binary into 7 bit ASCII Hex, basically just a lookup table
+entity HEX is
   port (
     hex : in unsigned(3 downto 0);
     hex_fps : out unsigned(6 downto 0)

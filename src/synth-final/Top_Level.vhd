@@ -8,17 +8,20 @@ use ieee.numeric_std.all;
 -- Generated from Verilog module Top_Level_ver (Top_Level_ver - Copy.v:1)
 entity Top_Level is
   port (
-    AUD_ADCDAT : in std_logic;
-    AUD_DACDAT : out std_logic;
-    AUD_XCK : out std_logic;
-    CLOCK_50 : in std_logic;
-    FPGA_I2C_SCLK : out std_logic;
-    FPGA_I2C_SDAT : inout std_logic;
+    AUD_ADCDAT : in std_logic; 			-- Audio In (Physical)
+    AUD_DACDAT : out std_logic; 			-- Audio Out
+    AUD_XCK : out std_logic; 				-- Related to internal i2c clock sync
+	 -- I2S_BIT_CLOCK : out std_logic; 	-- Not used
+	 -- I2S_SOUND_DATA : out std_logic; -- Goes to i2sound instead of direct output
+	 -- I2S_LEFT_RIGHT_SELECT : out std_logic; -- Not used
+    CLOCK_50 : in std_logic;				-- On-Board 50 MHz Clock
+    FPGA_I2C_SCLK : out std_logic; 		-- Alternative Signal Out 
+    FPGA_I2C_SDAT : inout std_logic; 	-- Alternative Signal In (Audio, Video)
     HEX0 : out unsigned(6 downto 0);
     HEX1 : out unsigned(6 downto 0);
     KEY : in unsigned(3 downto 0);
     LEDR : out unsigned(9 downto 0);
-    MIDI_RX : in std_logic;
+    MIDI_RX : in std_logic; 				-- Serial Midi Stream, 24-bit words at a time
     SW : in unsigned(9 downto 0)
   );
 end entity; 
@@ -45,7 +48,7 @@ architecture from_verilog of Top_Level is
   signal LPM_d0_ivl_1 : unsigned(7 downto 0);
   signal f_out : signed(23 downto 0);
   
-  component DE10_Standard_i2sound is
+  component DE10_Standard_i2sound is -- Audio In / Out
     port (
       AUD_ADCDAT : in std_logic;
       AUD_DACDAT : out std_logic;
@@ -59,7 +62,7 @@ architecture from_verilog of Top_Level is
     );
   end component;
   
-  component bandpass_leastPth is
+  component bandpass_leastPth is -- Bandpass Filter
     port (
       clk : in std_logic;
       clk_enable : in std_logic;
@@ -69,7 +72,7 @@ architecture from_verilog of Top_Level is
     );
   end component;
   
-  component SoundModule is
+  component SoundModule is -- Synthesizer itself
     port (
       CLOCK_50 : in std_logic;
       I2S_BIT_CLOCK : out std_logic;
@@ -80,6 +83,7 @@ architecture from_verilog of Top_Level is
     );
   end component;
 begin
+	-- Declare registers
   AUD_DACDAT <= AUD_DACDAT_Reg;
   AUD_XCK <= AUD_XCK_Reg;
   FPGA_I2C_SCLK <= FPGA_I2C_SCLK_Reg;
@@ -128,17 +132,32 @@ begin
   process (CLOCK_50) is
   begin
     if rising_edge(CLOCK_50) then
+	 
       LEDR_Reg <= ledr_1;
       HEX0_Reg <= hex0_1;
       HEX1_Reg <= hex1_1;
       AUD_DACDAT_Reg <= aud_dacdat_1;
       AUD_XCK_Reg <= aud_xck_1;
       FPGA_I2C_SCLK_Reg <= fpga_i2c_sclk_1;
-      if SW(0) = '1' then
+      if SW(0) = '1' then -- Switch 0 Controls if audio is from synth or from physical jack
         audio_in <= i2s_sound_data;
       else
         audio_in <= AUD_ADCDAT;
       end if;
+		
+-- Previous Implementation (Disabled due to filter I/O issue in VHDL)
+
+--    if SW(0) = '1' then -- Switch 0 Controls if audio is from synth or from physical jack
+--        filter_in <= i2s_sound_data;
+--      else
+--        filter_in <= AUD_ADCDAT;
+--      end if;
+--		if SW(1) = '1' then -- Switch 1 Controls if filter is enabled 
+--        audio_in <= filter_out; -- if enabled, audio is from above switch, but then passed through filter
+--      else
+--        audio_in <= filter_in; -- if disabled, audio is just the one from the above switch
+--      end if;
+		
     end if;
   end process;
 end architecture;

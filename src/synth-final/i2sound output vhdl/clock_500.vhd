@@ -6,7 +6,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -- Generated from Verilog module CLOCK_500 (clock_500.v:45)
-entity CLOCK_500 is
+entity CLOCK_500 is -- Handles volume control
   port (
     CLOCK : in std_logic;
     CLOCK_2 : out std_logic;
@@ -14,7 +14,7 @@ entity CLOCK_500 is
     DATA : out unsigned(23 downto 0);
     END_sig : in std_logic;
     GO : out std_logic;
-    KEY0_EDGE : in std_logic;
+    KEY0_EDGE : in std_logic; -- edge of button, usually negative edge
     level_vol : out unsigned(3 downto 0);
     rst_n : in std_logic
   );
@@ -56,7 +56,7 @@ begin
   tmp_ivl_21 <= tmp_ivl_10 and tmp_ivl_18;
   CLOCK_500_sig <= COUNTER_500(9);
   CLOCK_2 <= COUNTER_500(1);
-  DATA <= tmp_ivl_4 & DATA_A;
+  DATA <= tmp_ivl_4 & DATA_A; -- slave address + sub_address + register_data
   tmp_ivl_10 <= '1' when tmp_ivl_8 >= address else '0';
   tmp_ivl_12 <= tmp_ivl_15 & END_sig;
   tmp_ivl_18 <= '1' when tmp_ivl_12 = tmp_ivl_16 else '0';
@@ -83,6 +83,13 @@ begin
   tmp_ivl_52 <= X"60";
   tmp_ivl_8 <= "001000";
   
+---------------------------------------
+-- Structural Coding
+---------------------------------------
+-- In this section, blocks of code had to be copied and pasted since VHDL doesn't support detection of multiple signals at once. 
+  
+  
+  
   -- Generated from always process in CLOCK_500 (clock_500.v:89)
   process (CLOCK) is
   begin
@@ -100,9 +107,7 @@ begin
 		 if (not KEY0_EDGE) = '1' then
 			address <= "000000";
 		 else
-	--      wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:101)
 			if address <= "001000" then
-	--        wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:103)
 			  address <= address + "000001";
 			end if;
 		 end if;
@@ -111,9 +116,7 @@ begin
 	     if (not KEY0_EDGE) = '1' then
 			address <= "000000";
 		 else
-	--      wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:101)
 			if address <= "001000" then
-	--        wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:103)
 			  address <= address + "000001";
 			end if;
 		 end if;
@@ -126,17 +129,18 @@ begin
   process (rst_n, KEY0_EDGE)
   begin
   
+--the volume level, level 0 to level 9,
+--the higher the level, the greater the sound
+  
 	 if (falling_edge(rst_n)) then --    wait until falling_edge(rst_n) or falling_edge(KEY0_EDGE);
-		 if (not rst_n) = '1' then
-			vol <= "11111";
+		 if (not rst_n) = '1' then 
+			vol <= "11111"; -- Reset volume on reset button
 		 else
-	--      wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:114)
 			if vol = "00100" then
-			  vol <= "11111";
+			  vol <= "11111"; -- Reset volume to 9 if at 0 and button is pressed again
 			else
 			  if (not KEY0_EDGE) = '1' then
-	--          wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:117)
-				 vol <= vol - "00011";
+				 vol <= vol - "00011"; -- Decrease volume
 			  end if;
 			end if;
 		 end if;
@@ -147,12 +151,10 @@ begin
 		 if (not rst_n) = '1' then
 			vol <= "11111";
 		 else
-	--      wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:114)
 			if vol = "00100" then
 			  vol <= "11111";
 			else
 			  if (not KEY0_EDGE) = '1' then
-	--          wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:117)
 				 vol <= vol - "00011";
 			  end if;
 			end if;
@@ -166,17 +168,17 @@ begin
   process 
   begin
     wait until rising_edge(END_sig);
-    ROM(0) <= X"0c00";
-    ROM(1) <= X"0ec2";
-    ROM(2) <= X"0838";
-    ROM(3) <= X"1000";
-    ROM(4) <= X"0017";
+    ROM(0) <= X"0c00"; -- power down
+    ROM(1) <= X"0ec2"; -- master
+    ROM(2) <= X"0838"; -- sound selet
+    ROM(3) <= X"1000"; -- mclk
+    ROM(4) <= X"0017"; -- ROM[4]= 16'h1e00; -- reset
     ROM(5) <= X"0217";
-    ROM(6) <= X"04" & '0' & volume;
-    ROM(7) <= X"06" & '0' & volume;
+    ROM(6) <= X"04" & '0' & volume; -- left channel headphone output volume
+    ROM(7) <= X"06" & '0' & volume; -- right channel headphone output volume
     ROM(8) <= X"1201";
 --    wait for 0 ns;  -- Read target of blocking assignment (clock_500.v:141)
-    DATA_A <= ROM(To_Integer(address));
+    DATA_A <= ROM(To_Integer(address)); -- active
   end process;
 end architecture;
 

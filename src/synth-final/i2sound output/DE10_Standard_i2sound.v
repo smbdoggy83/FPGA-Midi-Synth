@@ -27,10 +27,10 @@ module DE10_Standard_i2sound(
 
 	//////////// Audio //////////
 	input 		          		AUD_ADCDAT,
-	inout 		          		AUD_ADCLRCK,
-	inout 		          		AUD_BCLK,
+//	inout 		          		AUD_ADCLRCK,
+//	inout 		          		AUD_BCLK,
 	output		          		AUD_DACDAT,
-	inout 		          		AUD_DACLRCK,
+//	inout 		          		AUD_DACLRCK,
 	output		          		AUD_XCK,
 
 	//////////// I2C for Audio and Video-In //////////
@@ -59,13 +59,13 @@ assign		HEX1 = 7'h40;
 assign		AUD_DACDAT = AUD_ADCDAT
 ;
 
-//KEY triggle - Takes in the button (key) and uses the clock to debounce it, returns a signal that just represents the pressing-in-edge of pressing the button
+//KEY trigger - Takes in the button (key) and uses the clock to debounce it, returns a signal that just represents the negative edge
 keytr_ver			u3( 
 	.clock(CLK_1M),
 	.key0(KEY[0]),
 	.rst_n(KEY[1]),
 	
-	.KEY0_EDGE(KEY0_EDGE)
+	.KEY0_EDGE(KEY0_EDGE) // Key debounced edge
 	);
 
 //I2C output data

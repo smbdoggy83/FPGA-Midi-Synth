@@ -80,7 +80,9 @@ begin
       if (unsigned'("0000000000000000000000000000000") & GO) = X"00000000" then
         SD_COUNTER_Reg <= "000000";
       else
+--        wait for 0 ns;  -- Read target of blocking assignment (i2c.v:108)
         if SD_COUNTER_Reg < "111111" then
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:110)
           SD_COUNTER_Reg <= SD_COUNTER_Reg + "000001";
         end if;
       end if;
@@ -90,7 +92,7 @@ begin
   end process;
   
   -- Generated from always process in i2c (i2c.v:117)
-  process is -- Sets various flags or bits of I2C data; communication protocol
+  process is
   begin
 	if (falling_edge(RESET) or rising_edge(CLOCK)) then
     if (not RESET) = '1' then
@@ -115,58 +117,82 @@ begin
         when "000010" =>
           SCLK <= '0';
         when "000011" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:146)
           SDO_Reg <= SD(23);
         when "000100" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:147)
           SDO_Reg <= SD(22);
         when "000101" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:148)
           SDO_Reg <= SD(21);
         when "000110" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:149)
           SDO_Reg <= SD(20);
         when "000111" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:150)
           SDO_Reg <= SD(19);
         when "001000" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:151)
           SDO_Reg <= SD(18);
         when "001001" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:152)
           SDO_Reg <= SD(17);
         when "001010" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:153)
           SDO_Reg <= SD(16);
         when "001011" =>
           SDO_Reg <= '1';
         when "001100" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:158)
           SDO_Reg <= SD(15);
           ACK1 <= I2C_SDAT;
         when "001101" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:161)
           SDO_Reg <= SD(14);
         when "001110" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:162)
           SDO_Reg <= SD(13);
         when "001111" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:163)
           SDO_Reg <= SD(12);
         when "010000" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:164)
           SDO_Reg <= SD(11);
         when "010001" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:165)
           SDO_Reg <= SD(10);
         when "010010" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:166)
           SDO_Reg <= SD(9);
         when "010011" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:167)
           SDO_Reg <= SD(8);
         when "010100" =>
           SDO_Reg <= '1';
         when "010101" =>
+--          wait for 0 ns;  -- Read target of blocking assignment (i2c.v:172)
           SDO_Reg <= SD(7);
           ACK2 <= I2C_SDAT;
         when "010110" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:175)
           SDO_Reg <= SD(6);
         when "010111" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:176)
           SDO_Reg <= SD(5);
         when "011000" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:177)
           SDO_Reg <= SD(4);
         when "011001" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:178)
           SDO_Reg <= SD(3);
         when "011010" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:179)
           SDO_Reg <= SD(2);
         when "011011" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:180)
           SDO_Reg <= SD(1);
         when "011100" =>
+ --         wait for 0 ns;  -- Read target of blocking assignment (i2c.v:181)
           SDO_Reg <= SD(0);
         when "011101" =>
           SDO_Reg <= '1';

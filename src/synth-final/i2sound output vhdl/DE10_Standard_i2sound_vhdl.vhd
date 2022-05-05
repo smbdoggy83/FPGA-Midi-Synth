@@ -7,61 +7,36 @@ use ieee.numeric_std.all;
 
 entity DE10_Standard_i2sound_vhdl is
   port (
-    ADC_CONVST : out std_logic;
-    ADC_DIN : out std_logic;
-    ADC_DOUT : in std_logic;
-    ADC_SCLK : out std_logic;
+	 -- ADC
+--    ADC_CONVST : out std_logic;
+--    ADC_DIN : out std_logic;
+--    ADC_DOUT : in std_logic;
+--    ADC_SCLK : out std_logic;
+
+	 -- Audio
     AUD_ADCDAT : in std_logic;
-    AUD_ADCLRCK : inout std_logic;
-    AUD_BCLK : inout std_logic;
+--    AUD_ADCLRCK : inout std_logic;
+--    AUD_BCLK : inout std_logic;
     AUD_DACDAT : out std_logic;
-    AUD_DACLRCK : inout std_logic;
+--    AUD_DACLRCK : inout std_logic;
     AUD_XCK : out std_logic;
---    CLOCK2_50 : in std_logic;
---    CLOCK3_50 : in std_logic;
---    CLOCK4_50 : in std_logic;
+
+	 -- Clock
     CLOCK_50 : in std_logic;
---    DRAM_ADDR : out unsigned(12 downto 0);
---    DRAM_BA : out unsigned(1 downto 0);
---    DRAM_CAS_N : out std_logic;
---    DRAM_CKE : out std_logic;
---    DRAM_CLK : out std_logic;
---    DRAM_CS_N : out std_logic;
---    DRAM_DQ : inout unsigned(15 downto 0);
---    DRAM_LDQM : out std_logic;
---    DRAM_RAS_N : out std_logic;
---    DRAM_UDQM : out std_logic;
---    DRAM_WE_N : out std_logic;
+
+	 -- I2C for Audio and Video-In
     FPGA_I2C_SCLK : out std_logic;
     FPGA_I2C_SDAT : inout std_logic;
+	 
+	 -- Hex
     HEX0 : out unsigned(6 downto 0);
     HEX1 : out unsigned(6 downto 0);
---    HEX2 : out unsigned(6 downto 0);
---    HEX3 : out unsigned(6 downto 0);
---    HEX4 : out unsigned(6 downto 0);
---    HEX5 : out unsigned(6 downto 0);
---    IRDA_RXD : in std_logic;
---    IRDA_TXD : out std_logic;
+
+	 -- Key
     KEY : in unsigned(3 downto 0);
+	 
+	 -- LED
     LEDR : out unsigned(9 downto 0)
---    PS2_CLK : inout std_logic;
---    PS2_CLK2 : inout std_logic;
---    PS2_DAT : inout std_logic;
---    PS2_DAT2 : inout std_logic;
---    SW : in unsigned(9 downto 0);
---    TD_CLK27 : in std_logic;
---    TD_DATA : in unsigned(7 downto 0);
---    TD_HS : in std_logic;
---    TD_RESET_N : out std_logic;
---    TD_VS : in std_logic;
---    VGA_B : out unsigned(7 downto 0);
---    VGA_BLANK_N : out std_logic;
---    VGA_CLK : out std_logic;
---    VGA_G : out unsigned(7 downto 0);
---    VGA_HS : out std_logic;
---    VGA_R : out unsigned(7 downto 0);
---    VGA_SYNC_N : out std_logic;
---    VGA_VS : out std_logic
   );
 end entity; 
 
@@ -108,7 +83,7 @@ architecture from_verilog of DE10_Standard_i2sound_vhdl is
   end component;
   signal I2C_SCLK_Readable : std_logic;  -- Needed to connect outputs
   
-  component keytr is
+  component keytr is --KEY trigger - Takes in the button (key) and uses the clock to debounce it, returns a signal that just represents the negative edge
     port (
       KEY0_EDGE : out std_logic;
       ON_sig : out std_logic;
@@ -133,35 +108,35 @@ begin
   LPM_q_ivl_10 <= KEY(1);
   AUD_XCK <= CLOCK_2_Readable;
   
-  u1: CLOCK_500
+  u1: CLOCK_500 -- I2C output data
     port map (
-      CLOCK => CLOCK_50,
-      CLOCK_2 => CLOCK_2_Readable,
-      CLOCK_500_sig => CLK_1M,
-      DATA => AUD_I2C_DATA,
-      END_sig => END_sig,
-      GO => GO,
-      KEY0_EDGE => KEY0_EDGE,
-      level_vol => level_vol,
-      rst_n => LPM_q_ivl_10
+      CLOCK => CLOCK_50, 				-- The Outputting Clock Signal is Connected to the CLOCK_50 Signal on the DE-10
+      CLOCK_2 => CLOCK_2_Readable, 	-- The Clock_2 Signal Outputting from the I2C is Connected to the Audio XCK Signal on the I2S in the DE-10		
+      CLOCK_500_sig => CLK_1M,		-- The Clock_500 Signal Outputting from the I2C is Connected to a 1MHz on the DE-10
+      DATA => AUD_I2C_DATA, 			-- The Data Signal Outputting from the I2C is Connected to the Audio I2C Data Signal on the I2S in the DE-10
+      END_sig => END_sig,				-- Stopping the Process of Outputting the I2C Data to the I2S on the DE-10
+      GO => GO,							-- Process of Moving the I2C Serial Data
+      KEY0_EDGE => KEY0_EDGE,			-- The Edge Signal for KEY0 is Connected to the Edge Signal for KEY0 on the DE-10
+      level_vol => level_vol,			-- The Outputting Volume Level is Mapped to the I2C Volume Level on the DE-10
+      rst_n => LPM_q_ivl_10			-- The Reset Signal is Connected to KEY1 on the DE-10	
     );
   FPGA_I2C_SCLK <= I2C_SCLK_Readable;
   
-  u2: i2c
+  u2: i2c -- i2c input controller
     port map (
-      CLOCK => CLK_1M,
-      END_sig => END_sig,
-      GO => GO,
-      I2C_DATA => AUD_I2C_DATA,
-      I2C_SCLK => I2C_SCLK_Readable,
-      I2C_SDAT => FPGA_I2C_SDAT,
-      RESET => '1',
+      CLOCK => CLK_1M, 						-- The Overall Clock Signal from the Controller is Connected to a 1MHz Clock on the DE-10
+      END_sig => END_sig, 					-- Stopping the Process of Moving I2C Serial Data
+      GO => GO, 								-- Process of Moving the I2C Serial Data
+      I2C_DATA => AUD_I2C_DATA,			-- The 24 Bit I2C Serial Data from the Controller is Connected to the 24 Bit Audio I2C Data Signal for the I2S on the DE-10
+      I2C_SCLK => I2C_SCLK_Readable, 	-- The I2C Clock Signal from the Controller is Connected to the FPGA I2C Clock Signal for the Audio In of the I2S on the DE-10
+      I2C_SDAT => FPGA_I2C_SDAT, 		-- The I2C Data Signal from the Controller is Connected to the FPGA I2C Data Signal for the Audio In of the I2S on the DE-10
+      RESET => '1',							-- The Reset Signal from the Controller is Connected to the Value 1'b1 on the DE-10
       W_R => 'Z'
     );
   
-  u3: keytr
+  u3: keytr -- KEY trigger - Takes in the button (key) and uses the clock to debounce it, returns a signal that just represents the negative edge
     port map (
-      KEY0_EDGE => KEY0_EDGE,
+      KEY0_EDGE => KEY0_EDGE, -- Key debounced edge
       clock => CLK_1M,
       key0 => LPM_q_ivl_6,
       rst_n => LPM_q_ivl_8
@@ -173,41 +148,10 @@ begin
       hex => level_vol,
       hex_fps => hex_fps_Readable
     );
-  ADC_CONVST <= 'Z';
-  ADC_DIN <= 'Z';
-  ADC_SCLK <= 'Z';
-  AUD_ADCLRCK <= 'Z';
-  AUD_BCLK <= 'Z';
-  AUD_DACLRCK <= 'Z';
---  DRAM_ADDR <= (others => 'Z');
---  DRAM_BA <= (others => 'Z');
---  DRAM_CAS_N <= 'Z';
---  DRAM_CKE <= 'Z';
---  DRAM_CLK <= 'Z';
---  DRAM_CS_N <= 'Z';
---  DRAM_DQ <= (others => 'Z');
---  DRAM_LDQM <= 'Z';
---  DRAM_RAS_N <= 'Z';
---  DRAM_UDQM <= 'Z';
---  DRAM_WE_N <= 'Z';
+
+
   HEX1 <= "1000000";
---  HEX2 <= (others => 'Z');
---  HEX3 <= (others => 'Z');
---  HEX4 <= (others => 'Z');
---  HEX5 <= (others => 'Z');
---  IRDA_TXD <= 'Z';
+
   LEDR <= "0000000000";
---  PS2_CLK <= 'Z';
---  PS2_CLK2 <= 'Z';
---  PS2_DAT <= 'Z';
---  PS2_DAT2 <= 'Z';
---  TD_RESET_N <= 'Z';
---  VGA_B <= (others => 'Z');
---  VGA_BLANK_N <= 'Z';
---  VGA_CLK <= 'Z';
---  VGA_G <= (others => 'Z');
---  VGA_HS <= 'Z';
---  VGA_R <= (others => 'Z');
---  VGA_SYNC_N <= 'Z';
---  VGA_VS <= 'Z';
+
 end architecture;
